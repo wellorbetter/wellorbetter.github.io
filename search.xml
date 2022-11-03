@@ -4,6 +4,27 @@
   
     
     <entry>
+      <title>numpy入门&lt;二&gt;</title>
+      <link href="/2022/11/03/2022-11-3-2/"/>
+      <url>/2022/11/03/2022-11-3-2/</url>
+      
+        <content type="html"><![CDATA[<h3 id="链接数组"><a href="#链接数组" class="headerlink" title="链接数组"></a>链接数组</h3><p>1、concatenate((arr1, arr2…), axis)前面跟数组组成的元组，后面跟想要链接的维度(即保持其他维度不变，在axis维度上进行合并),默认是0<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">arr1 = np.array([1, 2, 3])</span><br><span class="line">arr2 = np.array([4, 5, 6])</span><br><span class="line">arr = np.concatenate((arr1, arr2))</span><br><span class="line">print(arr)</span><br><span class="line">res:</span><br><span class="line">[1 2 3 4 5 6]</span><br><span class="line"></span><br><span class="line">arr1 = np.array([[1, 2], [3, 4]])</span><br><span class="line">arr2 = np.array([[5, 6], [7, 8]])</span><br><span class="line">arr = np.concatenate((arr1, arr2), axis=1)</span><br><span class="line">print(arr)</span><br><span class="line">res:</span><br><span class="line">[[1 2 5 6]</span><br><span class="line"> [3 4 7 8]]</span><br></pre></td></tr></table></figure><br>2、stack((arr1, arr2…), axis)前面也是跟链接的数组，后面链接的维度，在axis维度上进行链接，axis默认为0，stack堆叠，顾名思义是要在axis维度上进行堆叠，保持其他维度不变，<code>在axis维度上的元素</code>进行堆叠形成一个新的维度，这个堆叠是竖直上的堆叠，也就是待链接的数组竖直放在一起，将元素同一列的整合成一个数组，可能有点抽象，结合一个例子可能好理解一点<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">arr1 = np.array([1, 2, 3])</span><br><span class="line">arr2 = np.array([4, 5, 6])</span><br><span class="line">arr = np.stack((arr1, arr2), axis=1)</span><br><span class="line">print(arr)</span><br><span class="line">res:</span><br><span class="line">[[1 4]</span><br><span class="line"> [2 5]</span><br><span class="line"> [3 6]]</span><br></pre></td></tr></table></figure><br>3、hstack((arr1, arr2…), axis)基本上和上面的一样，但是这个堆叠是<code>水平的</code>(即按照第二个维度进行堆叠，axis=1)，而且不会形成新的维度，即将axis=1上的数组求并得到一个新数组放到原来数组的位置上，维度不发生变化<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">arr1 = np.array([[1, 2, 3], [1, 2, 3]])</span><br><span class="line">arr2 = np.array([[4, 5, 6], [4, 5, 6]])</span><br><span class="line">arr = np.hstack((arr1, arr2))</span><br><span class="line">print(arr)</span><br><span class="line">res:</span><br><span class="line">[[1 2 3 4 5 6]</span><br><span class="line"> [1 2 3 4 5 6]]</span><br><span class="line"></span><br><span class="line">arr1 = np.array([[[1, 2, 3], [1, 2, 3]]])</span><br><span class="line">arr2 = np.array([[[4, 5, 6], [4, 5, 6]]])</span><br><span class="line">arr = np.hstack((arr1, arr2))</span><br><span class="line">print(arr)</span><br><span class="line">res:</span><br><span class="line">[[[1 2 3]</span><br><span class="line">  [1 2 3]</span><br><span class="line">  [4 5 6]</span><br><span class="line">  [4 5 6]]]</span><br></pre></td></tr></table></figure></p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> python </tag>
+            
+            <tag> numpy </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>numpy入门&lt;一&gt;</title>
       <link href="/2022/11/02/2022-11-3/"/>
       <url>/2022/11/02/2022-11-3/</url>
@@ -136,32 +157,10 @@
     
     <entry>
       <title></title>
-      <link href="/css/custom.css"/>
-      <url>/css/custom.css</url>
-      
-        <content type="html"><![CDATA[/* 文章页H1-H6图标样式效果 *//* 控制风车转动速度 4s那里可以自己调节快慢 */h1::before,h2::before,h3::before,h4::before,h5::before,h6::before {  -webkit-animation: ccc 4s linear infinite;  animation: ccc 4s linear infinite;}/* 控制风车转动方向 -1turn 为逆时针转动，1turn 为顺时针转动，相同数字部分记得统一修改 */@-webkit-keyframes ccc {  0% {    -webkit-transform: rotate(0deg);    transform: rotate(0deg);  }  to {    -webkit-transform: rotate(-1turn);    transform: rotate(-1turn);  }}@keyframes ccc {  0% {    -webkit-transform: rotate(0deg);    transform: rotate(0deg);  }  to {    -webkit-transform: rotate(-1turn);    transform: rotate(-1turn);  }}/* 设置风车颜色 */#content-inner.layout h1::before {  color: #ef50a8;  margin-left: -1.55rem;  font-size: 1.3rem;  margin-top: -0.23rem;}#content-inner.layout h2::before {  color: #fb7061;  margin-left: -1.35rem;  font-size: 1.1rem;  margin-top: -0.12rem;}#content-inner.layout h3::before {  color: #ffbf00;  margin-left: -1.22rem;  font-size: 0.95rem;  margin-top: -0.09rem;}#content-inner.layout h4::before {  color: #a9e000;  margin-left: -1.05rem;  font-size: 0.8rem;  margin-top: -0.09rem;}#content-inner.layout h5::before {  color: #57c850;  margin-left: -0.9rem;  font-size: 0.7rem;  margin-top: 0rem;}#content-inner.layout h6::before {  color: #5ec1e0;  margin-left: -0.9rem;  font-size: 0.66rem;  margin-top: 0rem;}/* s设置风车hover动效 6s那里可以自己调节快慢*/#content-inner.layout h1:hover,#content-inner.layout h2:hover,#content-inner.layout h3:hover,#content-inner.layout h4:hover,#content-inner.layout h5:hover,#content-inner.layout h6:hover {  color: var(--theme-color);}#content-inner.layout h1:hover::before,#content-inner.layout h2:hover::before,#content-inner.layout h3:hover::before,#content-inner.layout h4:hover::before,#content-inner.layout h5:hover::before,#content-inner.layout h6:hover::before {  color: var(--theme-color);  -webkit-animation: ccc 6s linear infinite;  animation: ccc 6s linear infinite;}]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title></title>
       <link href="/css/fixed_comment.css"/>
       <url>/css/fixed_comment.css</url>
       
         <content type="html"><![CDATA[div#post-comment.fixedcomment {    position: fixed;    top: 0;    width: 60%;    right: 0;    padding: 25px 30px 20px 20px;    height: 100vh;    overflow: scroll;    z-index: 90;    background: rgba(222, 222, 222, 0.95);    box-shadow:3px 2px 14px #464340;    animation: fixedright 0.5s linear;}div#post-comment.fixedcomment::-webkit-scrollbar {width: 0;}div#quit-board{  display: none;}div#quit-board.fixedcomment {  position: fixed;  display:block!important;  left: 0;  top: 0;  width: 40%;  height: 100vh;  z-index: 89!important;  background: rgba(25,25,25,0.3);  filter: blur(4px) !important;  animation: fixedleft 0.5s linear;}/*手机端样式适配*/@media screen and (max-width: 768px) {  div#post-comment.fixedcomment {      width: 90%;      right: 0;  }  div#quit-board.fixedcomment {    width: 10%;  }}/*动画效果*/@keyframes fixedright {  from {right:-50%;}  to {right:0;}}@keyframes fixedleft {  from {left:-50%;}  to {left:0;}}/* 夜间模式匹配 */[data-theme="dark"]  div#post-comment.fixedcomment {      background: rgba(35, 35, 35, 0.95);      box-shadow:3px 2px 12px #90a1a4;  }[data-theme="dark"]  div#quit-board.fixedcomment {    background: rgba(147, 146, 128, 0.3);  }]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title></title>
-      <link href="/css/iconfont.css"/>
-      <url>/css/iconfont.css</url>
-      
-        <content type="html"><![CDATA[@font-face {  font-family: "iconfont"; /* Project id 3742006 */  src: url('//at.alicdn.com/t/c/font_3742006_bmuaeb195d4.woff2?t=1667279010869') format('woff2'),       url('//at.alicdn.com/t/c/font_3742006_bmuaeb195d4.woff?t=1667279010869') format('woff'),       url('//at.alicdn.com/t/c/font_3742006_bmuaeb195d4.ttf?t=1667279010869') format('truetype');}.iconfont {  font-family: "iconfont" !important;  font-size: 16px;  font-style: normal;  -webkit-font-smoothing: antialiased;  -moz-osx-font-smoothing: grayscale;}.icon-xiewenzhang:before {  content: "\e645";}.icon-liuyanban:before {  content: "\e610";}.icon-bilibili:before {  content: "\e609";}]]></content>
       
     </entry>
     
@@ -179,11 +178,22 @@
     
     
     <entry>
-      <title>link</title>
-      <link href="/link/index.html"/>
-      <url>/link/index.html</url>
+      <title></title>
+      <link href="/css/custom.css"/>
+      <url>/css/custom.css</url>
       
-        <content type="html"><![CDATA[]]></content>
+        <content type="html"><![CDATA[/* 文章页H1-H6图标样式效果 *//* 控制风车转动速度 4s那里可以自己调节快慢 */h1::before,h2::before,h3::before,h4::before,h5::before,h6::before {  -webkit-animation: ccc 4s linear infinite;  animation: ccc 4s linear infinite;}/* 控制风车转动方向 -1turn 为逆时针转动，1turn 为顺时针转动，相同数字部分记得统一修改 */@-webkit-keyframes ccc {  0% {    -webkit-transform: rotate(0deg);    transform: rotate(0deg);  }  to {    -webkit-transform: rotate(-1turn);    transform: rotate(-1turn);  }}@keyframes ccc {  0% {    -webkit-transform: rotate(0deg);    transform: rotate(0deg);  }  to {    -webkit-transform: rotate(-1turn);    transform: rotate(-1turn);  }}/* 设置风车颜色 */#content-inner.layout h1::before {  color: #ef50a8;  margin-left: -1.55rem;  font-size: 1.3rem;  margin-top: -0.23rem;}#content-inner.layout h2::before {  color: #fb7061;  margin-left: -1.35rem;  font-size: 1.1rem;  margin-top: -0.12rem;}#content-inner.layout h3::before {  color: #ffbf00;  margin-left: -1.22rem;  font-size: 0.95rem;  margin-top: -0.09rem;}#content-inner.layout h4::before {  color: #a9e000;  margin-left: -1.05rem;  font-size: 0.8rem;  margin-top: -0.09rem;}#content-inner.layout h5::before {  color: #57c850;  margin-left: -0.9rem;  font-size: 0.7rem;  margin-top: 0rem;}#content-inner.layout h6::before {  color: #5ec1e0;  margin-left: -0.9rem;  font-size: 0.66rem;  margin-top: 0rem;}/* s设置风车hover动效 6s那里可以自己调节快慢*/#content-inner.layout h1:hover,#content-inner.layout h2:hover,#content-inner.layout h3:hover,#content-inner.layout h4:hover,#content-inner.layout h5:hover,#content-inner.layout h6:hover {  color: var(--theme-color);}#content-inner.layout h1:hover::before,#content-inner.layout h2:hover::before,#content-inner.layout h3:hover::before,#content-inner.layout h4:hover::before,#content-inner.layout h5:hover::before,#content-inner.layout h6:hover::before {  color: var(--theme-color);  -webkit-animation: ccc 6s linear infinite;  animation: ccc 6s linear infinite;}]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title></title>
+      <link href="/css/iconfont.css"/>
+      <url>/css/iconfont.css</url>
+      
+        <content type="html"><![CDATA[@font-face {  font-family: "iconfont"; /* Project id 3742006 */  src: url('//at.alicdn.com/t/c/font_3742006_bmuaeb195d4.woff2?t=1667279010869') format('woff2'),       url('//at.alicdn.com/t/c/font_3742006_bmuaeb195d4.woff?t=1667279010869') format('woff'),       url('//at.alicdn.com/t/c/font_3742006_bmuaeb195d4.ttf?t=1667279010869') format('truetype');}.iconfont {  font-family: "iconfont" !important;  font-size: 16px;  font-style: normal;  -webkit-font-smoothing: antialiased;  -moz-osx-font-smoothing: grayscale;}.icon-xiewenzhang:before {  content: "\e645";}.icon-liuyanban:before {  content: "\e610";}.icon-bilibili:before {  content: "\e609";}]]></content>
       
     </entry>
     
@@ -206,6 +216,17 @@
       <url>/live2d-widget/autoload.js</url>
       
         <content type="html"><![CDATA[// live2d_path 参数建议使用绝对路径const live2d_path = "/live2d-widget/";//const live2d_path = "/live2d-widget/";// 封装异步加载资源的方法function loadExternalResource(url, type) {return new Promise((resolve, reject) => {let tag;if (type === "css") {tag = document.createElement("link");tag.rel = "stylesheet";tag.href = url;}else if (type === "js") {tag = document.createElement("script");tag.src = url;}if (tag) {tag.onload = () => resolve(url);tag.onerror = () => reject(url);document.head.appendChild(tag);}});}// 加载 waifu.css live2d.min.js waifu-tips.jsif (screen.width >= 768) {Promise.all([loadExternalResource(live2d_path + "waifu.css", "css"),loadExternalResource(live2d_path + "live2d.min.js", "js"),loadExternalResource(live2d_path + "waifu-tips.js", "js")]).then(() => {// 配置选项的具体用法见 README.mdinitWidget({waifuPath: live2d_path + "waifu-tips.json",//apiPath: "https://live2d.fghrsh.net/api/",cdnPath: "https://fastly.jsdelivr.net/gh/fghrsh/live2d_api/",tools: ["hitokoto", "asteroids", "switch-model", "switch-texture", "photo", "info", "quit"]});});}console.log(`  く__,.ヘヽ.        /  ,ー､ 〉           ＼ ', !-─‐-i  /  /´           ／｀ｰ'       L/／｀ヽ､         /   ／,   /|   ,   ,       ',       ｲ   / /-‐/  ｉ  L_ ﾊ ヽ!   i        ﾚ ﾍ 7ｲ｀ﾄ   ﾚ'ｧ-ﾄ､!ハ|   |          !,/7 '0'     ´0iソ|    |          |.从"    _     ,,,, / |./    |          ﾚ'| i＞.､,,__  _,.イ /   .i   |            ﾚ'| | / k_７_/ﾚ'ヽ,  ﾊ.  |              | |/i 〈|/   i  ,.ﾍ |  i  |             .|/ /  ｉ：    ﾍ!    ＼  |              kヽ>､ﾊ    _,.ﾍ､    /､!              !'〈//｀Ｔ´', ＼ ｀'7'ｰr'              ﾚ'ヽL__|___i,___,ンﾚ|ノ                  ﾄ-,/  |___./                  'ｰ'    !_,.:`);]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>link</title>
+      <link href="/link/index.html"/>
+      <url>/link/index.html</url>
+      
+        <content type="html"><![CDATA[]]></content>
       
     </entry>
     
@@ -267,6 +288,17 @@
     
     
     <entry>
+      <title>音乐</title>
+      <link href="/music/index.html"/>
+      <url>/music/index.html</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title></title>
       <link href="/live2d-widget/live2d.min.js"/>
       <url>/live2d-widget/live2d.min.js</url>
@@ -281,17 +313,6 @@
       <title>关于</title>
       <link href="/movies/index.html"/>
       <url>/movies/index.html</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>音乐</title>
-      <link href="/music/index.html"/>
-      <url>/music/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
@@ -356,10 +377,10 @@
     
     <entry>
       <title></title>
-      <link href="/live2d-widget/src/model.js"/>
-      <url>/live2d-widget/src/model.js</url>
+      <link href="/live2d-widget/src/tools.js"/>
+      <url>/live2d-widget/src/tools.js</url>
       
-        <content type="html"><![CDATA[import showMessage from "./message.js";import randomSelection from "./utils.js";class Model {    constructor(config) {        let { apiPath, cdnPath } = config;        let useCDN = false;        if (typeof cdnPath === "string") {            useCDN = true;            if (!cdnPath.endsWith("/")) cdnPath += "/";        } else if (typeof apiPath === "string") {            if (!apiPath.endsWith("/")) apiPath += "/";        } else {            throw "Invalid initWidget argument!";        }        this.useCDN = useCDN;        this.apiPath = apiPath;        this.cdnPath = cdnPath;    }    async loadModelList() {        const response = await fetch(`${this.cdnPath}model_list.json`);        this.modelList = await response.json();    }    async loadModel(modelId, modelTexturesId, message) {        localStorage.setItem("modelId", modelId);        localStorage.setItem("modelTexturesId", modelTexturesId);        showMessage(message, 4000, 10);        if (this.useCDN) {            if (!this.modelList) await this.loadModelList();            const target = randomSelection(this.modelList.models[modelId]);            loadlive2d("live2d", `${this.cdnPath}model/${target}/index.json`);        } else {            loadlive2d("live2d", `${this.apiPath}get/?id=${modelId}-${modelTexturesId}`);            console.log(`Live2D 模型 ${modelId}-${modelTexturesId} 加载完成`);        }    }    async loadRandModel() {        const modelId = localStorage.getItem("modelId"),            modelTexturesId = localStorage.getItem("modelTexturesId");        if (this.useCDN) {            if (!this.modelList) await this.loadModelList();            const target = randomSelection(this.modelList.models[modelId]);            loadlive2d("live2d", `${this.cdnPath}model/${target}/index.json`);            showMessage("我的新衣服好看嘛？", 4000, 10);        } else {            // 可选 "rand"(随机), "switch"(顺序)            fetch(`${this.apiPath}rand_textures/?id=${modelId}-${modelTexturesId}`)                .then(response => response.json())                .then(result => {                    if (result.textures.id === 1 && (modelTexturesId === 1 || modelTexturesId === 0)) showMessage("我还没有其他衣服呢！", 4000, 10);                    else this.loadModel(modelId, result.textures.id, "我的新衣服好看嘛？");                });        }    }    async loadOtherModel() {        let modelId = localStorage.getItem("modelId");        if (this.useCDN) {            if (!this.modelList) await this.loadModelList();            const index = (++modelId >= this.modelList.models.length) ? 0 : modelId;            this.loadModel(index, 0, this.modelList.messages[index]);        } else {            fetch(`${this.apiPath}switch/?id=${modelId}`)                .then(response => response.json())                .then(result => {                    this.loadModel(result.model.id, 0, result.model.message);                });        }    }}export default Model;]]></content>
+        <content type="html"><![CDATA[import fa_comment from "@fortawesome/fontawesome-free/svgs/solid/comment.svg";import fa_paper_plane from "@fortawesome/fontawesome-free/svgs/solid/paper-plane.svg";import fa_user_circle from "@fortawesome/fontawesome-free/svgs/solid/circle-user.svg";import fa_street_view from "@fortawesome/fontawesome-free/svgs/solid/street-view.svg";import fa_camera_retro from "@fortawesome/fontawesome-free/svgs/solid/camera-retro.svg";import fa_info_circle from "@fortawesome/fontawesome-free/svgs/solid/circle-info.svg";import fa_xmark from "@fortawesome/fontawesome-free/svgs/solid/xmark.svg";import showMessage from "./message.js";function showHitokoto() {    // 增加 hitokoto.cn 的 API    fetch("https://v1.hitokoto.cn")        .then(response => response.json())        .then(result => {            const text = `这句一言来自 <span>「${result.from}」</span>，是 <span>${result.creator}</span> 在 hitokoto.cn 投稿的。`;            showMessage(result.hitokoto, 6000, 9);            setTimeout(() => {                showMessage(text, 4000, 9);            }, 6000);        });}const tools = {    "hitokoto": {        icon: fa_comment,        callback: showHitokoto    },    "asteroids": {        icon: fa_paper_plane,        callback: () => {            if (window.Asteroids) {                if (!window.ASTEROIDSPLAYERS) window.ASTEROIDSPLAYERS = [];                window.ASTEROIDSPLAYERS.push(new Asteroids());            } else {                const script = document.createElement("script");                script.src = "https://fastly.jsdelivr.net/gh/stevenjoezhang/asteroids/asteroids.js";                document.head.appendChild(script);            }        }    },    "switch-model": {        icon: fa_user_circle,        callback: () => {}    },    "switch-texture": {        icon: fa_street_view,        callback: () => {}    },    "photo": {        icon: fa_camera_retro,        callback: () => {            showMessage("照好了嘛，是不是很可爱呢？", 6000, 9);            Live2D.captureName = "photo.png";            Live2D.captureFrame = true;        }    },    "info": {        icon: fa_info_circle,        callback: () => {            open("https://github.com/stevenjoezhang/live2d-widget");        }    },    "quit": {        icon: fa_xmark,        callback: () => {            localStorage.setItem("waifu-display", Date.now());            showMessage("愿你有一天能与重要的人重逢。", 2000, 11);            document.getElementById("waifu").style.bottom = "-500px";            setTimeout(() => {                document.getElementById("waifu").style.display = "none";                document.getElementById("waifu-toggle").classList.add("waifu-toggle-active");            }, 3000);        }    }};export default tools;]]></content>
       
     </entry>
     
@@ -367,10 +388,10 @@
     
     <entry>
       <title></title>
-      <link href="/live2d-widget/src/tools.js"/>
-      <url>/live2d-widget/src/tools.js</url>
+      <link href="/live2d-widget/src/model.js"/>
+      <url>/live2d-widget/src/model.js</url>
       
-        <content type="html"><![CDATA[import fa_comment from "@fortawesome/fontawesome-free/svgs/solid/comment.svg";import fa_paper_plane from "@fortawesome/fontawesome-free/svgs/solid/paper-plane.svg";import fa_user_circle from "@fortawesome/fontawesome-free/svgs/solid/circle-user.svg";import fa_street_view from "@fortawesome/fontawesome-free/svgs/solid/street-view.svg";import fa_camera_retro from "@fortawesome/fontawesome-free/svgs/solid/camera-retro.svg";import fa_info_circle from "@fortawesome/fontawesome-free/svgs/solid/circle-info.svg";import fa_xmark from "@fortawesome/fontawesome-free/svgs/solid/xmark.svg";import showMessage from "./message.js";function showHitokoto() {    // 增加 hitokoto.cn 的 API    fetch("https://v1.hitokoto.cn")        .then(response => response.json())        .then(result => {            const text = `这句一言来自 <span>「${result.from}」</span>，是 <span>${result.creator}</span> 在 hitokoto.cn 投稿的。`;            showMessage(result.hitokoto, 6000, 9);            setTimeout(() => {                showMessage(text, 4000, 9);            }, 6000);        });}const tools = {    "hitokoto": {        icon: fa_comment,        callback: showHitokoto    },    "asteroids": {        icon: fa_paper_plane,        callback: () => {            if (window.Asteroids) {                if (!window.ASTEROIDSPLAYERS) window.ASTEROIDSPLAYERS = [];                window.ASTEROIDSPLAYERS.push(new Asteroids());            } else {                const script = document.createElement("script");                script.src = "https://fastly.jsdelivr.net/gh/stevenjoezhang/asteroids/asteroids.js";                document.head.appendChild(script);            }        }    },    "switch-model": {        icon: fa_user_circle,        callback: () => {}    },    "switch-texture": {        icon: fa_street_view,        callback: () => {}    },    "photo": {        icon: fa_camera_retro,        callback: () => {            showMessage("照好了嘛，是不是很可爱呢？", 6000, 9);            Live2D.captureName = "photo.png";            Live2D.captureFrame = true;        }    },    "info": {        icon: fa_info_circle,        callback: () => {            open("https://github.com/stevenjoezhang/live2d-widget");        }    },    "quit": {        icon: fa_xmark,        callback: () => {            localStorage.setItem("waifu-display", Date.now());            showMessage("愿你有一天能与重要的人重逢。", 2000, 11);            document.getElementById("waifu").style.bottom = "-500px";            setTimeout(() => {                document.getElementById("waifu").style.display = "none";                document.getElementById("waifu-toggle").classList.add("waifu-toggle-active");            }, 3000);        }    }};export default tools;]]></content>
+        <content type="html"><![CDATA[import showMessage from "./message.js";import randomSelection from "./utils.js";class Model {    constructor(config) {        let { apiPath, cdnPath } = config;        let useCDN = false;        if (typeof cdnPath === "string") {            useCDN = true;            if (!cdnPath.endsWith("/")) cdnPath += "/";        } else if (typeof apiPath === "string") {            if (!apiPath.endsWith("/")) apiPath += "/";        } else {            throw "Invalid initWidget argument!";        }        this.useCDN = useCDN;        this.apiPath = apiPath;        this.cdnPath = cdnPath;    }    async loadModelList() {        const response = await fetch(`${this.cdnPath}model_list.json`);        this.modelList = await response.json();    }    async loadModel(modelId, modelTexturesId, message) {        localStorage.setItem("modelId", modelId);        localStorage.setItem("modelTexturesId", modelTexturesId);        showMessage(message, 4000, 10);        if (this.useCDN) {            if (!this.modelList) await this.loadModelList();            const target = randomSelection(this.modelList.models[modelId]);            loadlive2d("live2d", `${this.cdnPath}model/${target}/index.json`);        } else {            loadlive2d("live2d", `${this.apiPath}get/?id=${modelId}-${modelTexturesId}`);            console.log(`Live2D 模型 ${modelId}-${modelTexturesId} 加载完成`);        }    }    async loadRandModel() {        const modelId = localStorage.getItem("modelId"),            modelTexturesId = localStorage.getItem("modelTexturesId");        if (this.useCDN) {            if (!this.modelList) await this.loadModelList();            const target = randomSelection(this.modelList.models[modelId]);            loadlive2d("live2d", `${this.cdnPath}model/${target}/index.json`);            showMessage("我的新衣服好看嘛？", 4000, 10);        } else {            // 可选 "rand"(随机), "switch"(顺序)            fetch(`${this.apiPath}rand_textures/?id=${modelId}-${modelTexturesId}`)                .then(response => response.json())                .then(result => {                    if (result.textures.id === 1 && (modelTexturesId === 1 || modelTexturesId === 0)) showMessage("我还没有其他衣服呢！", 4000, 10);                    else this.loadModel(modelId, result.textures.id, "我的新衣服好看嘛？");                });        }    }    async loadOtherModel() {        let modelId = localStorage.getItem("modelId");        if (this.useCDN) {            if (!this.modelList) await this.loadModelList();            const index = (++modelId >= this.modelList.models.length) ? 0 : modelId;            this.loadModel(index, 0, this.modelList.messages[index]);        } else {            fetch(`${this.apiPath}switch/?id=${modelId}`)                .then(response => response.json())                .then(result => {                    this.loadModel(result.model.id, 0, result.model.message);                });        }    }}export default Model;]]></content>
       
     </entry>
     

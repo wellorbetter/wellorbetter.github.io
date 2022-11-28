@@ -1,18 +1,18 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>matplotlib入门&lt;一&gt; | wellorbetter's blog</title><meta name="keywords" content="python,matplotlib"><meta name="author" content="wellorbetter"><meta name="copyright" content="wellorbetter"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="#matplotlib入门 ##x轴和y轴 matplotlib比较难写，我们一般缩写成plt。用plot()方法进行绘制图像，第一个参数表示x轴，第二个参数表示y轴 1234567xpoints &#x3D; np.array([1, 8])ypoints &#x3D; np.array([3, 10])plt.plot(xpoints, ypoints)plt.show()  画多个点(有连线) 12345xpo">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>matplotlib入门&lt;一&gt; | wellorbetter's blog</title><meta name="keywords" content="python,matplotlib"><meta name="author" content="wellorbetter"><meta name="copyright" content="wellorbetter"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="#matplotlib入门 ##x轴和y轴 matplotlib比较难写，我们一般缩写成plt。用plot()方法进行绘制图像，第一个参数表示x轴，第二个参数表示y轴 1234567xpoints &#x3D; np.array([1, 8])ypoints &#x3D; np.array([3, 10])plt.plot(xpoints, ypoints)plt.show()     画多个点(有连线) 12345">
 <meta property="og:type" content="article">
 <meta property="og:title" content="matplotlib入门&lt;一&gt;">
-<meta property="og:url" content="http://example.com/2022/11/04/2022-11-4-1/index.html">
+<meta property="og:url" content="http://wellorbetter.github.io/2022/11/04/2022-11-4-1/index.html">
 <meta property="og:site_name" content="wellorbetter&#39;s blog">
-<meta property="og:description" content="#matplotlib入门 ##x轴和y轴 matplotlib比较难写，我们一般缩写成plt。用plot()方法进行绘制图像，第一个参数表示x轴，第二个参数表示y轴 1234567xpoints &#x3D; np.array([1, 8])ypoints &#x3D; np.array([3, 10])plt.plot(xpoints, ypoints)plt.show()  画多个点(有连线) 12345xpo">
+<meta property="og:description" content="#matplotlib入门 ##x轴和y轴 matplotlib比较难写，我们一般缩写成plt。用plot()方法进行绘制图像，第一个参数表示x轴，第二个参数表示y轴 1234567xpoints &#x3D; np.array([1, 8])ypoints &#x3D; np.array([3, 10])plt.plot(xpoints, ypoints)plt.show()     画多个点(有连线) 12345">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/image/673345.jpg">
+<meta property="og:image" content="http://wellorbetter.github.io/image/746013.jpg">
 <meta property="article:published_time" content="2022-11-04T14:32:28.000Z">
 <meta property="article:modified_time" content="2022-11-04T17:56:15.713Z">
 <meta property="article:author" content="wellorbetter">
 <meta property="article:tag" content="python">
 <meta property="article:tag" content="matplotlib">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/image/673345.jpg"><link rel="shortcut icon" href="/image/769455.jpg"><link rel="canonical" href="http://example.com/2022/11/04/2022-11-4-1/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+<meta name="twitter:image" content="http://wellorbetter.github.io/image/746013.jpg"><link rel="shortcut icon" href="/image/769455.jpg"><link rel="canonical" href="http://wellorbetter.github.io/2022/11/04/2022-11-4-1/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
   root: '/',
   algolia: undefined,
   localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
@@ -140,309 +140,322 @@
           document.documentElement.classList.remove('hide-aside')
         }
       }
-    })(window)</script><link rel="stylesheet" href="/css/background.css"><link rel="stylesheet" href="/css/messageboard.css"><link rel="stylesheet" href="/css/iconfont.css"><link rel="stylesheet" href="/css/custom.css"><link rel="stylesheet" href="/css/fixed_comment.css"  media="defer" onload="this.media='all'"><!-- hexo injector head_end start --><link rel="stylesheet" href="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu/lib/clock.min.css" /><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/font-awesome-animation.min.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/tag_plugins.css" media="defer" onload="this.media='all'"><script src="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/carousel-touch.js"></script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" data-lazy-src="/image/752857.jpg" data-original="/image/1061286.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">9</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">8</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/bangumis"><i class="fa-fw iconfont icon-bilibili"></i><span> 追番</span></a></div><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 列表</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/comments"><i class="fa-fw iconfont icon-liuyanban"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/image/673345.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">wellorbetter's blog</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/bangumis"><i class="fa-fw iconfont icon-bilibili"></i><span> 追番</span></a></div><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 列表</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/comments"><i class="fa-fw iconfont icon-liuyanban"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">matplotlib入门&lt;一&gt;</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-11-04T14:32:28.000Z" title="发表于 2022-11-04 22:32:28">2022-11-04</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-11-04T17:56:15.713Z" title="更新于 2022-11-05 01:56:15">2022-11-05</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">2.6k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>12分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="matplotlib入门&lt;一&gt;"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>#matplotlib入门</p>
+    })(window)</script><link rel="stylesheet" href="/css/background.css"><link rel="stylesheet" href="/css/messageboard.css"><link rel="stylesheet" href="/css/iconfont.css"><link rel="stylesheet" href="/css/custom.css"><link rel="stylesheet" href="/css/fixed_comment.css"  media="defer" onload="this.media='all'"><!-- hexo injector head_end start --><link rel="stylesheet" href="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu/lib/clock.min.css" /><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/font-awesome-animation.min.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/tag_plugins.css" media="defer" onload="this.media='all'"><script src="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/carousel-touch.js"></script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" data-lazy-src="/image/752857.jpg" data-original="/image/1061286.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">9</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">8</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/bangumis"><i class="fa-fw iconfont icon-bilibili"></i><span> 追番</span></a></div><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 列表</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/comments"><i class="fa-fw iconfont icon-liuyanban"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/image/746013.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">wellorbetter's blog</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/bangumis"><i class="fa-fw iconfont icon-bilibili"></i><span> 追番</span></a></div><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 列表</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/comments"><i class="fa-fw iconfont icon-liuyanban"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">matplotlib入门&lt;一&gt;</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-11-04T14:32:28.000Z" title="发表于 2022-11-04 22:32:28">2022-11-04</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-11-04T17:56:15.713Z" title="更新于 2022-11-05 01:56:15">2022-11-05</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">2.6k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>12分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="matplotlib入门&lt;一&gt;"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>#matplotlib入门</p>
 <p>##x轴和y轴</p>
 <p>matplotlib比较难写，我们一般缩写成plt。用plot()方法进行绘制图像，第一个参数表示x轴，第二个参数表示y轴</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">xpoints = np.array([1, 8])</span><br><span class="line"></span><br><span class="line">ypoints = np.array([3, 10])</span><br><span class="line"></span><br><span class="line">plt.plot(xpoints, ypoints)</span><br><span class="line"></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+
+
 <p><img src= "/img/loading.gif" data-lazy-src="/image/752857.jpg" data-original="https://www.w3schools.com/python/img_matplotlib_plotting1.png" alt="img"></p>
 <p>画多个点(有连线)</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">xpoints = np.array([1, 2, 6, 8])</span><br><span class="line">ypoints = np.array([3, 8, 1, 10])</span><br><span class="line"></span><br><span class="line">plt.plot(xpoints, ypoints)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
 <p><img src= "/img/loading.gif" data-lazy-src="/image/752857.jpg" data-original="https://www.w3schools.com/python/img_matplotlib_plotting2.png" alt="img"></p>
 <p><code>tips:</code>这里的x轴是有默认值的，如果你没有传入x轴的参数，默认是从0开始增长，到传入y轴的参数个数-1</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ypoints = np.array([3, 8, 1, 10, 5, 7])</span><br><span class="line"></span><br><span class="line">plt.plot(ypoints)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
 <p><img src= "/img/loading.gif" data-lazy-src="/image/752857.jpg" data-original="https://www.w3schools.com/python/img_matplotlib_plotting4.png" alt="img"></p>
 <h2 id="参数marker"><a href="#参数marker" class="headerlink" title="参数marker"></a>参数marker</h2><p>marker用指定的标记来强调每个点</p>
-<p>marker=’o’，对应的坐标会变成实心小圆点    </p>
+<p>marker&#x3D;’o’，对应的坐标会变成实心小圆点	</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ypoints = np.array([3, 8, 1, 10])</span><br><span class="line"></span><br><span class="line">plt.plot(ypoints, marker = &#x27;o&#x27;)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
 <p><img src= "/img/loading.gif" data-lazy-src="/image/752857.jpg" data-original="https://www.w3schools.com/python/img_matplotlib_marker_o.png" alt="img"></p>
-<div class="table-container">
 <table>
 <thead>
 <tr>
-<th style="text-align:left">marker</th>
-<th style="text-align:left">图像</th>
+<th align="left">marker</th>
+<th align="left">图像</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td style="text-align:left">‘o’</td>
-<td style="text-align:left">实心原点</td>
+<tbody><tr>
+<td align="left">‘o’</td>
+<td align="left">实心原点</td>
 </tr>
 <tr>
-<td style="text-align:left">‘*’</td>
-<td style="text-align:left">*</td>
+<td align="left">‘*’</td>
+<td align="left">*</td>
 </tr>
 <tr>
-<td style="text-align:left">‘.’</td>
-<td style="text-align:left">.(小点)</td>
+<td align="left">‘.’</td>
+<td align="left">.(小点)</td>
 </tr>
 <tr>
-<td style="text-align:left">‘,’</td>
-<td style="text-align:left">像素(我看不到)</td>
+<td align="left">‘,’</td>
+<td align="left">像素(我看不到)</td>
 </tr>
 <tr>
-<td style="text-align:left">‘x’</td>
-<td style="text-align:left">X</td>
+<td align="left">‘x’</td>
+<td align="left">X</td>
 </tr>
 <tr>
-<td style="text-align:left">‘X’</td>
-<td style="text-align:left">X (粗的)</td>
+<td align="left">‘X’</td>
+<td align="left">X (粗的)</td>
 </tr>
 <tr>
-<td style="text-align:left">‘+’</td>
-<td style="text-align:left">+</td>
+<td align="left">‘+’</td>
+<td align="left">+</td>
 </tr>
 <tr>
-<td style="text-align:left">‘P’</td>
-<td style="text-align:left">+(粗的)</td>
+<td align="left">‘P’</td>
+<td align="left">+(粗的)</td>
 </tr>
 <tr>
-<td style="text-align:left">‘s’</td>
-<td style="text-align:left">实心正方形</td>
+<td align="left">‘s’</td>
+<td align="left">实心正方形</td>
 </tr>
 <tr>
-<td style="text-align:left">‘D’</td>
-<td style="text-align:left">斜方棱形</td>
+<td align="left">‘D’</td>
+<td align="left">斜方棱形</td>
 </tr>
 <tr>
-<td style="text-align:left">‘d’</td>
-<td style="text-align:left">斜棱形(窄一点)</td>
+<td align="left">‘d’</td>
+<td align="left">斜棱形(窄一点)</td>
 </tr>
 <tr>
-<td style="text-align:left">‘p’</td>
-<td style="text-align:left">五边形</td>
+<td align="left">‘p’</td>
+<td align="left">五边形</td>
 </tr>
 <tr>
-<td style="text-align:left">‘H’</td>
-<td style="text-align:left">六边形(平的)</td>
+<td align="left">‘H’</td>
+<td align="left">六边形(平的)</td>
 </tr>
 <tr>
-<td style="text-align:left">‘h’</td>
-<td style="text-align:left">六边形(竖着的，尖朝上)</td>
+<td align="left">‘h’</td>
+<td align="left">六边形(竖着的，尖朝上)</td>
 </tr>
 <tr>
-<td style="text-align:left">‘v’</td>
-<td style="text-align:left">倒三角</td>
+<td align="left">‘v’</td>
+<td align="left">倒三角</td>
 </tr>
 <tr>
-<td style="text-align:left">‘^’</td>
-<td style="text-align:left">正三角</td>
+<td align="left">‘^’</td>
+<td align="left">正三角</td>
 </tr>
 <tr>
-<td style="text-align:left">&lt;’</td>
-<td style="text-align:left">三角(尖朝左)</td>
+<td align="left">&lt;’</td>
+<td align="left">三角(尖朝左)</td>
 </tr>
 <tr>
-<td style="text-align:left">‘&gt;’</td>
-<td style="text-align:left">三角(尖朝右)</td>
+<td align="left">‘&gt;’</td>
+<td align="left">三角(尖朝右)</td>
 </tr>
 <tr>
-<td style="text-align:left">‘1’</td>
-<td style="text-align:left"><img src= "/img/loading.gif" data-lazy-src="/image/752857.jpg" data-original="C:\Users\14199\AppData\Roaming\Typora\typora-user-images\image-20221105005243564.png" alt="image-20221105005243564"></td>
+<td align="left">‘1’</td>
+<td align="left"><img src= "/img/loading.gif" data-lazy-src="/image/752857.jpg" data-original="C:\Users\14199\AppData\Roaming\Typora\typora-user-images\image-20221105005243564.png" alt="image-20221105005243564"></td>
 </tr>
 <tr>
-<td style="text-align:left">‘2’</td>
-<td style="text-align:left"><img src= "/img/loading.gif" data-lazy-src="/image/752857.jpg" data-original="C:\Users\14199\AppData\Roaming\Typora\typora-user-images\image-20221105005309097.png" alt="image-20221105005309097"></td>
+<td align="left">‘2’</td>
+<td align="left"><img src= "/img/loading.gif" data-lazy-src="/image/752857.jpg" data-original="C:\Users\14199\AppData\Roaming\Typora\typora-user-images\image-20221105005309097.png" alt="image-20221105005309097"></td>
 </tr>
 <tr>
-<td style="text-align:left">‘3’</td>
-<td style="text-align:left"><img src= "/img/loading.gif" data-lazy-src="/image/752857.jpg" data-original="C:\Users\14199\AppData\Roaming\Typora\typora-user-images\image-20221105005321954.png" alt="image-20221105005321954"></td>
+<td align="left">‘3’</td>
+<td align="left"><img src= "/img/loading.gif" data-lazy-src="/image/752857.jpg" data-original="C:\Users\14199\AppData\Roaming\Typora\typora-user-images\image-20221105005321954.png" alt="image-20221105005321954"></td>
 </tr>
 <tr>
-<td style="text-align:left">‘4’</td>
-<td style="text-align:left"><img src= "/img/loading.gif" data-lazy-src="/image/752857.jpg" data-original="C:\Users\14199\AppData\Roaming\Typora\typora-user-images\image-20221105005332738.png" alt="image-20221105005332738"></td>
+<td align="left">‘4’</td>
+<td align="left"><img src= "/img/loading.gif" data-lazy-src="/image/752857.jpg" data-original="C:\Users\14199\AppData\Roaming\Typora\typora-user-images\image-20221105005332738.png" alt="image-20221105005332738"></td>
 </tr>
 <tr>
-<td style="text-align:left">‘\</td>
-<td style="text-align:left">‘</td>
-<td>\</td>
-<td></td>
+<td align="left">‘|’</td>
+<td align="left">|</td>
 </tr>
 <tr>
-<td style="text-align:left">‘_’</td>
-<td style="text-align:left">_</td>
+<td align="left">‘_’</td>
+<td align="left">_</td>
 </tr>
-</tbody>
-</table>
-</div>
+</tbody></table>
 <h2 id="格式字符串fmt"><a href="#格式字符串fmt" class="headerlink" title="格式字符串fmt"></a>格式字符串fmt</h2><p>也可以使用快捷字符串符号参数来指定标记。</p>
 <p>该参数也被称为fmt，并使用以下语法编写:</p>
 <p><code>*marker*|*line*|*color*</code></p>
-<div class="table-container">
 <table>
 <thead>
 <tr>
-<th style="text-align:left">线</th>
-<th style="text-align:left">形状</th>
+<th align="left">线</th>
+<th align="left">形状</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td style="text-align:left">‘-‘</td>
-<td style="text-align:left">实线</td>
+<tbody><tr>
+<td align="left">‘-‘</td>
+<td align="left">实线</td>
 </tr>
 <tr>
-<td style="text-align:left">‘:’</td>
-<td style="text-align:left">点虚线</td>
+<td align="left">‘:’</td>
+<td align="left">点虚线</td>
 </tr>
 <tr>
-<td style="text-align:left">‘—‘</td>
-<td style="text-align:left">线虚线</td>
+<td align="left">‘–’</td>
+<td align="left">线虚线</td>
 </tr>
 <tr>
-<td style="text-align:left">‘-.’</td>
-<td style="text-align:left">点线交错虚线</td>
+<td align="left">‘-.’</td>
+<td align="left">点线交错虚线</td>
 </tr>
-</tbody>
-</table>
-</div>
+</tbody></table>
 <p>如果不指定颜色，默认是蓝色<img src= "/img/loading.gif" data-lazy-src="/image/752857.jpg" data-original="C:\Users\14199\AppData\Roaming\Typora\typora-user-images\image-20221105005915754.png" alt="image-20221105005915754"></p>
 <p>如果不指定线的形状，就没有线</p>
 <p>如果不指明点的形状，就没有点</p>
-<div class="table-container">
 <table>
 <thead>
 <tr>
-<th style="text-align:left">颜色对应字符</th>
-<th style="text-align:left">颜色</th>
+<th align="left">颜色对应字符</th>
+<th align="left">颜色</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td style="text-align:left">‘r’</td>
-<td style="text-align:left">红色</td>
+<tbody><tr>
+<td align="left">‘r’</td>
+<td align="left">红色</td>
 </tr>
 <tr>
-<td style="text-align:left">‘g’</td>
-<td style="text-align:left">绿色</td>
+<td align="left">‘g’</td>
+<td align="left">绿色</td>
 </tr>
 <tr>
-<td style="text-align:left">‘b’</td>
-<td style="text-align:left">蓝色</td>
+<td align="left">‘b’</td>
+<td align="left">蓝色</td>
 </tr>
 <tr>
-<td style="text-align:left">‘c’</td>
-<td style="text-align:left">青色(Cyan)</td>
+<td align="left">‘c’</td>
+<td align="left">青色(Cyan)</td>
 </tr>
 <tr>
-<td style="text-align:left">‘m’</td>
-<td style="text-align:left">洋红色(Magenta)</td>
+<td align="left">‘m’</td>
+<td align="left">洋红色(Magenta)</td>
 </tr>
 <tr>
-<td style="text-align:left">‘y’</td>
-<td style="text-align:left">黄色</td>
+<td align="left">‘y’</td>
+<td align="left">黄色</td>
 </tr>
 <tr>
-<td style="text-align:left">‘k’</td>
-<td style="text-align:left">黑色</td>
+<td align="left">‘k’</td>
+<td align="left">黑色</td>
 </tr>
 <tr>
-<td style="text-align:left">‘w’</td>
-<td style="text-align:left">白色</td>
+<td align="left">‘w’</td>
+<td align="left">白色</td>
 </tr>
-</tbody>
-</table>
-</div>
+</tbody></table>
 <h2 id="marksize"><a href="#marksize" class="headerlink" title="marksize"></a>marksize</h2><p>指定点的大小，参数为marksize，或者缩写成ms</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ypoints = np.array([3, 8, 1, 10])</span><br><span class="line"></span><br><span class="line">plt.plot(ypoints, marker = &#x27;o&#x27;, ms = 20)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
 <p><img src= "/img/loading.gif" data-lazy-src="/image/752857.jpg" data-original="https://www.w3schools.com/python/img_matplotlib_marker_o_20.png" alt="img"></p>
 <h2 id="markeredgecolor"><a href="#markeredgecolor" class="headerlink" title="markeredgecolor"></a>markeredgecolor</h2><p>markeredgecolor设置点的边缘的颜色，可以缩写成mec</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ypoints = np.array([3, 8, 1, 10])</span><br><span class="line"></span><br><span class="line">plt.plot(ypoints, marker = &#x27;o&#x27;, ms = 20, mec = &#x27;r&#x27;)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
 <p><img src= "/img/loading.gif" data-lazy-src="/image/752857.jpg" data-original="https://www.w3schools.com/python/img_matplotlib_marker_o_mec.png" alt="img"></p>
 <h2 id="markerfacecolor"><a href="#markerfacecolor" class="headerlink" title="markerfacecolor"></a>markerfacecolor</h2><p>markerfacecolor设置点的里面的颜色，可以缩写成mfc</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ypoints = np.array([3, 8, 1, 10])</span><br><span class="line"></span><br><span class="line">plt.plot(ypoints, marker = &#x27;o&#x27;, ms = 20, mfc = &#x27;r&#x27;)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
 <p><img src= "/img/loading.gif" data-lazy-src="/image/752857.jpg" data-original="https://www.w3schools.com/python/img_matplotlib_marker_o_mfc.png" alt="img"></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ypoints = np.array([3, 8, 1, 10])</span><br><span class="line"></span><br><span class="line">plt.plot(ypoints, marker = &#x27;o&#x27;, ms = 20, mec = &#x27;r&#x27;, mfc = &#x27;r&#x27;)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
 <p><img src= "/img/loading.gif" data-lazy-src="/image/752857.jpg" data-original="https://www.w3schools.com/python/img_matplotlib_marker_o_mec_mfc.png" alt="img"></p>
 <p>这个mec和mfc可以用十六进制表示颜色，也可以用一些颜色的名字指定</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">plt.plot(ypoints, marker = &#x27;o&#x27;, ms = 20, mec = &#x27;#4CAF50&#x27;, mfc = &#x27;#4CAF50&#x27;)</span><br><span class="line">plt.plot(ypoints, marker = &#x27;o&#x27;, ms = 20, mec = &#x27;hotpink&#x27;, mfc = &#x27;hotpink&#x27;)</span><br></pre></td></tr></table></figure>
+
 <h2 id="linestyle"><a href="#linestyle" class="headerlink" title="linestyle"></a>linestyle</h2><p>linestyle指定线的格式，实际上用的最多的还是上面的fmt(方便)，缩写成ls</p>
-<div class="table-container">
 <table>
 <thead>
 <tr>
-<th style="text-align:left">形状</th>
-<th style="text-align:left">参数</th>
+<th align="left">形状</th>
+<th align="left">参数</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td style="text-align:left">‘solid’ (default)</td>
-<td style="text-align:left">‘-‘</td>
+<tbody><tr>
+<td align="left">‘solid’ (default)</td>
+<td align="left">‘-‘</td>
 </tr>
 <tr>
-<td style="text-align:left">‘dotted’</td>
-<td style="text-align:left">‘:’</td>
+<td align="left">‘dotted’</td>
+<td align="left">‘:’</td>
 </tr>
 <tr>
-<td style="text-align:left">‘dashed’</td>
-<td style="text-align:left">‘—‘</td>
+<td align="left">‘dashed’</td>
+<td align="left">‘–’</td>
 </tr>
 <tr>
-<td style="text-align:left">‘dashdot’</td>
-<td style="text-align:left">‘-.’</td>
+<td align="left">‘dashdot’</td>
+<td align="left">‘-.’</td>
 </tr>
 <tr>
-<td style="text-align:left">‘None’</td>
-<td style="text-align:left">‘’ or ‘ ‘</td>
+<td align="left">‘None’</td>
+<td align="left">‘’ or ‘ ‘</td>
 </tr>
-</tbody>
-</table>
-</div>
+</tbody></table>
 <p>实际上和上边的fmt提到的一样</p>
 <h2 id="color"><a href="#color" class="headerlink" title="color"></a>color</h2><p>color设置线的颜色，和fmt里面的c一样</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">plt.plot(ypoints, c = &#x27;hotpink&#x27;)</span><br></pre></td></tr></table></figure>
+
 <h2 id="linewidth"><a href="#linewidth" class="headerlink" title="linewidth"></a>linewidth</h2><p>设置线的宽度，fmt里面好像没有这个</p>
 <p>缩写成lw</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ypoints = np.array([3, 8, 1, 10])</span><br><span class="line"></span><br><span class="line">plt.plot(ypoints, linewidth = &#x27;20.5&#x27;)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
 <p><img src= "/img/loading.gif" data-lazy-src="/image/752857.jpg" data-original="https://www.w3schools.com/python/img_matplotlib_line_lw.png" alt="img"></p>
 <h2 id="绘制多条线"><a href="#绘制多条线" class="headerlink" title="绘制多条线"></a>绘制多条线</h2><p>你可以通过简单地添加更多的plot .plot()函数来绘制任意多的线</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">y1 = np.array([3, 8, 1, 10])</span><br><span class="line">y2 = np.array([6, 2, 7, 11])</span><br><span class="line"></span><br><span class="line">plt.plot(y1)</span><br><span class="line">plt.plot(y2)</span><br><span class="line"></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-<p><img src= "/img/loading.gif" data-lazy-src="/image/752857.jpg" data-original="https://www.w3schools.com/python/img_matplotlib_line_two.png" alt="img">    </p>
+
+<p><img src= "/img/loading.gif" data-lazy-src="/image/752857.jpg" data-original="https://www.w3schools.com/python/img_matplotlib_line_two.png" alt="img">	</p>
 <p>还可以通过在相同的plt.plot()函数中为每条直线添加x轴和y轴的点来绘制多条直线</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">y1 = np.array([3, 8, 1, 10])</span><br><span class="line">y2 = np.array([6, 2, 7, 11])</span><br><span class="line"></span><br><span class="line">plt.plot(y1)</span><br><span class="line">plt.plot(y2)</span><br><span class="line"></span><br><span class="line">plt.show()  # 我们只指定y轴上的点，这意味着x轴上的点得到默认值(0,1,2,3)</span><br></pre></td></tr></table></figure>
+
 <p>x和y值成对出现</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">x1 = np.array([0, 1, 2, 3])</span><br><span class="line">y1 = np.array([3, 8, 1, 10])</span><br><span class="line">x2 = np.array([0, 1, 2, 3])</span><br><span class="line">y2 = np.array([6, 2, 7, 11])</span><br><span class="line"></span><br><span class="line">plt.plot(x1, y1, x2, y2)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
 <p><img src= "/img/loading.gif" data-lazy-src="/image/752857.jpg" data-original="https://www.w3schools.com/python/img_matplotlib_line_two.png" alt="img"></p>
 <h2 id="标签和标题"><a href="#标签和标题" class="headerlink" title="标签和标题"></a>标签和标题</h2><h3 id="xlabel-和ylabel"><a href="#xlabel-和ylabel" class="headerlink" title="xlabel()和ylabel()"></a>xlabel()和ylabel()</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">x = np.array([80, 85, 90, 95, 100, 105, 110, 115, 120, 125])</span><br><span class="line">y = np.array([240, 250, 260, 270, 280, 290, 300, 310, 320, 330])</span><br><span class="line"></span><br><span class="line">plt.plot(x, y)</span><br><span class="line"></span><br><span class="line">plt.xlabel(&quot;Average Pulse&quot;)</span><br><span class="line">plt.ylabel(&quot;Calorie Burnage&quot;)</span><br><span class="line"></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
 <p><img src= "/img/loading.gif" data-lazy-src="/image/752857.jpg" data-original="https://www.w3schools.com/python/img_matplotlib_labels.png" alt="img"></p>
 <h3 id="title"><a href="#title" class="headerlink" title="title()"></a>title()</h3><p>标题，写在最上面</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">x = np.array([80, 85, 90, 95, 100, 105, 110, 115, 120, 125])</span><br><span class="line">y = np.array([240, 250, 260, 270, 280, 290, 300, 310, 320, 330])</span><br><span class="line"></span><br><span class="line">plt.plot(x, y)</span><br><span class="line"></span><br><span class="line">plt.title(&quot;Sports Watch Data&quot;)</span><br><span class="line">plt.xlabel(&quot;Average Pulse&quot;)</span><br><span class="line">plt.ylabel(&quot;Calorie Burnage&quot;)</span><br><span class="line"></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
 <p><img src= "/img/loading.gif" data-lazy-src="/image/752857.jpg" data-original="https://www.w3schools.com/python/img_matplotlib_title.png" alt="img"></p>
 <h3 id="参数fontdict-给标题和标签设置样式"><a href="#参数fontdict-给标题和标签设置样式" class="headerlink" title="参数fontdict 给标题和标签设置样式"></a>参数fontdict 给标题和标签设置样式</h3><p>这个fontdict拿到的实参格式，就是css格式</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">x = np.array([80, 85, 90, 95, 100, 105, 110, 115, 120, 125])</span><br><span class="line">y = np.array([240, 250, 260, 270, 280, 290, 300, 310, 320, 330])</span><br><span class="line"></span><br><span class="line">font1 = &#123;&#x27;family&#x27;:&#x27;serif&#x27;,&#x27;color&#x27;:&#x27;blue&#x27;,&#x27;size&#x27;:20&#125;</span><br><span class="line">font2 = &#123;&#x27;family&#x27;:&#x27;serif&#x27;,&#x27;color&#x27;:&#x27;darkred&#x27;,&#x27;size&#x27;:15&#125;</span><br><span class="line"></span><br><span class="line">plt.title(&quot;Sports Watch Data&quot;, fontdict = font1)</span><br><span class="line">plt.xlabel(&quot;Average Pulse&quot;, fontdict = font2)</span><br><span class="line">plt.ylabel(&quot;Calorie Burnage&quot;, fontdict = font2)</span><br><span class="line"></span><br><span class="line">plt.plot(x, y)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
 <p><img src= "/img/loading.gif" data-lazy-src="/image/752857.jpg" data-original="https://www.w3schools.com/python/img_matplotlib_title_fontdict.png" alt="img"></p>
 <h3 id="loc参数确定title的位置"><a href="#loc参数确定title的位置" class="headerlink" title="loc参数确定title的位置"></a>loc参数确定title的位置</h3><p>可选：left、right、center(默认)</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">x = np.array([80, 85, 90, 95, 100, 105, 110, 115, 120, 125])</span><br><span class="line">y = np.array([240, 250, 260, 270, 280, 290, 300, 310, 320, 330])</span><br><span class="line"></span><br><span class="line">plt.title(&quot;Sports Watch Data&quot;, loc = &#x27;left&#x27;)</span><br><span class="line">plt.xlabel(&quot;Average Pulse&quot;)</span><br><span class="line">plt.ylabel(&quot;Calorie Burnage&quot;)</span><br><span class="line"></span><br><span class="line">plt.plot(x, y)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
 <p><img src= "/img/loading.gif" data-lazy-src="/image/752857.jpg" data-original="https://www.w3schools.com/python/img_matplotlib_title_loc.png" alt="img"></p>
 <h2 id="网格线"><a href="#网格线" class="headerlink" title="网格线"></a>网格线</h2><h3 id="plt-grid-方法添加网格线"><a href="#plt-grid-方法添加网格线" class="headerlink" title="plt.grid()方法添加网格线"></a>plt.grid()方法添加网格线</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">x = np.array([80, 85, 90, 95, 100, 105, 110, 115, 120, 125])</span><br><span class="line">y = np.array([240, 250, 260, 270, 280, 290, 300, 310, 320, 330])</span><br><span class="line"></span><br><span class="line">plt.title(&quot;Sports Watch Data&quot;)</span><br><span class="line">plt.xlabel(&quot;Average Pulse&quot;)</span><br><span class="line">plt.ylabel(&quot;Calorie Burnage&quot;)</span><br><span class="line"></span><br><span class="line">plt.plot(x, y)</span><br><span class="line"></span><br><span class="line">plt.grid()</span><br><span class="line"></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
 <p><img src= "/img/loading.gif" data-lazy-src="/image/752857.jpg" data-original="https://www.w3schools.com/python/img_matplotlib_grid.png" alt="img"></p>
 <h3 id="指定要显示的网格线的轴向"><a href="#指定要显示的网格线的轴向" class="headerlink" title="指定要显示的网格线的轴向"></a>指定要显示的网格线的轴向</h3><p>grid()里面的参数axis表示显示的是x轴还是y轴还是都显示 x、y、both</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">x = np.array([80, 85, 90, 95, 100, 105, 110, 115, 120, 125])</span><br><span class="line">y = np.array([240, 250, 260, 270, 280, 290, 300, 310, 320, 330])</span><br><span class="line"></span><br><span class="line">plt.title(&quot;Sports Watch Data&quot;)</span><br><span class="line">plt.xlabel(&quot;Average Pulse&quot;)</span><br><span class="line">plt.ylabel(&quot;Calorie Burnage&quot;)</span><br><span class="line"></span><br><span class="line">plt.plot(x, y)</span><br><span class="line"></span><br><span class="line">plt.grid(axis = &#x27;x&#x27;)</span><br><span class="line"></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
 <p><img src= "/img/loading.gif" data-lazy-src="/image/752857.jpg" data-original="https://www.w3schools.com/python/img_matplotlib_grid_axisx.png" alt="img"></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">plt.grid(axis = &#x27;y&#x27;)</span><br></pre></td></tr></table></figure>
+
 <p><img src= "/img/loading.gif" data-lazy-src="/image/752857.jpg" data-original="https://www.w3schools.com/python/img_matplotlib_grid_axisy.png" alt="img"></p>
-<h3 id="给网格线设置样式"><a href="#给网格线设置样式" class="headerlink" title="给网格线设置样式"></a>给网格线设置样式</h3><p>你也可以设置网格的线条属性，像这样:grid(color = ‘color’， linestyle = ‘linestyle’， linewidth = number)</p>
+<h3 id="给网格线设置样式"><a href="#给网格线设置样式" class="headerlink" title="给网格线设置样式"></a>给网格线设置样式</h3><p>你也可以设置网格的线条属性，像这样:grid(color &#x3D; ‘color’， linestyle &#x3D; ‘linestyle’， linewidth &#x3D; number)</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">x = np.array([80, 85, 90, 95, 100, 105, 110, 115, 120, 125])</span><br><span class="line">y = np.array([240, 250, 260, 270, 280, 290, 300, 310, 320, 330])</span><br><span class="line"></span><br><span class="line">plt.title(&quot;Sports Watch Data&quot;)</span><br><span class="line">plt.xlabel(&quot;Average Pulse&quot;)</span><br><span class="line">plt.ylabel(&quot;Calorie Burnage&quot;)</span><br><span class="line"></span><br><span class="line">plt.plot(x, y)</span><br><span class="line"></span><br><span class="line">plt.grid(color = &#x27;green&#x27;, linestyle = &#x27;--&#x27;, linewidth = 0.5)</span><br><span class="line"></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
 <p><img src= "/img/loading.gif" data-lazy-src="/image/752857.jpg" data-original="https://www.w3schools.com/python/img_matplotlib_grid_kwargs.png" alt="img"></p>
 <h2 id="子图"><a href="#子图" class="headerlink" title="子图"></a>子图</h2><h3 id="subplot-放多张图"><a href="#subplot-放多张图" class="headerlink" title="subplot()放多张图"></a>subplot()放多张图</h3><p>plt.subplot(a, b, c) 这个视图被分成了a行b列，均匀切割，并且切换当前这个图到第c个图(一共a*b个)</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">#plot 1:</span><br><span class="line">x = np.array([0, 1, 2, 3])</span><br><span class="line">y = np.array([3, 8, 1, 10])</span><br><span class="line"></span><br><span class="line">plt.subplot(2, 1, 1)</span><br><span class="line">plt.plot(x,y)</span><br><span class="line"></span><br><span class="line">#plot 2:</span><br><span class="line">x = np.array([0, 1, 2, 3])</span><br><span class="line">y = np.array([10, 20, 30, 40])</span><br><span class="line"></span><br><span class="line">plt.subplot(2, 1, 2)</span><br><span class="line">plt.plot(x,y)</span><br><span class="line"></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
 <p><img src= "/img/loading.gif" data-lazy-src="/image/752857.jpg" data-original="https://www.w3schools.com/python/img_matplotlib_subplots2.png" alt="img"></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">x = np.array([0, 1, 2, 3])</span><br><span class="line">y = np.array([3, 8, 1, 10])</span><br><span class="line"></span><br><span class="line">plt.subplot(2, 3, 1)</span><br><span class="line">plt.plot(x,y)</span><br><span class="line"></span><br><span class="line">x = np.array([0, 1, 2, 3])</span><br><span class="line">y = np.array([10, 20, 30, 40])</span><br><span class="line"></span><br><span class="line">plt.subplot(2, 3, 2)</span><br><span class="line">plt.plot(x,y)</span><br><span class="line"></span><br><span class="line">x = np.array([0, 1, 2, 3])</span><br><span class="line">y = np.array([3, 8, 1, 10])</span><br><span class="line"></span><br><span class="line">plt.subplot(2, 3, 3)</span><br><span class="line">plt.plot(x,y)</span><br><span class="line"></span><br><span class="line">x = np.array([0, 1, 2, 3])</span><br><span class="line">y = np.array([10, 20, 30, 40])</span><br><span class="line"></span><br><span class="line">plt.subplot(2, 3, 4)</span><br><span class="line">plt.plot(x,y)</span><br><span class="line"></span><br><span class="line">x = np.array([0, 1, 2, 3])</span><br><span class="line">y = np.array([3, 8, 1, 10])</span><br><span class="line"></span><br><span class="line">plt.subplot(2, 3, 5)</span><br><span class="line">plt.plot(x,y)</span><br><span class="line"></span><br><span class="line">x = np.array([0, 1, 2, 3])</span><br><span class="line">y = np.array([10, 20, 30, 40])</span><br><span class="line"></span><br><span class="line">plt.subplot(2, 3, 6)</span><br><span class="line">plt.plot(x,y)</span><br><span class="line"></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
 <p><img src= "/img/loading.gif" data-lazy-src="/image/752857.jpg" data-original="https://www.w3schools.com/python/img_matplotlib_subplots3.png" alt="img"></p>
 <h3 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h3><p><code>tips:</code>每个子图都可以加标题</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">#plot 1:</span><br><span class="line">x = np.array([0, 1, 2, 3])</span><br><span class="line">y = np.array([3, 8, 1, 10])</span><br><span class="line"></span><br><span class="line">plt.subplot(1, 2, 1)</span><br><span class="line">plt.plot(x,y)</span><br><span class="line">plt.title(&quot;SALES&quot;)</span><br><span class="line"></span><br><span class="line">#plot 2:</span><br><span class="line">x = np.array([0, 1, 2, 3])</span><br><span class="line">y = np.array([10, 20, 30, 40])</span><br><span class="line"></span><br><span class="line">plt.subplot(1, 2, 2)</span><br><span class="line">plt.plot(x,y)</span><br><span class="line">plt.title(&quot;INCOME&quot;)</span><br><span class="line"></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
 <p>如果用了subplot的话，总的图还可以用suptitle()来添加一个大标题</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">#plot 1:</span><br><span class="line">x = np.array([0, 1, 2, 3])</span><br><span class="line">y = np.array([3, 8, 1, 10])</span><br><span class="line"></span><br><span class="line">plt.subplot(1, 2, 1)</span><br><span class="line">plt.plot(x,y)</span><br><span class="line">plt.title(&quot;SALES&quot;)</span><br><span class="line"></span><br><span class="line">#plot 2:</span><br><span class="line">x = np.array([0, 1, 2, 3])</span><br><span class="line">y = np.array([10, 20, 30, 40])</span><br><span class="line"></span><br><span class="line">plt.subplot(1, 2, 2)</span><br><span class="line">plt.plot(x,y)</span><br><span class="line">plt.title(&quot;INCOME&quot;)</span><br><span class="line"></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
 <p><img src= "/img/loading.gif" data-lazy-src="/image/752857.jpg" data-original="https://www.w3schools.com/python/img_matplotlib_subplots5.png" alt="img"></p>
 <h2 id="散点图"><a href="#散点图" class="headerlink" title="散点图"></a>散点图</h2><h3 id="用scatter-创造一个散点图"><a href="#用scatter-创造一个散点图" class="headerlink" title="用scatter()创造一个散点图"></a>用scatter()创造一个散点图</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">#day one, the age and speed of 13 cars:</span><br><span class="line">x = np.array([5,7,8,7,2,17,2,9,4,11,12,9,6])</span><br><span class="line">y = np.array([99,86,87,88,111,86,103,87,94,78,77,85,86])</span><br><span class="line">plt.scatter(x, y)</span><br><span class="line"></span><br><span class="line">#day two, the age and speed of 15 cars:</span><br><span class="line">x = np.array([2,2,8,1,15,8,12,9,7,3,11,4,7,14,12])</span><br><span class="line">y = np.array([100,105,84,105,90,99,90,95,94,100,79,112,91,80,85])</span><br><span class="line">plt.scatter(x, y)</span><br><span class="line"></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
 <p><img src= "/img/loading.gif" data-lazy-src="/image/752857.jpg" data-original="https://www.w3schools.com/python/img_matplotlib_scatter_compare.png" alt="img"></p>
 <p>操作基本上和plot是一样的，实际上我感觉plot把那个线的参数设置成空，然后把点的参数设置成o，就等于这个散点图了</p>
 <h3 id="color参数-缩写c"><a href="#color参数-缩写c" class="headerlink" title="color参数(缩写c)"></a>color参数(缩写c)</h3><p>基本上类似</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">plt.scatter(x, y, color = &#x27;hotpink&#x27;)</span><br><span class="line">plt.scatter(x, y, color = &#x27;#88c999&#x27;)</span><br></pre></td></tr></table></figure>
+
 <p><img src= "/img/loading.gif" data-lazy-src="/image/752857.jpg" data-original="https://www.w3schools.com/python/img_matplotlib_scatter_color.png" alt="img"></p>
 <p>你甚至可以通过使用一个颜色数组作为c参数的值来为每个点设置特定的颜色</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">x = np.array([5,7,8,7,2,17,2,9,4,11,12,9,6])</span><br><span class="line">y = np.array([99,86,87,88,111,86,103,87,94,78,77,85,86])</span><br><span class="line">colors = np.array([&quot;red&quot;,&quot;green&quot;,&quot;blue&quot;,&quot;yellow&quot;,&quot;pink&quot;,&quot;black&quot;,&quot;orange&quot;,&quot;purple&quot;,&quot;beige&quot;,&quot;brown&quot;,&quot;gray&quot;,&quot;cyan&quot;,&quot;magenta&quot;])</span><br><span class="line"></span><br><span class="line">plt.scatter(x, y, c=colors)</span><br><span class="line"></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
 <p><img src= "/img/loading.gif" data-lazy-src="/image/752857.jpg" data-original="https://www.w3schools.com/python/img_matplotlib_scatter_colors2.png" alt="img"></p>
 <h3 id="colirmap"><a href="#colirmap" class="headerlink" title="colirmap"></a>colirmap</h3><p>Matplotlib模块有许多可用的色彩图。</p>
 <p>colormap就像一个颜色列表，其中每个颜色都有一个从0到100的值。</p>
@@ -452,22 +465,27 @@
 <p>你可以用关键字参数cmap和colormap的值来指定色彩图，在本例中是’viridis’，它是Matplotlib中可用的内置色彩图之一。</p>
 <p>另外，你必须创建一个包含值的数组(从0到100)，每个点对应一个散点图中的值</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">x = np.array([5,7,8,7,2,17,2,9,4,11,12,9,6])</span><br><span class="line">y = np.array([99,86,87,88,111,86,103,87,94,78,77,85,86])</span><br><span class="line">colors = np.array([0, 10, 20, 30, 40, 45, 50, 55, 60, 70, 80, 90, 100])</span><br><span class="line"></span><br><span class="line">plt.scatter(x, y, c=colors, cmap=&#x27;viridis&#x27;)</span><br><span class="line"></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
 <p><img src= "/img/loading.gif" data-lazy-src="/image/752857.jpg" data-original="https://www.w3schools.com/python/img_matplotlib_scatter_colormap1.png" alt="img"></p>
 <p>你可以在绘图中使用plt.colorbar()语句</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">plt.colorbar()</span><br></pre></td></tr></table></figure>
+
 <p><img src= "/img/loading.gif" data-lazy-src="/image/752857.jpg" data-original="https://www.w3schools.com/python/img_matplotlib_scatter_colormap2.png" alt="img"></p>
 <p>我感觉使用色彩图应该就是要和这个colorbar一起用才有意义，不然我也可以通过给每个点指定颜色来实现colormap(复杂一点点)(内置的色彩图有点多，这里不放了，自己查看看吧)</p>
 <h3 id="大小"><a href="#大小" class="headerlink" title="大小"></a>大小</h3><p>参数s来修改大小</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sizes = np.array([20,50,100,200,500,1000,60,90,10,300,600,800,75])</span><br><span class="line">plt.scatter(x, y, s=sizes)</span><br></pre></td></tr></table></figure>
+
 <p>和c一样，都可以整花活，给每一个点都整个不同的大小</p>
 <p><img src= "/img/loading.gif" data-lazy-src="/image/752857.jpg" data-original="https://www.w3schools.com/python/img_matplotlib_scatter_size.png" alt="img"></p>
 <h3 id="透明度"><a href="#透明度" class="headerlink" title="透明度"></a>透明度</h3><p>参数alpha指定透明度 0~1</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">plt.scatter(x, y, s=sizes, alpha=0.5)</span><br></pre></td></tr></table></figure>
+
 <p><img src= "/img/loading.gif" data-lazy-src="/image/752857.jpg" data-original="https://www.w3schools.com/python/img_matplotlib_scatter_alpha.png" alt="img"></p>
 <p>整个花活儿</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">x = np.random.randint(100, size=(100))</span><br><span class="line">y = np.random.randint(100, size=(100))</span><br><span class="line">colors = np.random.randint(100, size=(100))</span><br><span class="line">sizes = 10 * np.random.randint(100, size=(100))</span><br><span class="line"></span><br><span class="line">plt.scatter(x, y, c=colors, s=sizes, alpha=0.5, cmap=&#x27;nipy_spectral&#x27;)</span><br><span class="line"></span><br><span class="line">plt.colorbar()</span><br><span class="line"></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
 <p><img src= "/img/loading.gif" data-lazy-src="/image/752857.jpg" data-original="https://www.w3schools.com/python/img_matplotlib_scatter_combine.png" alt="img"></p>
-</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">wellorbetter</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2022/11/04/2022-11-4-1/">http://example.com/2022/11/04/2022-11-4-1/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">wellorbetter's blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/python/">python</a><a class="post-meta__tags" href="/tags/matplotlib/">matplotlib</a></div><div class="post_share"><div class="social-share" data-image="/image/673345.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2022/11/06/2022-11-6-2/"><img class="prev-cover" data-lazy-src="/image/752857.jpg" data-original="/image/704369.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">20221162</div></div></a></div><div class="next-post pull-right"><a href="/2022/11/04/2022-11-6/"><img class="next-cover" data-lazy-src="/image/752857.jpg" data-original="/image/599136.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">汇编入门&lt;一&gt;</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span> 相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2022/11/03/2022-11-3-2/" title="numpy入门<二>"><img class="cover" data-lazy-src="/image/752857.jpg" data-original="/image/1023213.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-11-03</div><div class="title">numpy入门<二></div></div></a></div><div><a href="/2022/11/02/2022-11-3/" title="numpy入门<一>"><img class="cover" data-lazy-src="/image/752857.jpg" data-original="/image/599136.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-11-02</div><div class="title">numpy入门<一></div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-info-avatar is-center"><img class="avatar-img" data-lazy-src="/image/752857.jpg" data-original="/image/1061286.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">wellorbetter</div><div class="author-info__description">努力学习魔法，希望有一天会收到霍格沃兹的录取通知书 = =</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">9</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">8</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/wellorbetter"><i class="fab fa-github"></i><span>一起学习魔法吧！</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/wellorbetter" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:1419919418@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">今天认真学习魔法了吗？</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E6%95%B0marker"><span class="toc-number">1.</span> <span class="toc-text">参数marker</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%BC%E5%BC%8F%E5%AD%97%E7%AC%A6%E4%B8%B2fmt"><span class="toc-number">2.</span> <span class="toc-text">格式字符串fmt</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#marksize"><span class="toc-number">3.</span> <span class="toc-text">marksize</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#markeredgecolor"><span class="toc-number">4.</span> <span class="toc-text">markeredgecolor</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#markerfacecolor"><span class="toc-number">5.</span> <span class="toc-text">markerfacecolor</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#linestyle"><span class="toc-number">6.</span> <span class="toc-text">linestyle</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#color"><span class="toc-number">7.</span> <span class="toc-text">color</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#linewidth"><span class="toc-number">8.</span> <span class="toc-text">linewidth</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%98%E5%88%B6%E5%A4%9A%E6%9D%A1%E7%BA%BF"><span class="toc-number">9.</span> <span class="toc-text">绘制多条线</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%87%E7%AD%BE%E5%92%8C%E6%A0%87%E9%A2%98"><span class="toc-number">10.</span> <span class="toc-text">标签和标题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#xlabel-%E5%92%8Cylabel"><span class="toc-number">10.1.</span> <span class="toc-text">xlabel()和ylabel()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#title"><span class="toc-number">10.2.</span> <span class="toc-text">title()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%82%E6%95%B0fontdict-%E7%BB%99%E6%A0%87%E9%A2%98%E5%92%8C%E6%A0%87%E7%AD%BE%E8%AE%BE%E7%BD%AE%E6%A0%B7%E5%BC%8F"><span class="toc-number">10.3.</span> <span class="toc-text">参数fontdict 给标题和标签设置样式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#loc%E5%8F%82%E6%95%B0%E7%A1%AE%E5%AE%9Atitle%E7%9A%84%E4%BD%8D%E7%BD%AE"><span class="toc-number">10.4.</span> <span class="toc-text">loc参数确定title的位置</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BD%91%E6%A0%BC%E7%BA%BF"><span class="toc-number">11.</span> <span class="toc-text">网格线</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#plt-grid-%E6%96%B9%E6%B3%95%E6%B7%BB%E5%8A%A0%E7%BD%91%E6%A0%BC%E7%BA%BF"><span class="toc-number">11.1.</span> <span class="toc-text">plt.grid()方法添加网格线</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8C%87%E5%AE%9A%E8%A6%81%E6%98%BE%E7%A4%BA%E7%9A%84%E7%BD%91%E6%A0%BC%E7%BA%BF%E7%9A%84%E8%BD%B4%E5%90%91"><span class="toc-number">11.2.</span> <span class="toc-text">指定要显示的网格线的轴向</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%99%E7%BD%91%E6%A0%BC%E7%BA%BF%E8%AE%BE%E7%BD%AE%E6%A0%B7%E5%BC%8F"><span class="toc-number">11.3.</span> <span class="toc-text">给网格线设置样式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%90%E5%9B%BE"><span class="toc-number">12.</span> <span class="toc-text">子图</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#subplot-%E6%94%BE%E5%A4%9A%E5%BC%A0%E5%9B%BE"><span class="toc-number">12.1.</span> <span class="toc-text">subplot()放多张图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%87%E9%A2%98"><span class="toc-number">12.2.</span> <span class="toc-text">标题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%A3%E7%82%B9%E5%9B%BE"><span class="toc-number">13.</span> <span class="toc-text">散点图</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%A8scatter-%E5%88%9B%E9%80%A0%E4%B8%80%E4%B8%AA%E6%95%A3%E7%82%B9%E5%9B%BE"><span class="toc-number">13.1.</span> <span class="toc-text">用scatter()创造一个散点图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#color%E5%8F%82%E6%95%B0-%E7%BC%A9%E5%86%99c"><span class="toc-number">13.2.</span> <span class="toc-text">color参数(缩写c)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#colirmap"><span class="toc-number">13.3.</span> <span class="toc-text">colirmap</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%A7%E5%B0%8F"><span class="toc-number">13.4.</span> <span class="toc-text">大小</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%8F%E6%98%8E%E5%BA%A6"><span class="toc-number">13.5.</span> <span class="toc-text">透明度</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2022/11/28/2022-11-28/" title="devc++中文乱码问题"><img data-lazy-src="/image/752857.jpg" data-original="/image/695560.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="devc++中文乱码问题"/></a><div class="content"><a class="title" href="/2022/11/28/2022-11-28/" title="devc++中文乱码问题">devc++中文乱码问题</a><time datetime="2022-11-28T15:30:02.000Z" title="发表于 2022-11-28 23:30:02">2022-11-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/11/06/2022-11-6-2/" title="20221162"><img data-lazy-src="/image/752857.jpg" data-original="/image/704369.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="20221162"/></a><div class="content"><a class="title" href="/2022/11/06/2022-11-6-2/" title="20221162">20221162</a><time datetime="2022-11-06T07:56:52.000Z" title="发表于 2022-11-06 15:56:52">2022-11-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/11/04/2022-11-4-1/" title="matplotlib入门&lt;一&gt;"><img data-lazy-src="/image/752857.jpg" data-original="/image/673345.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="matplotlib入门&lt;一&gt;"/></a><div class="content"><a class="title" href="/2022/11/04/2022-11-4-1/" title="matplotlib入门&lt;一&gt;">matplotlib入门&lt;一&gt;</a><time datetime="2022-11-04T14:32:28.000Z" title="发表于 2022-11-04 22:32:28">2022-11-04</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/11/04/2022-11-6/" title="汇编入门&lt;一&gt;"><img data-lazy-src="/image/752857.jpg" data-original="/image/599136.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="汇编入门&lt;一&gt;"/></a><div class="content"><a class="title" href="/2022/11/04/2022-11-6/" title="汇编入门&lt;一&gt;">汇编入门&lt;一&gt;</a><time datetime="2022-11-04T14:32:28.000Z" title="发表于 2022-11-04 22:32:28">2022-11-04</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/11/03/2022-11-3-3/" title="层次分析法"><img data-lazy-src="/image/752857.jpg" data-original="/image/695560.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="层次分析法"/></a><div class="content"><a class="title" href="/2022/11/03/2022-11-3-3/" title="层次分析法">层次分析法</a><time datetime="2022-11-03T14:39:18.000Z" title="发表于 2022-11-03 22:39:18">2022-11-03</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('/image/673345.jpg')"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By wellorbetter</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="to_comment" type="button" title="直达评论" onclick="FixedCommentBtn();"><i class="fas fa-comments"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="/js/search/local-search.js"></script><script>var preloader = {
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">wellorbetter</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://wellorbetter.github.io/2022/11/04/2022-11-4-1/">http://wellorbetter.github.io/2022/11/04/2022-11-4-1/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://wellorbetter.github.io" target="_blank">wellorbetter's blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/python/">python</a><a class="post-meta__tags" href="/tags/matplotlib/">matplotlib</a></div><div class="post_share"><div class="social-share" data-image="/image/746013.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2022/11/06/2022-11-6-2/"><img class="prev-cover" data-lazy-src="/image/752857.jpg" data-original="/image/695560.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">20221162</div></div></a></div><div class="next-post pull-right"><a href="/2022/11/04/2022-11-6/"><img class="next-cover" data-lazy-src="/image/752857.jpg" data-original="/image/673345.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">汇编入门&lt;一&gt;</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span> 相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2022/11/03/2022-11-3-2/" title="numpy入门<二>"><img class="cover" data-lazy-src="/image/752857.jpg" data-original="/image/704369.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-11-03</div><div class="title">numpy入门<二></div></div></a></div><div><a href="/2022/11/02/2022-11-3/" title="numpy入门<一>"><img class="cover" data-lazy-src="/image/752857.jpg" data-original="/image/704369.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-11-02</div><div class="title">numpy入门<一></div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-info-avatar is-center"><img class="avatar-img" data-lazy-src="/image/752857.jpg" data-original="/image/1061286.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">wellorbetter</div><div class="author-info__description">努力学习魔法，希望有一天会收到霍格沃兹的录取通知书 = =</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">9</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">8</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/wellorbetter"><i class="fab fa-github"></i><span>一起学习魔法吧！</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/wellorbetter" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:1419919418@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">今天认真学习魔法了吗？</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E6%95%B0marker"><span class="toc-number">1.</span> <span class="toc-text">参数marker</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%BC%E5%BC%8F%E5%AD%97%E7%AC%A6%E4%B8%B2fmt"><span class="toc-number">2.</span> <span class="toc-text">格式字符串fmt</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#marksize"><span class="toc-number">3.</span> <span class="toc-text">marksize</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#markeredgecolor"><span class="toc-number">4.</span> <span class="toc-text">markeredgecolor</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#markerfacecolor"><span class="toc-number">5.</span> <span class="toc-text">markerfacecolor</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#linestyle"><span class="toc-number">6.</span> <span class="toc-text">linestyle</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#color"><span class="toc-number">7.</span> <span class="toc-text">color</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#linewidth"><span class="toc-number">8.</span> <span class="toc-text">linewidth</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%98%E5%88%B6%E5%A4%9A%E6%9D%A1%E7%BA%BF"><span class="toc-number">9.</span> <span class="toc-text">绘制多条线</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%87%E7%AD%BE%E5%92%8C%E6%A0%87%E9%A2%98"><span class="toc-number">10.</span> <span class="toc-text">标签和标题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#xlabel-%E5%92%8Cylabel"><span class="toc-number">10.1.</span> <span class="toc-text">xlabel()和ylabel()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#title"><span class="toc-number">10.2.</span> <span class="toc-text">title()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%82%E6%95%B0fontdict-%E7%BB%99%E6%A0%87%E9%A2%98%E5%92%8C%E6%A0%87%E7%AD%BE%E8%AE%BE%E7%BD%AE%E6%A0%B7%E5%BC%8F"><span class="toc-number">10.3.</span> <span class="toc-text">参数fontdict 给标题和标签设置样式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#loc%E5%8F%82%E6%95%B0%E7%A1%AE%E5%AE%9Atitle%E7%9A%84%E4%BD%8D%E7%BD%AE"><span class="toc-number">10.4.</span> <span class="toc-text">loc参数确定title的位置</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BD%91%E6%A0%BC%E7%BA%BF"><span class="toc-number">11.</span> <span class="toc-text">网格线</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#plt-grid-%E6%96%B9%E6%B3%95%E6%B7%BB%E5%8A%A0%E7%BD%91%E6%A0%BC%E7%BA%BF"><span class="toc-number">11.1.</span> <span class="toc-text">plt.grid()方法添加网格线</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8C%87%E5%AE%9A%E8%A6%81%E6%98%BE%E7%A4%BA%E7%9A%84%E7%BD%91%E6%A0%BC%E7%BA%BF%E7%9A%84%E8%BD%B4%E5%90%91"><span class="toc-number">11.2.</span> <span class="toc-text">指定要显示的网格线的轴向</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%99%E7%BD%91%E6%A0%BC%E7%BA%BF%E8%AE%BE%E7%BD%AE%E6%A0%B7%E5%BC%8F"><span class="toc-number">11.3.</span> <span class="toc-text">给网格线设置样式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%90%E5%9B%BE"><span class="toc-number">12.</span> <span class="toc-text">子图</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#subplot-%E6%94%BE%E5%A4%9A%E5%BC%A0%E5%9B%BE"><span class="toc-number">12.1.</span> <span class="toc-text">subplot()放多张图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%87%E9%A2%98"><span class="toc-number">12.2.</span> <span class="toc-text">标题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%A3%E7%82%B9%E5%9B%BE"><span class="toc-number">13.</span> <span class="toc-text">散点图</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%A8scatter-%E5%88%9B%E9%80%A0%E4%B8%80%E4%B8%AA%E6%95%A3%E7%82%B9%E5%9B%BE"><span class="toc-number">13.1.</span> <span class="toc-text">用scatter()创造一个散点图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#color%E5%8F%82%E6%95%B0-%E7%BC%A9%E5%86%99c"><span class="toc-number">13.2.</span> <span class="toc-text">color参数(缩写c)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#colirmap"><span class="toc-number">13.3.</span> <span class="toc-text">colirmap</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%A7%E5%B0%8F"><span class="toc-number">13.4.</span> <span class="toc-text">大小</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%8F%E6%98%8E%E5%BA%A6"><span class="toc-number">13.5.</span> <span class="toc-text">透明度</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2022/11/29/2022-11-29/" title="devc++中文乱码问题"><img data-lazy-src="/image/752857.jpg" data-original="/image/1023213.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="devc++中文乱码问题"/></a><div class="content"><a class="title" href="/2022/11/29/2022-11-29/" title="devc++中文乱码问题">devc++中文乱码问题</a><time datetime="2022-11-28T19:16:58.000Z" title="发表于 2022-11-29 03:16:58">2022-11-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/11/06/2022-11-6-2/" title="20221162"><img data-lazy-src="/image/752857.jpg" data-original="/image/695560.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="20221162"/></a><div class="content"><a class="title" href="/2022/11/06/2022-11-6-2/" title="20221162">20221162</a><time datetime="2022-11-06T07:56:52.000Z" title="发表于 2022-11-06 15:56:52">2022-11-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/11/04/2022-11-4-1/" title="matplotlib入门&lt;一&gt;"><img data-lazy-src="/image/752857.jpg" data-original="/image/746013.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="matplotlib入门&lt;一&gt;"/></a><div class="content"><a class="title" href="/2022/11/04/2022-11-4-1/" title="matplotlib入门&lt;一&gt;">matplotlib入门&lt;一&gt;</a><time datetime="2022-11-04T14:32:28.000Z" title="发表于 2022-11-04 22:32:28">2022-11-04</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/11/04/2022-11-6/" title="汇编入门&lt;一&gt;"><img data-lazy-src="/image/752857.jpg" data-original="/image/673345.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="汇编入门&lt;一&gt;"/></a><div class="content"><a class="title" href="/2022/11/04/2022-11-6/" title="汇编入门&lt;一&gt;">汇编入门&lt;一&gt;</a><time datetime="2022-11-04T14:32:28.000Z" title="发表于 2022-11-04 22:32:28">2022-11-04</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/11/03/2022-11-3-3/" title="层次分析法"><img data-lazy-src="/image/752857.jpg" data-original="/image/752857.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="层次分析法"/></a><div class="content"><a class="title" href="/2022/11/03/2022-11-3-3/" title="层次分析法">层次分析法</a><time datetime="2022-11-03T14:39:18.000Z" title="发表于 2022-11-03 22:39:18">2022-11-03</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('/image/746013.jpg')"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By wellorbetter</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="to_comment" type="button" title="直达评论" onclick="FixedCommentBtn();"><i class="fas fa-comments"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="/js/search/local-search.js"></script><script>var preloader = {
   endLoading: () => {
     document.body.style.overflow = 'auto';
     document.getElementById('loading-box').classList.add("loaded")

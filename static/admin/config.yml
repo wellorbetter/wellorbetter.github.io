@@ -1,7 +1,7 @@
 backend:
   name: github
-  repo: wellorbetter/my-blog
-  branch: main
+  repo: wellorbetter/wellorbetter.github.io
+  branch: hugo
 
 media_folder: static/images
 public_folder: /images
@@ -9,7 +9,7 @@ public_folder: /images
 collections:
   - name: posts
     label: 文章
-    folder: content/posts
+    folder: content/post
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:

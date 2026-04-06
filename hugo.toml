@@ -2,7 +2,7 @@ baseURL = "https://wellorbetter.github.io"
 languageCode = "zh-CN"
 title = "wellorbetter's blog"
 theme = "PaperMod"
-defaultContentLanguage = "zh"
+defaultContentLanguage = "zh-cn"
 hasCJKLanguage = true
 paginate = 10
 
@@ -16,11 +16,18 @@ paginate = 10
   ShowBreadCrumbs = true
   ShowCodeCopyButtons = true
   ShowToc = true
+  ShowFullTextinRSS = true
+  profileMode.enabled = true
+  profileMode.title = "wellorbetter"
+  profileMode.subtitle = "随手记录"
+  profileMode.imageUrl = "/image/769455.jpg"
+  profileMode.imageWidth = 120
+  profileMode.imageHeight = 120
 
 [menu]
   [[menu.main]]
     name = "文章"
-    url = "/posts/"
+    url = "/post/"
     weight = 1
   [[menu.main]]
     name = "归档"

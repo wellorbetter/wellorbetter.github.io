@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>有符号数、无符号数的拓展与转化 on wellorbetter's blog</title><link>https://wellorbetter.github.io/tags/%E6%9C%89%E7%AC%A6%E5%8F%B7%E6%95%B0%E6%97%A0%E7%AC%A6%E5%8F%B7%E6%95%B0%E7%9A%84%E6%8B%93%E5%B1%95%E4%B8%8E%E8%BD%AC%E5%8C%96/</link><description>Recent content in 有符号数、无符号数的拓展与转化 on wellorbetter's blog</description><generator>Hugo</generator><language>zh-CN</language><lastBuildDate>Wed, 02 Nov 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://wellorbetter.github.io/tags/%E6%9C%89%E7%AC%A6%E5%8F%B7%E6%95%B0%E6%97%A0%E7%AC%A6%E5%8F%B7%E6%95%B0%E7%9A%84%E6%8B%93%E5%B1%95%E4%B8%8E%E8%BD%AC%E5%8C%96/index.xml" rel="self" type="application/rss+xml"/><item><title>2022_11_2_计算机系统基础散题</title><link>https://wellorbetter.github.io/post/2022-11-02-2022_11_2_%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E5%9F%BA%E7%A1%80%E6%95%A3%E9%A2%98/</link><pubDate>Wed, 02 Nov 2022 00:00:00 +0000</pubDate><guid>https://wellorbetter.github.io/post/2022-11-02-2022_11_2_%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E5%9F%BA%E7%A1%80%E6%95%A3%E9%A2%98/</guid><description>&lt;h4 id="深入理解计算机系统题目"&gt;深入理解计算机系统题目：&lt;/h4&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;arc_t *sp; // 使用typedef声明的数据类型
+dest_t *dp;
+我们想使用适当的数据传送指令来实现下面的操作
+*dp = (dest_t) *sp;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;假设 sp 和 dp 的值分别存储在寄存器 %rdi 和 %rsi 中。对于表中的每个表项，给出实现指定数据传送的两条指令。其中第一条指令应该从内存中读数，做适当的转换，并设置寄存器 %rax 的适当部分。然后，第二条指令要把 %rax 的适当部分写到内存。在这两种情况中，寄存器的部分可以是 %rax、%eax、%ax 或 %al，两者可以互不相同。&lt;/p&gt;</description><content:encoded><![CDATA[<h4 id="深入理解计算机系统题目">深入理解计算机系统题目：</h4>
+<pre tabindex="0"><code>arc_t *sp; // 使用typedef声明的数据类型  
+dest_t *dp;  
+我们想使用适当的数据传送指令来实现下面的操作  
+*dp = (dest_t) *sp;  
+</code></pre><p>假设 sp 和 dp 的值分别存储在寄存器 %rdi 和 %rsi 中。对于表中的每个表项，给出实现指定数据传送的两条指令。其中第一条指令应该从内存中读数，做适当的转换，并设置寄存器 %rax 的适当部分。然后，第二条指令要把 %rax 的适当部分写到内存。在这两种情况中，寄存器的部分可以是 %rax、%eax、%ax 或 %al，两者可以互不相同。</p>
+<p>记住，当执行强制类型转换既涉及大小变化又涉及 C 语言中符号变化时，操作应该先改变大小。</p>
+<table>
+  <thead>
+      <tr>
+          <th><strong>src_t</strong></th>
+          <th><strong>dest_t</strong></th>
+          <th><strong>指令</strong></th>
+          <th><strong>解释</strong></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>long</td>
+          <td>long</td>
+          <td>movq (%rdi), %rax</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>movq %rax, (%rsi)</td>
+          <td>long是八个字节，也就是四个双字，所以用q</td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>char</td>
+          <td>int</td>
+          <td>movsbl (%rdi), %eax</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>movl %eax, (%rsi)</td>
+          <td>char转化成int需要进行字节长度拓展，而且char是有符号的，有符号拓展成有符号类型时，需要进行符号拓展</td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>char</td>
+          <td>unsigned</td>
+          <td>movsbl (%rdi), %eax</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>movl %eax, (%rsi)</td>
+          <td>char有符号数拓展成无符号型类型的数据时，需要注意，先进行符号拓展，然后转化成无符号数时，只是解释发生改变，机器数并不变</td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>unsigned char</td>
+          <td>long</td>
+          <td>movzbl (%rdi), %eax</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>movq %rax, (%rsi)</td>
+          <td>无符号数进行零拓展</td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>int</td>
+          <td>char</td>
+          <td>movl (%rdi), %edx</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>movb %al, (%rsi)</td>
+          <td>有符号数截断</td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>unsigned</td>
+          <td>unsigned char</td>
+          <td>movl (%rdi), %al</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>movb %al, (%rsi)</td>
+          <td>截断是直接截断，机器数都是一样的，有无符号只是解释不同</td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>char</td>
+          <td>short</td>
+          <td>movsbw (%rdi), %ax movw %ax, (%rsi)</td>
+          <td>符号拓展</td>
+      </tr>
+  </tbody>
+</table>
+]]></content:encoded></item></channel></rss>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>计算机系统基础 on wellorbetter's blog</title><link>https://wellorbetter.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E5%9F%BA%E7%A1%80/</link><description>Recent content in 计算机系统基础 on wellorbetter's blog</description><generator>Hugo</generator><language>zh-CN</language><lastBuildDate>Sun, 06 Nov 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://wellorbetter.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E5%9F%BA%E7%A1%80/index.xml" rel="self" type="application/rss+xml"/><item><title>20221162</title><link>https://wellorbetter.github.io/post/2022-11-06-20221162/</link><pubDate>Sun, 06 Nov 2022 00:00:00 +0000</pubDate><guid>https://wellorbetter.github.io/post/2022-11-06-20221162/</guid><description>&lt;h1 id="一些散的知识点但是比较容易忘的"&gt;一些散的知识点但是比较容易忘的&lt;/h1&gt;
+&lt;h2 id="不同进制数之间的转化-涉及小数"&gt;不同进制数之间的转化 涉及小数&lt;/h2&gt;
+&lt;p&gt;整数部分 除基取余，上右下左&lt;br&gt;
+小数部分 乘基取整，上左下右&lt;br&gt;
+$$&lt;br&gt;
+(835.63)_{10} = (1503.50243)_8&lt;br&gt;
+$$&lt;br&gt;
+简单来说，就是整数部分用短除号一直除到结果为0，所有的余数从下往上，拿到的就是对应的值，也就是下面的在右边，上边的在左边。而小数部分，每一次都需要取出小数部分，乘以基，得到的数列在右边，然后接着取小数乘，往后循环，最后拿出列在右边的数的整数部分，使用与整数相反的排列顺序。&lt;/p&gt;</description><content:encoded><![CDATA[<h1 id="一些散的知识点但是比较容易忘的">一些散的知识点但是比较容易忘的</h1>
+<h2 id="不同进制数之间的转化-涉及小数">不同进制数之间的转化 涉及小数</h2>
+<p>整数部分 除基取余，上右下左<br>
+小数部分 乘基取整，上左下右<br>
+$$<br>
+(835.63)_{10} = (1503.50243)_8<br>
+$$<br>
+简单来说，就是整数部分用短除号一直除到结果为0，所有的余数从下往上，拿到的就是对应的值，也就是下面的在右边，上边的在左边。而小数部分，每一次都需要取出小数部分，乘以基，得到的数列在右边，然后接着取小数乘，往后循环，最后拿出列在右边的数的整数部分，使用与整数相反的排列顺序。</p>
+<h2 id="浮点数表示-ieee753标准">浮点数表示 IEEE753标准</h2>
+<h3 id="小数点-尾数-基-阶码">小数点 尾数 基 阶码</h3>
+<p>1位符号位，8位阶码(移码表示：bias=2的n次方-1)，23位尾数（前面有一个默认的1），意思是尾数算出的小数要加上1再进行运算</p>
+<h3 id="非规格化数">非规格化数</h3>
+<p>阶码全是0 尾数不为0</p>
+<h3 id="无穷">无穷</h3>
+<p>阶码全1 尾数全0</p>
+<h3 id="非数">非数</h3>
+<p>阶码全1 尾数不为0</p>
+<h3 id="一个数有多种表示形式">一个数有多种表示形式</h3>
+<p>$$<br>
+规格化形式：1.0 \times 10^{-9}（唯一）<br>
+$$<br>
+$$<br>
+非规格化形式：0.1 \times 10^{-8}, 10.0 \times 10^{-10}<br>
+$$</p>
+<h3 id="当计算机无法表示计算得到的数时会转化成最近可表示数">当计算机无法表示计算得到的数时，会转化成最近可表示数</h3>
+<h2 id="数据宽度">数据宽度</h2>
+<h3 id="字长">字长</h3>
+<p>数据通路的宽度，等于CPU内部总线的宽度、运算器的位数、通用寄存器的宽度(这些部件宽度一样)</p>
+<h3 id="字">字</h3>
+<p>表示被处理信息的单位，用来度量数据类型的宽度。</p>
+<h2 id="大端-小端">大端 小端</h2>
+<p>大端：MSB(最高有效字节)所在的地址是数的地址<br>
+小端：LSB(最低有效字节)所在的地址是数的地址</p>
+]]></content:encoded></item></channel></rss>

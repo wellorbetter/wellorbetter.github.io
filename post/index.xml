@@ -1,0 +1,1082 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Posts on wellorbetter's blog</title><link>https://wellorbetter.github.io/post/</link><description>Recent content in Posts on wellorbetter's blog</description><generator>Hugo</generator><language>zh-CN</language><lastBuildDate>Mon, 28 Nov 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://wellorbetter.github.io/post/index.xml" rel="self" type="application/rss+xml"/><item><title>devc++中文乱码问题</title><link>https://wellorbetter.github.io/post/2022-11-28-devc-%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98/</link><pubDate>Mon, 28 Nov 2022 00:00:00 +0000</pubDate><guid>https://wellorbetter.github.io/post/2022-11-28-devc-%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98/</guid><description>&lt;h2 id="解决devc中文乱码问题"&gt;解决devc++中文乱码问题&lt;/h2&gt;
+&lt;h4 id="详细图解"&gt;详细图解&lt;/h4&gt;
+&lt;p&gt;&lt;img alt="step1" loading="lazy" src="https://wellorbetter.github.io/2022-11-29%5Cstep1.png"&gt;&lt;br&gt;
+&lt;img alt="step2" loading="lazy" src="https://wellorbetter.github.io/2022-11-29%5Cstep2.png"&gt;&lt;/p&gt;
+&lt;p&gt;也许你需要试一试ansi、gbk或者unicode&lt;br&gt;
+&lt;code&gt;tips:&lt;/code&gt;我后来又经历过主页面是乱码的情况，然后是通过取消勾选，重启一下就好了（就是进去dev的主页面，到处都是棍斤拷）&lt;br&gt;
+&lt;img alt="step3" loading="lazy" src="https://wellorbetter.github.io/2022-11-29%5Cstep5.png"&gt;&lt;br&gt;
+&lt;img alt="step3" loading="lazy" src="https://wellorbetter.github.io/2022-11-29%5Cstep6.png"&gt;&lt;br&gt;
+点取消，然后重启&lt;br&gt;
+&lt;img alt="step3" loading="lazy" src="https://wellorbetter.github.io/2022-11-29%5Cstep7.png"&gt;&lt;br&gt;
+&lt;img alt="step3" loading="lazy" src="https://wellorbetter.github.io/2022-11-29%5Cstep8.png"&gt;&lt;/p&gt;</description><content:encoded><![CDATA[<h2 id="解决devc中文乱码问题">解决devc++中文乱码问题</h2>
+<h4 id="详细图解">详细图解</h4>
+<p><img alt="step1" loading="lazy" src="/2022-11-29%5Cstep1.png"><br>
+<img alt="step2" loading="lazy" src="/2022-11-29%5Cstep2.png"></p>
+<p>也许你需要试一试ansi、gbk或者unicode<br>
+<code>tips:</code>我后来又经历过主页面是乱码的情况，然后是通过取消勾选，重启一下就好了（就是进去dev的主页面，到处都是棍斤拷）<br>
+<img alt="step3" loading="lazy" src="/2022-11-29%5Cstep5.png"><br>
+<img alt="step3" loading="lazy" src="/2022-11-29%5Cstep6.png"><br>
+点取消，然后重启<br>
+<img alt="step3" loading="lazy" src="/2022-11-29%5Cstep7.png"><br>
+<img alt="step3" loading="lazy" src="/2022-11-29%5Cstep8.png"></p>
+<p>然后，就又乱码了<br>
+然后我就把utf-8改成了gbk，然后现在又好了，只是字体没以前那么纤细了</p>
+<p><img alt="step3" loading="lazy" src="/2022-11-29%5Cstep3.png"><br>
+也许会会弹出这个，但是无论你选哪个，最后输出仍然会是中文<br>
+<img alt="step4" loading="lazy" src="/2022-11-29%5Cstep4.png"></p>
+<p>over~</p>
+]]></content:encoded></item><item><title>20221162</title><link>https://wellorbetter.github.io/post/2022-11-06-20221162/</link><pubDate>Sun, 06 Nov 2022 00:00:00 +0000</pubDate><guid>https://wellorbetter.github.io/post/2022-11-06-20221162/</guid><description>&lt;h1 id="一些散的知识点但是比较容易忘的"&gt;一些散的知识点但是比较容易忘的&lt;/h1&gt;
+&lt;h2 id="不同进制数之间的转化-涉及小数"&gt;不同进制数之间的转化 涉及小数&lt;/h2&gt;
+&lt;p&gt;整数部分 除基取余，上右下左&lt;br&gt;
+小数部分 乘基取整，上左下右&lt;br&gt;
+$$&lt;br&gt;
+(835.63)_{10} = (1503.50243)_8&lt;br&gt;
+$$&lt;br&gt;
+简单来说，就是整数部分用短除号一直除到结果为0，所有的余数从下往上，拿到的就是对应的值，也就是下面的在右边，上边的在左边。而小数部分，每一次都需要取出小数部分，乘以基，得到的数列在右边，然后接着取小数乘，往后循环，最后拿出列在右边的数的整数部分，使用与整数相反的排列顺序。&lt;/p&gt;</description><content:encoded><![CDATA[<h1 id="一些散的知识点但是比较容易忘的">一些散的知识点但是比较容易忘的</h1>
+<h2 id="不同进制数之间的转化-涉及小数">不同进制数之间的转化 涉及小数</h2>
+<p>整数部分 除基取余，上右下左<br>
+小数部分 乘基取整，上左下右<br>
+$$<br>
+(835.63)_{10} = (1503.50243)_8<br>
+$$<br>
+简单来说，就是整数部分用短除号一直除到结果为0，所有的余数从下往上，拿到的就是对应的值，也就是下面的在右边，上边的在左边。而小数部分，每一次都需要取出小数部分，乘以基，得到的数列在右边，然后接着取小数乘，往后循环，最后拿出列在右边的数的整数部分，使用与整数相反的排列顺序。</p>
+<h2 id="浮点数表示-ieee753标准">浮点数表示 IEEE753标准</h2>
+<h3 id="小数点-尾数-基-阶码">小数点 尾数 基 阶码</h3>
+<p>1位符号位，8位阶码(移码表示：bias=2的n次方-1)，23位尾数（前面有一个默认的1），意思是尾数算出的小数要加上1再进行运算</p>
+<h3 id="非规格化数">非规格化数</h3>
+<p>阶码全是0 尾数不为0</p>
+<h3 id="无穷">无穷</h3>
+<p>阶码全1 尾数全0</p>
+<h3 id="非数">非数</h3>
+<p>阶码全1 尾数不为0</p>
+<h3 id="一个数有多种表示形式">一个数有多种表示形式</h3>
+<p>$$<br>
+规格化形式：1.0 \times 10^{-9}（唯一）<br>
+$$<br>
+$$<br>
+非规格化形式：0.1 \times 10^{-8}, 10.0 \times 10^{-10}<br>
+$$</p>
+<h3 id="当计算机无法表示计算得到的数时会转化成最近可表示数">当计算机无法表示计算得到的数时，会转化成最近可表示数</h3>
+<h2 id="数据宽度">数据宽度</h2>
+<h3 id="字长">字长</h3>
+<p>数据通路的宽度，等于CPU内部总线的宽度、运算器的位数、通用寄存器的宽度(这些部件宽度一样)</p>
+<h3 id="字">字</h3>
+<p>表示被处理信息的单位，用来度量数据类型的宽度。</p>
+<h2 id="大端-小端">大端 小端</h2>
+<p>大端：MSB(最高有效字节)所在的地址是数的地址<br>
+小端：LSB(最低有效字节)所在的地址是数的地址</p>
+]]></content:encoded></item><item><title>matplotlib入门&lt;一&gt;</title><link>https://wellorbetter.github.io/post/2022-11-04-matplotlib%E5%85%A5%E9%97%A8%E4%B8%80/</link><pubDate>Fri, 04 Nov 2022 00:00:00 +0000</pubDate><guid>https://wellorbetter.github.io/post/2022-11-04-matplotlib%E5%85%A5%E9%97%A8%E4%B8%80/</guid><description>&lt;p&gt;#matplotlib入门&lt;/p&gt;
+&lt;p&gt;##x轴和y轴&lt;/p&gt;
+&lt;p&gt;matplotlib比较难写，我们一般缩写成plt。用plot()方法进行绘制图像，第一个参数表示x轴，第二个参数表示y轴&lt;/p&gt;</description><content:encoded><![CDATA[<p>#matplotlib入门</p>
+<p>##x轴和y轴</p>
+<p>matplotlib比较难写，我们一般缩写成plt。用plot()方法进行绘制图像，第一个参数表示x轴，第二个参数表示y轴</p>
+<pre tabindex="0"><code>xpoints = np.array([1, 8])  
+ypoints = np.array([3, 10])  
+plt.plot(xpoints, ypoints)  
+plt.show()  
+</code></pre><p><img alt="img" loading="lazy" src="https://www.w3schools.com/python/img_matplotlib_plotting1.png"></p>
+<p>画多个点(有连线)</p>
+<pre tabindex="0"><code>xpoints = np.array([1, 2, 6, 8])  
+ypoints = np.array([3, 8, 1, 10])  
+plt.plot(xpoints, ypoints)  
+plt.show()  
+</code></pre><p><img alt="img" loading="lazy" src="https://www.w3schools.com/python/img_matplotlib_plotting2.png"></p>
+<p><code>tips:</code>这里的x轴是有默认值的，如果你没有传入x轴的参数，默认是从0开始增长，到传入y轴的参数个数-1</p>
+<pre tabindex="0"><code>ypoints = np.array([3, 8, 1, 10, 5, 7])  
+plt.plot(ypoints)  
+plt.show()  
+</code></pre><p><img alt="img" loading="lazy" src="https://www.w3schools.com/python/img_matplotlib_plotting4.png"></p>
+<h2 id="参数marker">参数marker</h2>
+<p>marker用指定的标记来强调每个点</p>
+<p>marker=’o’，对应的坐标会变成实心小圆点</p>
+<pre tabindex="0"><code>ypoints = np.array([3, 8, 1, 10])  
+plt.plot(ypoints, marker = &#39;o&#39;)  
+plt.show()  
+</code></pre><p><img alt="img" loading="lazy" src="https://www.w3schools.com/python/img_matplotlib_marker_o.png"></p>
+<table>
+  <thead>
+      <tr>
+          <th>marker</th>
+          <th>图像</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>‘o’</td>
+          <td>实心原点</td>
+      </tr>
+      <tr>
+          <td>‘*’</td>
+          <td>*</td>
+      </tr>
+      <tr>
+          <td>‘.’</td>
+          <td>.(小点)</td>
+      </tr>
+      <tr>
+          <td>‘,’</td>
+          <td>像素(我看不到)</td>
+      </tr>
+      <tr>
+          <td>‘x’</td>
+          <td>X</td>
+      </tr>
+      <tr>
+          <td>‘X’</td>
+          <td>X (粗的)</td>
+      </tr>
+      <tr>
+          <td>‘+’</td>
+          <td>+</td>
+      </tr>
+      <tr>
+          <td>‘P’</td>
+          <td>+(粗的)</td>
+      </tr>
+      <tr>
+          <td>‘s’</td>
+          <td>实心正方形</td>
+      </tr>
+      <tr>
+          <td>‘D’</td>
+          <td>斜方棱形</td>
+      </tr>
+      <tr>
+          <td>‘d’</td>
+          <td>斜棱形(窄一点)</td>
+      </tr>
+      <tr>
+          <td>‘p’</td>
+          <td>五边形</td>
+      </tr>
+      <tr>
+          <td>‘H’</td>
+          <td>六边形(平的)</td>
+      </tr>
+      <tr>
+          <td>‘h’</td>
+          <td>六边形(竖着的，尖朝上)</td>
+      </tr>
+      <tr>
+          <td>‘v’</td>
+          <td>倒三角</td>
+      </tr>
+      <tr>
+          <td>‘^’</td>
+          <td>正三角</td>
+      </tr>
+      <tr>
+          <td>&lt;’</td>
+          <td>三角(尖朝左)</td>
+      </tr>
+      <tr>
+          <td>‘&gt;’</td>
+          <td>三角(尖朝右)</td>
+      </tr>
+      <tr>
+          <td>‘1’</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>‘2’</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>‘3’</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>‘4’</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>‘</td>
+          <td>’</td>
+      </tr>
+      <tr>
+          <td>‘_’</td>
+          <td>_</td>
+      </tr>
+  </tbody>
+</table>
+<h2 id="格式字符串fmt">格式字符串fmt</h2>
+<p>也可以使用快捷字符串符号参数来指定标记。</p>
+<p>该参数也被称为fmt，并使用以下语法编写:</p>
+<p><code>*marker*|*line*|*color*</code></p>
+<table>
+  <thead>
+      <tr>
+          <th>线</th>
+          <th>形状</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>‘-‘</td>
+          <td>实线</td>
+      </tr>
+      <tr>
+          <td>‘:’</td>
+          <td>点虚线</td>
+      </tr>
+      <tr>
+          <td>‘–’</td>
+          <td>线虚线</td>
+      </tr>
+      <tr>
+          <td>‘-.’</td>
+          <td>点线交错虚线</td>
+      </tr>
+  </tbody>
+</table>
+<p>如果不指定颜色，默认是蓝色</p>
+<p>如果不指定线的形状，就没有线</p>
+<p>如果不指明点的形状，就没有点</p>
+<table>
+  <thead>
+      <tr>
+          <th>颜色对应字符</th>
+          <th>颜色</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>‘r’</td>
+          <td>红色</td>
+      </tr>
+      <tr>
+          <td>‘g’</td>
+          <td>绿色</td>
+      </tr>
+      <tr>
+          <td>‘b’</td>
+          <td>蓝色</td>
+      </tr>
+      <tr>
+          <td>‘c’</td>
+          <td>青色(Cyan)</td>
+      </tr>
+      <tr>
+          <td>‘m’</td>
+          <td>洋红色(Magenta)</td>
+      </tr>
+      <tr>
+          <td>‘y’</td>
+          <td>黄色</td>
+      </tr>
+      <tr>
+          <td>‘k’</td>
+          <td>黑色</td>
+      </tr>
+      <tr>
+          <td>‘w’</td>
+          <td>白色</td>
+      </tr>
+  </tbody>
+</table>
+<h2 id="marksize">marksize</h2>
+<p>指定点的大小，参数为marksize，或者缩写成ms</p>
+<pre tabindex="0"><code>ypoints = np.array([3, 8, 1, 10])  
+plt.plot(ypoints, marker = &#39;o&#39;, ms = 20)  
+plt.show()  
+</code></pre><p><img alt="img" loading="lazy" src="https://www.w3schools.com/python/img_matplotlib_marker_o_20.png"></p>
+<h2 id="markeredgecolor">markeredgecolor</h2>
+<p>markeredgecolor设置点的边缘的颜色，可以缩写成mec</p>
+<pre tabindex="0"><code>ypoints = np.array([3, 8, 1, 10])  
+plt.plot(ypoints, marker = &#39;o&#39;, ms = 20, mec = &#39;r&#39;)  
+plt.show()  
+</code></pre><p><img alt="img" loading="lazy" src="https://www.w3schools.com/python/img_matplotlib_marker_o_mec.png"></p>
+<h2 id="markerfacecolor">markerfacecolor</h2>
+<p>markerfacecolor设置点的里面的颜色，可以缩写成mfc</p>
+<pre tabindex="0"><code>ypoints = np.array([3, 8, 1, 10])  
+plt.plot(ypoints, marker = &#39;o&#39;, ms = 20, mfc = &#39;r&#39;)  
+plt.show()  
+</code></pre><p><img alt="img" loading="lazy" src="https://www.w3schools.com/python/img_matplotlib_marker_o_mfc.png"></p>
+<pre tabindex="0"><code>ypoints = np.array([3, 8, 1, 10])  
+plt.plot(ypoints, marker = &#39;o&#39;, ms = 20, mec = &#39;r&#39;, mfc = &#39;r&#39;)  
+plt.show()  
+</code></pre><p><img alt="img" loading="lazy" src="https://www.w3schools.com/python/img_matplotlib_marker_o_mec_mfc.png"></p>
+<p>这个mec和mfc可以用十六进制表示颜色，也可以用一些颜色的名字指定</p>
+<pre tabindex="0"><code>plt.plot(ypoints, marker = &#39;o&#39;, ms = 20, mec = &#39;#4CAF50&#39;, mfc = &#39;#4CAF50&#39;)  
+plt.plot(ypoints, marker = &#39;o&#39;, ms = 20, mec = &#39;hotpink&#39;, mfc = &#39;hotpink&#39;)  
+</code></pre><h2 id="linestyle">linestyle</h2>
+<p>linestyle指定线的格式，实际上用的最多的还是上面的fmt(方便)，缩写成ls</p>
+<table>
+  <thead>
+      <tr>
+          <th>形状</th>
+          <th>参数</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>‘solid’ (default)</td>
+          <td>‘-‘</td>
+      </tr>
+      <tr>
+          <td>‘dotted’</td>
+          <td>‘:’</td>
+      </tr>
+      <tr>
+          <td>‘dashed’</td>
+          <td>‘–’</td>
+      </tr>
+      <tr>
+          <td>‘dashdot’</td>
+          <td>‘-.’</td>
+      </tr>
+      <tr>
+          <td>‘None’</td>
+          <td>‘’ or ‘ ‘</td>
+      </tr>
+  </tbody>
+</table>
+<p>实际上和上边的fmt提到的一样</p>
+<h2 id="color">color</h2>
+<p>color设置线的颜色，和fmt里面的c一样</p>
+<pre tabindex="0"><code>plt.plot(ypoints, c = &#39;hotpink&#39;)  
+</code></pre><h2 id="linewidth">linewidth</h2>
+<p>设置线的宽度，fmt里面好像没有这个</p>
+<p>缩写成lw</p>
+<pre tabindex="0"><code>ypoints = np.array([3, 8, 1, 10])  
+plt.plot(ypoints, linewidth = &#39;20.5&#39;)  
+plt.show()  
+</code></pre><p><img alt="img" loading="lazy" src="https://www.w3schools.com/python/img_matplotlib_line_lw.png"></p>
+<h2 id="绘制多条线">绘制多条线</h2>
+<p>你可以通过简单地添加更多的plot .plot()函数来绘制任意多的线</p>
+<pre tabindex="0"><code>y1 = np.array([3, 8, 1, 10])  
+y2 = np.array([6, 2, 7, 11])  
+plt.plot(y1)  
+plt.plot(y2)  
+plt.show()  
+</code></pre><p><img alt="img" loading="lazy" src="https://www.w3schools.com/python/img_matplotlib_line_two.png"></p>
+<p>还可以通过在相同的plt.plot()函数中为每条直线添加x轴和y轴的点来绘制多条直线</p>
+<pre tabindex="0"><code>y1 = np.array([3, 8, 1, 10])  
+y2 = np.array([6, 2, 7, 11])  
+plt.plot(y1)  
+plt.plot(y2)  
+plt.show()  # 我们只指定y轴上的点，这意味着x轴上的点得到默认值(0,1,2,3)  
+</code></pre><p>x和y值成对出现</p>
+<pre tabindex="0"><code>x1 = np.array([0, 1, 2, 3])  
+y1 = np.array([3, 8, 1, 10])  
+x2 = np.array([0, 1, 2, 3])  
+y2 = np.array([6, 2, 7, 11])  
+plt.plot(x1, y1, x2, y2)  
+plt.show()  
+</code></pre><p><img alt="img" loading="lazy" src="https://www.w3schools.com/python/img_matplotlib_line_two.png"></p>
+<h2 id="标签和标题">标签和标题</h2>
+<h3 id="xlabel和ylabel">xlabel()和ylabel()</h3>
+<pre tabindex="0"><code>x = np.array([80, 85, 90, 95, 100, 105, 110, 115, 120, 125])  
+y = np.array([240, 250, 260, 270, 280, 290, 300, 310, 320, 330])  
+plt.plot(x, y)  
+plt.xlabel(&#34;Average Pulse&#34;)  
+plt.ylabel(&#34;Calorie Burnage&#34;)  
+plt.show()  
+</code></pre><p><img alt="img" loading="lazy" src="https://www.w3schools.com/python/img_matplotlib_labels.png"></p>
+<h3 id="title">title()</h3>
+<p>标题，写在最上面</p>
+<pre tabindex="0"><code>x = np.array([80, 85, 90, 95, 100, 105, 110, 115, 120, 125])  
+y = np.array([240, 250, 260, 270, 280, 290, 300, 310, 320, 330])  
+plt.plot(x, y)  
+plt.title(&#34;Sports Watch Data&#34;)  
+plt.xlabel(&#34;Average Pulse&#34;)  
+plt.ylabel(&#34;Calorie Burnage&#34;)  
+plt.show()  
+</code></pre><p><img alt="img" loading="lazy" src="https://www.w3schools.com/python/img_matplotlib_title.png"></p>
+<h3 id="参数fontdict-给标题和标签设置样式">参数fontdict 给标题和标签设置样式</h3>
+<p>这个fontdict拿到的实参格式，就是css格式</p>
+<pre tabindex="0"><code>x = np.array([80, 85, 90, 95, 100, 105, 110, 115, 120, 125])  
+y = np.array([240, 250, 260, 270, 280, 290, 300, 310, 320, 330])  
+font1 = {&#39;family&#39;:&#39;serif&#39;,&#39;color&#39;:&#39;blue&#39;,&#39;size&#39;:20}  
+font2 = {&#39;family&#39;:&#39;serif&#39;,&#39;color&#39;:&#39;darkred&#39;,&#39;size&#39;:15}  
+plt.title(&#34;Sports Watch Data&#34;, fontdict = font1)  
+plt.xlabel(&#34;Average Pulse&#34;, fontdict = font2)  
+plt.ylabel(&#34;Calorie Burnage&#34;, fontdict = font2)  
+plt.plot(x, y)  
+plt.show()  
+</code></pre><p><img alt="img" loading="lazy" src="https://www.w3schools.com/python/img_matplotlib_title_fontdict.png"></p>
+<h3 id="loc参数确定title的位置">loc参数确定title的位置</h3>
+<p>可选：left、right、center(默认)</p>
+<pre tabindex="0"><code>x = np.array([80, 85, 90, 95, 100, 105, 110, 115, 120, 125])  
+y = np.array([240, 250, 260, 270, 280, 290, 300, 310, 320, 330])  
+plt.title(&#34;Sports Watch Data&#34;, loc = &#39;left&#39;)  
+plt.xlabel(&#34;Average Pulse&#34;)  
+plt.ylabel(&#34;Calorie Burnage&#34;)  
+plt.plot(x, y)  
+plt.show()  
+</code></pre><p><img alt="img" loading="lazy" src="https://www.w3schools.com/python/img_matplotlib_title_loc.png"></p>
+<h2 id="网格线">网格线</h2>
+<h3 id="pltgrid方法添加网格线">plt.grid()方法添加网格线</h3>
+<pre tabindex="0"><code>x = np.array([80, 85, 90, 95, 100, 105, 110, 115, 120, 125])  
+y = np.array([240, 250, 260, 270, 280, 290, 300, 310, 320, 330])  
+plt.title(&#34;Sports Watch Data&#34;)  
+plt.xlabel(&#34;Average Pulse&#34;)  
+plt.ylabel(&#34;Calorie Burnage&#34;)  
+plt.plot(x, y)  
+plt.grid()  
+plt.show()  
+</code></pre><p><img alt="img" loading="lazy" src="https://www.w3schools.com/python/img_matplotlib_grid.png"></p>
+<h3 id="指定要显示的网格线的轴向">指定要显示的网格线的轴向</h3>
+<p>grid()里面的参数axis表示显示的是x轴还是y轴还是都显示 x、y、both</p>
+<pre tabindex="0"><code>x = np.array([80, 85, 90, 95, 100, 105, 110, 115, 120, 125])  
+y = np.array([240, 250, 260, 270, 280, 290, 300, 310, 320, 330])  
+plt.title(&#34;Sports Watch Data&#34;)  
+plt.xlabel(&#34;Average Pulse&#34;)  
+plt.ylabel(&#34;Calorie Burnage&#34;)  
+plt.plot(x, y)  
+plt.grid(axis = &#39;x&#39;)  
+plt.show()  
+</code></pre><p><img alt="img" loading="lazy" src="https://www.w3schools.com/python/img_matplotlib_grid_axisx.png"></p>
+<pre tabindex="0"><code>plt.grid(axis = &#39;y&#39;)  
+</code></pre><p><img alt="img" loading="lazy" src="https://www.w3schools.com/python/img_matplotlib_grid_axisy.png"></p>
+<h3 id="给网格线设置样式">给网格线设置样式</h3>
+<p>你也可以设置网格的线条属性，像这样:grid(color = ‘color’， linestyle = ‘linestyle’， linewidth = number)</p>
+<pre tabindex="0"><code>x = np.array([80, 85, 90, 95, 100, 105, 110, 115, 120, 125])  
+y = np.array([240, 250, 260, 270, 280, 290, 300, 310, 320, 330])  
+plt.title(&#34;Sports Watch Data&#34;)  
+plt.xlabel(&#34;Average Pulse&#34;)  
+plt.ylabel(&#34;Calorie Burnage&#34;)  
+plt.plot(x, y)  
+plt.grid(color = &#39;green&#39;, linestyle = &#39;--&#39;, linewidth = 0.5)  
+plt.show()  
+</code></pre><p><img alt="img" loading="lazy" src="https://www.w3schools.com/python/img_matplotlib_grid_kwargs.png"></p>
+<h2 id="子图">子图</h2>
+<h3 id="subplot放多张图">subplot()放多张图</h3>
+<p>plt.subplot(a, b, c) 这个视图被分成了a行b列，均匀切割，并且切换当前这个图到第c个图(一共a*b个)</p>
+<pre tabindex="0"><code>#plot 1:  
+x = np.array([0, 1, 2, 3])  
+y = np.array([3, 8, 1, 10])  
+plt.subplot(2, 1, 1)  
+plt.plot(x,y)  
+#plot 2:  
+x = np.array([0, 1, 2, 3])  
+y = np.array([10, 20, 30, 40])  
+plt.subplot(2, 1, 2)  
+plt.plot(x,y)  
+plt.show()  
+</code></pre><p><img alt="img" loading="lazy" src="https://www.w3schools.com/python/img_matplotlib_subplots2.png"></p>
+<pre tabindex="0"><code>x = np.array([0, 1, 2, 3])  
+y = np.array([3, 8, 1, 10])  
+plt.subplot(2, 3, 1)  
+plt.plot(x,y)  
+x = np.array([0, 1, 2, 3])  
+y = np.array([10, 20, 30, 40])  
+plt.subplot(2, 3, 2)  
+plt.plot(x,y)  
+x = np.array([0, 1, 2, 3])  
+y = np.array([3, 8, 1, 10])  
+plt.subplot(2, 3, 3)  
+plt.plot(x,y)  
+x = np.array([0, 1, 2, 3])  
+y = np.array([10, 20, 30, 40])  
+plt.subplot(2, 3, 4)  
+plt.plot(x,y)  
+x = np.array([0, 1, 2, 3])  
+y = np.array([3, 8, 1, 10])  
+plt.subplot(2, 3, 5)  
+plt.plot(x,y)  
+x = np.array([0, 1, 2, 3])  
+y = np.array([10, 20, 30, 40])  
+plt.subplot(2, 3, 6)  
+plt.plot(x,y)  
+plt.show()  
+</code></pre><p><img alt="img" loading="lazy" src="https://www.w3schools.com/python/img_matplotlib_subplots3.png"></p>
+<h3 id="标题">标题</h3>
+<p><code>tips:</code>每个子图都可以加标题</p>
+<pre tabindex="0"><code>#plot 1:  
+x = np.array([0, 1, 2, 3])  
+y = np.array([3, 8, 1, 10])  
+plt.subplot(1, 2, 1)  
+plt.plot(x,y)  
+plt.title(&#34;SALES&#34;)  
+#plot 2:  
+x = np.array([0, 1, 2, 3])  
+y = np.array([10, 20, 30, 40])  
+plt.subplot(1, 2, 2)  
+plt.plot(x,y)  
+plt.title(&#34;INCOME&#34;)  
+plt.show()  
+</code></pre><p>如果用了subplot的话，总的图还可以用suptitle()来添加一个大标题</p>
+<pre tabindex="0"><code>#plot 1:  
+x = np.array([0, 1, 2, 3])  
+y = np.array([3, 8, 1, 10])  
+plt.subplot(1, 2, 1)  
+plt.plot(x,y)  
+plt.title(&#34;SALES&#34;)  
+#plot 2:  
+x = np.array([0, 1, 2, 3])  
+y = np.array([10, 20, 30, 40])  
+plt.subplot(1, 2, 2)  
+plt.plot(x,y)  
+plt.title(&#34;INCOME&#34;)  
+plt.show()  
+</code></pre><p><img alt="img" loading="lazy" src="https://www.w3schools.com/python/img_matplotlib_subplots5.png"></p>
+<h2 id="散点图">散点图</h2>
+<h3 id="用scatter创造一个散点图">用scatter()创造一个散点图</h3>
+<pre tabindex="0"><code>#day one, the age and speed of 13 cars:  
+x = np.array([5,7,8,7,2,17,2,9,4,11,12,9,6])  
+y = np.array([99,86,87,88,111,86,103,87,94,78,77,85,86])  
+plt.scatter(x, y)  
+#day two, the age and speed of 15 cars:  
+x = np.array([2,2,8,1,15,8,12,9,7,3,11,4,7,14,12])  
+y = np.array([100,105,84,105,90,99,90,95,94,100,79,112,91,80,85])  
+plt.scatter(x, y)  
+plt.show()  
+</code></pre><p><img alt="img" loading="lazy" src="https://www.w3schools.com/python/img_matplotlib_scatter_compare.png"></p>
+<p>操作基本上和plot是一样的，实际上我感觉plot把那个线的参数设置成空，然后把点的参数设置成o，就等于这个散点图了</p>
+<h3 id="color参数缩写c">color参数(缩写c)</h3>
+<p>基本上类似</p>
+<pre tabindex="0"><code>plt.scatter(x, y, color = &#39;hotpink&#39;)  
+plt.scatter(x, y, color = &#39;#88c999&#39;)  
+</code></pre><p><img alt="img" loading="lazy" src="https://www.w3schools.com/python/img_matplotlib_scatter_color.png"></p>
+<p>你甚至可以通过使用一个颜色数组作为c参数的值来为每个点设置特定的颜色</p>
+<pre tabindex="0"><code>x = np.array([5,7,8,7,2,17,2,9,4,11,12,9,6])  
+y = np.array([99,86,87,88,111,86,103,87,94,78,77,85,86])  
+colors = np.array([&#34;red&#34;,&#34;green&#34;,&#34;blue&#34;,&#34;yellow&#34;,&#34;pink&#34;,&#34;black&#34;,&#34;orange&#34;,&#34;purple&#34;,&#34;beige&#34;,&#34;brown&#34;,&#34;gray&#34;,&#34;cyan&#34;,&#34;magenta&#34;])  
+plt.scatter(x, y, c=colors)  
+plt.show()  
+</code></pre><p><img alt="img" loading="lazy" src="https://www.w3schools.com/python/img_matplotlib_scatter_colors2.png"></p>
+<h3 id="colirmap">colirmap</h3>
+<p>Matplotlib模块有许多可用的色彩图。</p>
+<p>colormap就像一个颜色列表，其中每个颜色都有一个从0到100的值。</p>
+<p>下面是一个色彩图的例子:</p>
+<p><img alt="img" loading="lazy" src="https://www.w3schools.com/python/img_colorbar.png"></p>
+<p>这个配色图被称为“viridis”，如你所见，它的范围从0(紫色)到100(黄色)</p>
+<p>你可以用关键字参数cmap和colormap的值来指定色彩图，在本例中是’viridis’，它是Matplotlib中可用的内置色彩图之一。</p>
+<p>另外，你必须创建一个包含值的数组(从0到100)，每个点对应一个散点图中的值</p>
+<pre tabindex="0"><code>x = np.array([5,7,8,7,2,17,2,9,4,11,12,9,6])  
+y = np.array([99,86,87,88,111,86,103,87,94,78,77,85,86])  
+colors = np.array([0, 10, 20, 30, 40, 45, 50, 55, 60, 70, 80, 90, 100])  
+plt.scatter(x, y, c=colors, cmap=&#39;viridis&#39;)  
+plt.show()  
+</code></pre><p><img alt="img" loading="lazy" src="https://www.w3schools.com/python/img_matplotlib_scatter_colormap1.png"></p>
+<p>你可以在绘图中使用plt.colorbar()语句</p>
+<pre tabindex="0"><code>plt.colorbar()  
+</code></pre><p><img alt="img" loading="lazy" src="https://www.w3schools.com/python/img_matplotlib_scatter_colormap2.png"></p>
+<p>我感觉使用色彩图应该就是要和这个colorbar一起用才有意义，不然我也可以通过给每个点指定颜色来实现colormap(复杂一点点)(内置的色彩图有点多，这里不放了，自己查看看吧)</p>
+<h3 id="大小">大小</h3>
+<p>参数s来修改大小</p>
+<pre tabindex="0"><code>sizes = np.array([20,50,100,200,500,1000,60,90,10,300,600,800,75])  
+plt.scatter(x, y, s=sizes)  
+</code></pre><p>和c一样，都可以整花活，给每一个点都整个不同的大小</p>
+<p><img alt="img" loading="lazy" src="https://www.w3schools.com/python/img_matplotlib_scatter_size.png"></p>
+<h3 id="透明度">透明度</h3>
+<p>参数alpha指定透明度 0~1</p>
+<pre tabindex="0"><code>plt.scatter(x, y, s=sizes, alpha=0.5)  
+</code></pre><p><img alt="img" loading="lazy" src="https://www.w3schools.com/python/img_matplotlib_scatter_alpha.png"></p>
+<p>整个花活儿</p>
+<pre tabindex="0"><code>x = np.random.randint(100, size=(100))  
+y = np.random.randint(100, size=(100))  
+colors = np.random.randint(100, size=(100))  
+sizes = 10 * np.random.randint(100, size=(100))  
+plt.scatter(x, y, c=colors, s=sizes, alpha=0.5, cmap=&#39;nipy_spectral&#39;)  
+plt.colorbar()  
+plt.show()  
+</code></pre><p><img alt="img" loading="lazy" src="https://www.w3schools.com/python/img_matplotlib_scatter_combine.png"></p>
+]]></content:encoded></item><item><title>汇编入门&lt;一&gt;</title><link>https://wellorbetter.github.io/post/2022-11-04-%E6%B1%87%E7%BC%96%E5%85%A5%E9%97%A8%E4%B8%80/</link><pubDate>Fri, 04 Nov 2022 00:00:00 +0000</pubDate><guid>https://wellorbetter.github.io/post/2022-11-04-%E6%B1%87%E7%BC%96%E5%85%A5%E9%97%A8%E4%B8%80/</guid><description>&lt;h1 id="汇编语言"&gt;汇编语言&lt;/h1&gt;
+&lt;h2 id="环境"&gt;环境&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;VMWare Workstation Ubuntu14.04 32位操作系统&lt;/strong&gt;&lt;br&gt;
+输入&lt;code&gt;whereis nasm&lt;/code&gt;查看是否下载有nasm，如果没有则会显示&lt;code&gt;nasm:&lt;/code&gt;，有则会显示路径&lt;br&gt;
+如果没有下载，可以通过&lt;code&gt;sudo apt install nasm&lt;/code&gt;下载，此时再输入&lt;code&gt;whereis nasm&lt;/code&gt;就会显示路径了。不知道是原来自带还是这样就好了，输入&lt;code&gt;nasm -version&lt;/code&gt;有具体的版本信息，安装ok。&lt;/p&gt;</description><content:encoded><![CDATA[<h1 id="汇编语言">汇编语言</h1>
+<h2 id="环境">环境</h2>
+<p><strong>VMWare Workstation Ubuntu14.04 32位操作系统</strong><br>
+输入<code>whereis nasm</code>查看是否下载有nasm，如果没有则会显示<code>nasm:</code>，有则会显示路径<br>
+如果没有下载，可以通过<code>sudo apt install nasm</code>下载，此时再输入<code>whereis nasm</code>就会显示路径了。不知道是原来自带还是这样就好了，输入<code>nasm -version</code>有具体的版本信息，安装ok。</p>
+<h2 id="指示符">指示符</h2>
+<p>指示符普遍的应用有：<br>
+1、定义常量<br>
+2、定义用来储存数据的内存<br>
+3、将内存组合成段<br>
+4、有条件地包含源代码<br>
+5、包含其它文件<br>
+NASM代码像C一样要通过一个预处理程序。它拥有许多和C一样的预处理程序。但是，NASM 的预处理的指示符以%开头而不是像C一样以#开头</p>
+<h3 id="equ-指示符">equ 指示符</h3>
+<p>equ指示符可以用来定义一个符号。符号被命名为可以在汇编程序里使用的常量。</p>
+<pre tabindex="0"><code>symbol equ value  
+</code></pre><p>符号的值以后不可以再定义。</p>
+<h3 id="define-指示符">%define 指示符</h3>
+<p>这个指示符和C中的#define非常相似。它通常用来定义一个宏常量，像在C里面一样。</p>
+<pre tabindex="0"><code>%define SIZE 100  
+mov     eax, SIZE  
+</code></pre><p>宏可以被再次定义而且可以定义比简单的常量数值更大的值</p>
+<h3 id="数据指示符">数据指示符</h3>
+<h4 id="第一种方法仅仅为数据定义空间">第一种方法仅仅为数据定义空间</h4>
+<p>第一种方法使用RESX指示符中的一个。X可由字母替代，字母由需要储存的对象的大小来决定。<br>
+字节 B<br>
+字 W<br>
+双字 D<br>
+四字 Q<br>
+十字 T</p>
+<pre tabindex="0"><code>resb 1 ;一个未初始化的字节  
+</code></pre><h4 id="第二种方法同时定义一个初始值使用dx指示符中的一个">第二种方法(同时定义一个初始值)使用DX指示符中的一个</h4>
+<p>X可以由字母替代，字母的值与RESX里的值一样。使用变量来标记内存位置是非常普遍的。变量使得在代码中指向内存位置变得容易</p>
+<pre tabindex="0"><code>example1 db 0 ;字节变量，初始值为0  
+example2 dw 1000  ;字变量，初始值为1000  
+example3 dw 10h/10b ;可以跟其他进制的数字  
+</code></pre><p>单引号和双引号等效<br>
+连续定义的数据存储再连续的内存中</p>
+<pre tabindex="0"><code>db &#39;h&#39;, &#39;i&#39;, 0  ;定义了一个字符串&#34;hi&#34;  
+db &#39;hi&#39;, 0  ;和上面等效  
+</code></pre><p>指示符DD可以用来定义整形和单精度的浮点数常量<br>
+DQ指示符仅仅可以用来定义双精度的数常量</p>
+<p>nasm的times会重复操作数一个指定的次数，对于大的序列而言比较有用</p>
+<pre tabindex="0"><code>times 100 db 0 ;100个值为0的字节  
+</code></pre><h3 id="变量">变量</h3>
+<p>变量可以用来表示代码中的数据，使用方法有两种</p>
+<h4 id="方法一">方法一</h4>
+<p>如果一个变量被调用(不加其他什么东西)，它被解释为数据的地址(或偏移)</p>
+<pre tabindex="0"><code>mov al, L1 ;此时的L1是L1所在的地址  
+</code></pre><h4 id="方法二">方法二</h4>
+<p>如果变量被放置在方括号([])中，它就被解释为在这个地址中的数据</p>
+<pre tabindex="0"><code>mov al, [L1] ;此时表示L1对应地址的数据  
+</code></pre><p>汇编程序并不保持跟踪变量的数据类型</p>
+]]></content:encoded></item><item><title>numpy入门&lt;二&gt;</title><link>https://wellorbetter.github.io/post/2022-11-03-numpy%E5%85%A5%E9%97%A8%E4%BA%8C/</link><pubDate>Thu, 03 Nov 2022 00:00:00 +0000</pubDate><guid>https://wellorbetter.github.io/post/2022-11-03-numpy%E5%85%A5%E9%97%A8%E4%BA%8C/</guid><description>&lt;p&gt;##链接数组&lt;br&gt;
+###1、concatenate((arr1, arr2…), axis)&lt;br&gt;
+前面跟数组组成的元组，后面跟想要链接的维度(即保持其他维度不变，在axis维度上进行合并),默认是0&lt;/p&gt;</description><content:encoded><![CDATA[<p>##链接数组<br>
+###1、concatenate((arr1, arr2…), axis)<br>
+前面跟数组组成的元组，后面跟想要链接的维度(即保持其他维度不变，在axis维度上进行合并),默认是0</p>
+<pre tabindex="0"><code>arr1 = np.array([1, 2, 3])  
+arr2 = np.array([4, 5, 6])  
+arr = np.concatenate((arr1, arr2))  
+print(arr)  
+res:  
+[1 2 3 4 5 6]  
+arr1 = np.array([[1, 2], [3, 4]])  
+arr2 = np.array([[5, 6], [7, 8]])  
+arr = np.concatenate((arr1, arr2), axis=1)  
+print(arr)  
+res:  
+[[1 2 5 6]  
+ [3 4 7 8]]  
+</code></pre><p>###2、stack((arr1, arr2…), axis)<br>
+前面也是跟链接的数组，后面链接的维度，在axis维度上进行链接，axis默认为0，stack堆叠，顾名思义是要在axis维度上进行堆叠，保持其他维度不变，<code>在axis维度上的元素</code>进行堆叠形成一个新的维度，这个堆叠是竖直上的堆叠，也就是待链接的数组竖直放在一起，将元素同一列的整合成一个数组，可能有点抽象，结合一个例子可能好理解一点</p>
+<pre tabindex="0"><code>arr1 = np.array([1, 2, 3])  
+arr2 = np.array([4, 5, 6])  
+arr = np.stack((arr1, arr2), axis=1)  
+print(arr)  
+res:  
+[[1 4]  
+ [2 5]  
+ [3 6]]  
+</code></pre><p>###3、hstack((arr1, arr2…), axis)<br>
+基本上和上面的一样，但是这个堆叠是<code>水平的</code>(即按照第二个维度进行堆叠，axis=1)，而且不会形成新的维度，即将axis=1上的数组求并得到一个新数组放到原来数组的位置上，维度不发生变化</p>
+<pre tabindex="0"><code>arr1 = np.array([[1, 2, 3], [1, 2, 3]])  
+arr2 = np.array([[4, 5, 6], [4, 5, 6]])  
+arr = np.hstack((arr1, arr2))  
+print(arr)  
+res:  
+[[1 2 3 4 5 6]  
+ [1 2 3 4 5 6]]  
+arr1 = np.array([[[1, 2, 3], [1, 2, 3]]])  
+arr2 = np.array([[[4, 5, 6], [4, 5, 6]]])  
+arr = np.hstack((arr1, arr2))  
+print(arr)  
+res:  
+[[[1 2 3]  
+  [1 2 3]  
+  [4 5 6]  
+  [4 5 6]]]  
+</code></pre><p>###4、vstack()<br>
+也是类似的，在axis=0上进行堆叠，即在axis=0上取并，实际上这种可以通过np.concatenate来实现</p>
+<pre tabindex="0"><code>arr1 = np.array([[[1, 2, 3], [1, 2, 3]]])  
+arr2 = np.array([[[4, 5, 6], [4, 5, 6]]])  
+arr = np.vstack((arr1, arr2))  
+print(arr)  
+print(arr1.shape)  
+print(arr.shape)  
+res:  
+[[[1 2 3]  
+  [1 2 3]]  
+ [[4 5 6]  
+  [4 5 6]]]  
+(1, 2, 3)  
+(2, 2, 3)  
+</code></pre><p>###5、dstack()<br>
+也是类似，在第三维上进行堆叠，即在axis=2上取并，如果是一维，就相当于reshape成(1，n，1)再在axis=2上堆叠，如果是二维则是reshape成(n，m，1)再开始堆叠，通过reshape和np.concatenate也可以完成一样的工作，这几种特殊的stack只有dstack有可能会形成新的维度(即传入的数组都是一维或者二维)</p>
+<p>##数组拆分<br>
+###1、array_split(arr，num，axis)<br>
+将一个数组在axis维度上分成num份，默认axis=0(这个如果你在axis上的元素的数量不能平分成num份，会根据元素数量进行微调)</p>
+<pre tabindex="0"><code>arr = np.array([1, 2, 3, 4, 5, 6])  
+newarr = np.array_split(arr, 4)  
+print(newarr)  
+res:  
+[array([1, 2]), array([3, 4]), array([5]), array([6])]  # 返回的是套数组的数组  
+arr = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9], [10, 11, 12], [13, 14, 15], [16, 17, 18]])  
+newarr = np.array_split(arr, 3, axis=1)  
+print(newarr)  
+res:  
+[array([[ 1],  
+       [ 4],  
+       [ 7],  
+       [10],  
+       [13],  
+       [16]]), array([[ 2],  
+       [ 5],  
+       [ 8],  
+       [11],  
+       [14],  
+       [17]]), array([[ 3],  
+       [ 6],  
+       [ 9],  
+       [12],  
+       [15],  
+       [18]])]  
+</code></pre><p>###2、hsplit()、vsplit()、dsplit()<br>
+同样的，有hsplit()对应hstack()(axis=1),vsplit()对应vstack()(axis=0)，dsplit()对应dstack()(axis=2)<br>
+##搜索数组元素<br>
+###1、np.where(condition)<br>
+返回值是一个元组，里面只有一个元素，即满足条件的数组的下标所组成的数组，后面会跟它的类型</p>
+<pre tabindex="0"><code>arr = np.array([1, 2, 3, 4, 5, 4, 4])  
+x = np.where(arr == 4)  
+print(x)  
+res:  
+(array([3, 5, 6], dtype=int64),)  
+arr = np.array([1, 2, 3, 4, 5, 6, 7, 8])  
+x = np.where(arr%2 == 0)  
+print(x)  
+res:  
+(array([1, 3, 5, 7], dtype=int64),)  
+</code></pre><p>2、searchsorted()<br>
+它在数组中执行二分查找，并返回指定值插入位置的索引，以保持搜索顺序。似乎对排好序的数组用处比较大</p>
+<pre tabindex="0"><code>arr = np.array([6, 7, 8, 9])  
+x = np.searchsorted(arr, 7)  
+print(x)  
+res: #应该将数字7插入索引1以保持排序顺序。该方法从左开始搜索，返回第一个索引，即数字7不再大于下一个值的位置。  
+</code></pre><p>默认情况下返回最左边的索引，但我们可以指定side=’right’来返回最右边的索引。</p>
+<pre tabindex="0"><code>arr = np.array([6, 7, 8, 9])  
+x = np.searchsorted(arr, 7, side=&#39;right&#39;)  
+print(x)  
+res:  
+2  # 数字7应该插入索引2以保持排序顺序。该方法从右边开始搜索，返回第一个索引，即数字7不再小于下一个值。  
+</code></pre><p>而且，这个方法还可以同时搜索多个值应当插入的位置</p>
+<pre tabindex="0"><code>arr = np.array([1, 3, 5, 7])  
+x = np.searchsorted(arr, [2, 4, 6])  
+print(x)  
+res:  # 返回值是一个数组:[1 2 3]，包含3个索引，其中2、4、6将被插入到原始数组中以保持顺序。  
+[1 2 3]   
+</code></pre><p>##数组排序<br>
+###1、np.sort(arr)<br>
+这个方法返回的是数组的拷贝，改变不会影响原数组</p>
+<pre tabindex="0"><code>arr = np.array([3, 2, 0, 1])  
+print(np.sort(arr))  
+res:  
+[0 1 2 3]  
+</code></pre><p>同样可以对字符串等其他数据类型排序</p>
+<pre tabindex="0"><code>arr = np.array([&#39;banana&#39;, &#39;cherry&#39;, &#39;apple&#39;])  
+print(np.sort(arr))  
+res:  
+[&#39;apple&#39; &#39;banana&#39; &#39;cherry&#39;]  
+arr = np.array([True, False, True])  
+print(np.sort(arr))  
+res:  
+[False  True  True]  
+</code></pre><p>如果是高维的数组，会将最里面的所有’一维数组‘进行排序</p>
+<pre tabindex="0"><code>arr = np.array([[3, 2, 4], [5, 0, 1]])  
+print(np.sort(arr))  
+res:  
+[[2 3 4]  
+ [0 1 5]]  
+</code></pre><p>##过滤数组<br>
+从现有数组中获取一些元素并从中创建一个新数组，这称为过滤。在NumPy中，使用布尔索引列表来过滤数组。<br>
+如果某个索引的值为True，则该元素包含在过滤后的数组中;如果该索引的值为False，则该元素不包含在过滤后的数组中。</p>
+<pre tabindex="0"><code>arr = np.array([41, 42, 43, 44])  
+x = [True, False, True, False]  
+newarr = arr[x]  
+print(newarr)  
+res:  
+[41 43]  
+arr = np.array([41, 42, 43, 44])  
+filter_arr = arr &gt; 42  # 直接创建过滤数组  
+newarr = arr[filter_arr]  
+print(filter_arr)  
+print(newarr)  
+res:  
+[False False  True  True]  
+[43 44]  
+</code></pre>]]></content:encoded></item><item><title>层次分析法</title><link>https://wellorbetter.github.io/post/2022-11-03-%E5%B1%82%E6%AC%A1%E5%88%86%E6%9E%90%E6%B3%95/</link><pubDate>Thu, 03 Nov 2022 00:00:00 +0000</pubDate><guid>https://wellorbetter.github.io/post/2022-11-03-%E5%B1%82%E6%AC%A1%E5%88%86%E6%9E%90%E6%B3%95/</guid><description>&lt;p&gt;##评价类问题&lt;br&gt;
+评价类问题可以用打分解决&lt;/p&gt;</description><content:encoded>&lt;p>##评价类问题&lt;br>
+评价类问题可以用打分解决&lt;/p>
+</content:encoded></item><item><title>2022_11_2_计算机系统基础散题</title><link>https://wellorbetter.github.io/post/2022-11-02-2022_11_2_%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E5%9F%BA%E7%A1%80%E6%95%A3%E9%A2%98/</link><pubDate>Wed, 02 Nov 2022 00:00:00 +0000</pubDate><guid>https://wellorbetter.github.io/post/2022-11-02-2022_11_2_%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E5%9F%BA%E7%A1%80%E6%95%A3%E9%A2%98/</guid><description>&lt;h4 id="深入理解计算机系统题目"&gt;深入理解计算机系统题目：&lt;/h4&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;arc_t *sp; // 使用typedef声明的数据类型
+dest_t *dp;
+我们想使用适当的数据传送指令来实现下面的操作
+*dp = (dest_t) *sp;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;假设 sp 和 dp 的值分别存储在寄存器 %rdi 和 %rsi 中。对于表中的每个表项，给出实现指定数据传送的两条指令。其中第一条指令应该从内存中读数，做适当的转换，并设置寄存器 %rax 的适当部分。然后，第二条指令要把 %rax 的适当部分写到内存。在这两种情况中，寄存器的部分可以是 %rax、%eax、%ax 或 %al，两者可以互不相同。&lt;/p&gt;</description><content:encoded><![CDATA[<h4 id="深入理解计算机系统题目">深入理解计算机系统题目：</h4>
+<pre tabindex="0"><code>arc_t *sp; // 使用typedef声明的数据类型  
+dest_t *dp;  
+我们想使用适当的数据传送指令来实现下面的操作  
+*dp = (dest_t) *sp;  
+</code></pre><p>假设 sp 和 dp 的值分别存储在寄存器 %rdi 和 %rsi 中。对于表中的每个表项，给出实现指定数据传送的两条指令。其中第一条指令应该从内存中读数，做适当的转换，并设置寄存器 %rax 的适当部分。然后，第二条指令要把 %rax 的适当部分写到内存。在这两种情况中，寄存器的部分可以是 %rax、%eax、%ax 或 %al，两者可以互不相同。</p>
+<p>记住，当执行强制类型转换既涉及大小变化又涉及 C 语言中符号变化时，操作应该先改变大小。</p>
+<table>
+  <thead>
+      <tr>
+          <th><strong>src_t</strong></th>
+          <th><strong>dest_t</strong></th>
+          <th><strong>指令</strong></th>
+          <th><strong>解释</strong></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>long</td>
+          <td>long</td>
+          <td>movq (%rdi), %rax</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>movq %rax, (%rsi)</td>
+          <td>long是八个字节，也就是四个双字，所以用q</td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>char</td>
+          <td>int</td>
+          <td>movsbl (%rdi), %eax</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>movl %eax, (%rsi)</td>
+          <td>char转化成int需要进行字节长度拓展，而且char是有符号的，有符号拓展成有符号类型时，需要进行符号拓展</td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>char</td>
+          <td>unsigned</td>
+          <td>movsbl (%rdi), %eax</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>movl %eax, (%rsi)</td>
+          <td>char有符号数拓展成无符号型类型的数据时，需要注意，先进行符号拓展，然后转化成无符号数时，只是解释发生改变，机器数并不变</td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>unsigned char</td>
+          <td>long</td>
+          <td>movzbl (%rdi), %eax</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>movq %rax, (%rsi)</td>
+          <td>无符号数进行零拓展</td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>int</td>
+          <td>char</td>
+          <td>movl (%rdi), %edx</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>movb %al, (%rsi)</td>
+          <td>有符号数截断</td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>unsigned</td>
+          <td>unsigned char</td>
+          <td>movl (%rdi), %al</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>movb %al, (%rsi)</td>
+          <td>截断是直接截断，机器数都是一样的，有无符号只是解释不同</td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>char</td>
+          <td>short</td>
+          <td>movsbw (%rdi), %ax movw %ax, (%rsi)</td>
+          <td>符号拓展</td>
+      </tr>
+  </tbody>
+</table>
+]]></content:encoded></item><item><title>numpy入门&lt;一&gt;</title><link>https://wellorbetter.github.io/post/2022-11-02-numpy%E5%85%A5%E9%97%A8%E4%B8%80/</link><pubDate>Wed, 02 Nov 2022 00:00:00 +0000</pubDate><guid>https://wellorbetter.github.io/post/2022-11-02-numpy%E5%85%A5%E9%97%A8%E4%B8%80/</guid><description>&lt;h1 id="numpy入门"&gt;numpy入门&lt;/h1&gt;
+&lt;h4 id="参考w3cschool-numpy-tutorial基本上就是照着翻译然后加入自己的理解顺便把代码结果附上over"&gt;参考w3cschool numpy tutorial(基本上就是照着翻译，然后加入自己的理解，顺便把代码结果附上，over)&lt;/h4&gt;
+&lt;h4 id="数组"&gt;数组&lt;/h4&gt;
+&lt;p&gt;可以将list tuple直接通过array()转化成ndarray&lt;/p&gt;</description><content:encoded><![CDATA[<h1 id="numpy入门">numpy入门</h1>
+<h4 id="参考w3cschool-numpy-tutorial基本上就是照着翻译然后加入自己的理解顺便把代码结果附上over">参考w3cschool numpy tutorial(基本上就是照着翻译，然后加入自己的理解，顺便把代码结果附上，over)</h4>
+<h4 id="数组">数组</h4>
+<p>可以将list tuple直接通过array()转化成ndarray</p>
+<pre tabindex="0"><code>import numpy as np  
+arr = np.array([1, 2, 3, 4, 5])  // arr = np.array((1, 2, 3, 4, 5))  
+printf(arr)  
+printf(type(arr))  
+</code></pre><p>numpy的数组存在维度，当然python可以通过list嵌套实现，但是并不是真正意义上的数组，肯定没有这个快，而且没有现成的方法</p>
+<p>可以通过x.ndim方法来检查数组的维度</p>
+<p>前面提到可以通过np.array()来转化一个数组，后面可以跟一个参数ndim来显示的指定维度(不显示地指定ndim的参数的话，会根据传入的list..的维度来决定数组的维度)</p>
+<pre tabindex="0"><code>arr = np.array([1, 2, 3, 4], ndmin=5)  
+print(arr)  
+res: [[[[[1 2 3 4]]]]]  
+</code></pre><p>既然都是数组了，那肯定支持下标索引，但是这里的索引有所差异，一般我们的索引都是这样的arr[3][2][1]这样的，但是在numpy里面，需要arr[3,2,1]这样访问。</p>
+<pre tabindex="0"><code>arr = np.array([[1, 2, 3], [4, 5, 6]])  
+print(arr[1, 2])  
+res: 6  
+</code></pre><p>同样支持负数索引</p>
+<pre tabindex="0"><code>arr = np.array([[1, 2, 3], [4, 5, 6]])  
+print(arr[1, -1])  
+res: 6  
+</code></pre><p>同样支持索引，这里表示得到arr下标为1的位置的元素，并拿其从0到1(左闭右开)的元素，形成一个数组</p>
+<pre tabindex="0"><code>arr = np.array([[1, 2, 3], [4, 5, 6]])  
+print(arr[1, 0:1])  
+res: [4]  
+</code></pre><p>后面同样可以跟步长</p>
+<pre tabindex="0"><code>arr = np.array([1, 2, 3, 4, 5, 6, 7])  
+print(arr[::2])  
+res: [1 3 5 7]  
+arr = np.array([[1, 2, 3, 4, 5], [6, 7, 8, 9, 10]])  
+print(arr[1, 1:4])  
+res: [7, 8, 9]  
+</code></pre><p>####数据类型<br>
+#####python的数据类型：字符串，整数，浮点数，布尔数，复数</p>
+<p>#####numpy的数据类型：</p>
+<pre tabindex="0"><code>i - integer  
+b - boolean  
+u - unsigned integer 无符号整型  
+f - float  
+c - complex float 复数浮点数  
+m - timedelta   
+M - datetime 日期时间  
+O - object 对象  
+S - string  
+U - unicode string 采用unicode编码的字符串   
+V - fixed chunk of memory for other type ( void ) void  
+</code></pre><p>可以在np.array()里面显示的调用类型声明，如果声明有误，比如是字符串，后面跟了一个dtype=’i’，就会报错</p>
+<p>i,u,f,S 可以定义大小</p>
+<pre tabindex="0"><code>arr = np.array([1, 2, 3, 4], dtype=&#39;i4&#39;)  #四个字节 一个字节八位  
+print(arr)  
+print(arr.dtype)  
+res: [1 2 3 4]  
+int32  
+</code></pre><p>#####数组类型转化<br>
+通过数组的astype(‘类型’)方法来进行copy</p>
+<pre tabindex="0"><code>arr = np.array([1.1, 2.1, 3.1])  
+newarr = arr.astype(&#39;i&#39;)  
+newarr[0] = 10  
+print(newarr)  
+print(arr)  
+res: [10  2  3]  
+    [1.1 2.1 3.1]  
+</code></pre><p>里面的参数可以写完整一点：int、bool 这样都是可识别的</p>
+<p>#####视图和拷贝的区别<br>
+类似浅拷贝和深拷贝的关系<br>
+view：视图，也就是浅拷贝，修改这个值，会连带修改它的原主人，同样，修改原主人也会影响view，连坐</p>
+<pre tabindex="0"><code>arr = np.array([1, 2, 3, 4, 5])  
+x = arr.view()  
+arr[0] = 42  
+print(arr)  
+print(x)  
+res: [42  2  3  4  5]  
+     [42  2  3  4  5]  
+arr = np.array([1, 2, 3, 4, 5])  
+x = arr.view()  
+x[0] = 31  
+print(arr)  
+print(x)  
+res: [31  2  3  4  5]  
+     [31  2  3  4  5]  
+</code></pre><p>copy: 拷贝，深拷贝，独立的一份</p>
+<p><code>tips</code>：view有一个属性base：原数组，copy没有，修改base就是修改原数组，同样会引起view的改变</p>
+<pre tabindex="0"><code>arr = np.array([1, 2, 3, 4, 5])  
+x = arr.copy()  
+y = arr.view()  
+y[0] = 2  
+print(x.base)  
+print(y.base)  
+print(type(y.base))  
+print(y)  
+y.base[0] = 0  
+print(arr)  
+print(y)  
+</code></pre><p>####shape方法<br>
+前面提到 ndim方法(和ndim一样，后面没有括号，应该是属性，习惯说成方法)，可以拿到数组的维度，这里的shape方法则会返回更加具体，会返回每个维度的在当前维度元素的个数(返回的是元组)</p>
+<pre tabindex="0"><code>arr = np.array([[1, 2, 3, 4], [5, 6, 7, 8]])  
+print(type(arr.shape))  
+print(arr.shape)  
+res: &lt;class &#39;tuple&#39;&gt;  
+     (2, 4)  
+arr = np.array([1, 2, 3, 4], ndmin=5)  
+print(arr)  
+print(&#39;shape of array :&#39;, arr.shape)  
+res: [[[[[1 2 3 4]]]]]  
+     shape of array : (1, 1, 1, 1, 4)  
+</code></pre><p>####reshape方法<br>
+顾名思义就是改变维度，但是reshape需要维度对应，不能随意改变维度，比如一维有十二个元素，满足二维的3 * 4，那么就可以改变，但是不满足就不能改变，比如2 * 5</p>
+<pre tabindex="0"><code>arr = np.array([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12])  
+newarr = arr.reshape(4, 3)  
+print(newarr)  
+res:    
+[[ 1  2  3]  
+ [ 4  5  6]  
+ [ 7  8  9]  
+ [10 11 12]]  
+</code></pre><p>而且reshape返回的是原数组的view，里面有base属性，修改会造成连坐<br>
+<code>tips:</code>可以使用unknown dimension，如果你有某一个维度不知道里面具体有多少元素，那么你可以在reshape里面写一个<code>-1</code>，numpy为为你自动计算(前提是可以算出来)</p>
+<p>如果reshape里面的参数是-1，则会将数组展成一维数组</p>
+<pre tabindex="0"><code>arr = np.array([[1, 2, 3], [4, 5, 6]])  
+newarr = arr.reshape(-1)  
+print(newarr)  
+res:[1 2 3 4 5 6 7 8]  
+</code></pre><p>####数组迭代<br>
+1、经典for循环，拿到的是最外层数组里面的元素(里面的n-1维数组)，可以接着套娃，处理高维数据比较复杂</p>
+<pre tabindex="0"><code>arr = np.array([[[1, 2, 3], [4, 5, 6]], [[7, 8, 9], [10, 11, 12]]])  
+for x in arr:  
+  print(x)  
+res:   
+[[1 2 3]  
+ [4 5 6]]  
+[[ 7  8  9]  
+ [10 11 12]]  
+</code></pre><p>2、np.nditer(arr)迭代每一个元素</p>
+<pre tabindex="0"><code>arr = np.array([[[1, 2], [3, 4]], [[5, 6], [7, 8]]])  
+for x in np.nditer(arr):  
+  print(x)  
+res:  
+</code></pre><p>在这个迭代中，我们可以传一个op_dtypes的参数来修改数组中元素的值的类型，op-&gt;操作,dtypes-&gt;类型,但是呢，并不能直接在数组中操作，规定要再传一个参数，flags=[‘buffered’]表示在一个额外的空间buffer里进行操作，龟腚。</p>
+<pre tabindex="0"><code>arr = np.array([1, 2, 3])  
+for x in np.nditer(arr, flags=[&#39;buffered&#39;], op_dtypes=[&#39;S&#39;]):  
+  print(x)  
+  print(type(x))  
+res:   
+b&#39;1&#39;  
+&lt;class &#39;numpy.ndarray&#39;&gt;  
+b&#39;2&#39;  
+&lt;class &#39;numpy.ndarray&#39;&gt;  
+b&#39;3&#39;  
+&lt;class &#39;numpy.ndarray&#39;&gt;  
+</code></pre><p><code>tips:</code>自python更新到3.0后，dtype类型中’S’被修改为 (byte-)string类型，所以输出含b指的是此字符串类型为byteString类，有点搞</p>
+<p>然后，这个参数arr同样支持切片(包括步长)</p>
+<pre tabindex="0"><code>arr = np.array([[1, 2, 3, 4], [5, 6, 7, 8]])  
+for x in np.nditer(arr[:, ::2]):  
+  print(x)  
+res:   
+</code></pre><p>3、enumerate，python原来自带有一个enumerate，可以返回list、tuple和string的下标和对应元素，同样的，numpy里也有一个ndenumerate，使用方法类似enumerate</p>
+<pre tabindex="0"><code>arr = np.array([1, 2, 3])  
+for idx, x in np.ndenumerate(arr):  
+  print(idx, x)  
+res:  
+(0,) 1  #这个如果不是idx，x，直接是x的话，拿到的是一个tuple  
+(1,) 2  #这里的idx同样是一个tuple  
+(2,) 3  
+arr = np.array([[1, 2, 3, 4], [5, 6, 7, 8]])  
+for idx, x in np.ndenumerate(arr):  
+  print(idx, x)  
+res:  #如果是高维的，同样是挨个遍历  
+(0, 0) 1  
+(0, 1) 2  
+(0, 2) 3  
+(0, 3) 4  
+(1, 0) 5  
+(1, 1) 6  
+(1, 2) 7  
+(1, 3) 8  
+</code></pre><p><code>感觉别人有点盛气凌人，是我的错觉吗，一定要学会控制自己的情绪，一定要抱持冷静客观，喷人是解决不了问题的(可能会爽)QAQ 也许是最近压力太大造成的，好好休息吧</code></p>
+]]></content:encoded></item><item><title>第一篇博客</title><link>https://wellorbetter.github.io/post/2022-10-30-%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/</link><pubDate>Sun, 30 Oct 2022 00:00:00 +0000</pubDate><guid>https://wellorbetter.github.io/post/2022-10-30-%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/</guid><description>&lt;h2 id="第一篇博客"&gt;第一篇博客&lt;/h2&gt;</description><content:encoded>&lt;h2 id="第一篇博客">第一篇博客&lt;/h2>
+</content:encoded></item></channel></rss>

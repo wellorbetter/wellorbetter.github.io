@@ -15,8 +15,12 @@ jobs:
       - name: Checkout hugo branch
         uses: actions/checkout@v4
         with:
-          submodules: true
           fetch-depth: 0
+
+      - name: Setup Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: "1.23"
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v3

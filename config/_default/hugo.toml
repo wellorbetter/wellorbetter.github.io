@@ -1,0 +1,20 @@
+# -- Site Configuration --
+baseURL = "https://wellorbetter.github.io"
+defaultContentLanguage = "zh-cn"
+hasCJKLanguage = true
+enableRobotsTXT = true
+summaryLength = 30
+enableEmoji = true
+
+[pagination]
+  pagerSize = 10
+
+[imaging]
+  anchor = "Center"
+
+[taxonomies]
+  tag = "tags"
+  category = "categories"
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]

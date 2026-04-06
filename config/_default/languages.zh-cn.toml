@@ -1,0 +1,14 @@
+disabled = false
+languageCode = "zh-CN"
+languageName = "中文"
+weight = 1
+title = "wellorbetter's blog"
+
+[author]
+  name = "wellorbetter"
+  image = "image/1061286.jpg"
+  bio = "努力学习魔法，希望有一天会收到霍格沃兹的录取通知书 = ="
+  links = [
+    { github = "https://github.com/wellorbetter" },
+    { email = "mailto:1419919418@qq.com" }
+  ]

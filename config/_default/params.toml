@@ -1,0 +1,57 @@
+colorScheme = "ocean"
+defaultAppearance = "light"
+autoSwitchAppearance = true
+
+enableSearch = true
+enableCodeCopy = true
+
+mainSections = ["post"]
+
+[header]
+  layout = "fixed-fill-blur"
+
+[footer]
+  showCopyright = true
+  showThemeAttribution = false
+  showAppearanceSwitcher = true
+  showScrollToTop = true
+
+[homepage]
+  layout = "profile"
+  showRecent = true
+  showRecentItems = 5
+  showMoreLink = true
+  showMoreLinkDest = "/post/"
+  cardView = true
+
+[article]
+  showDate = true
+  showDateUpdated = false
+  showAuthor = true
+  showReadingTime = true
+  showWordCount = true
+  showTableOfContents = true
+  showBreadcrumbs = true
+  showDraftLabel = true
+  showEdit = false
+  showRelatedContent = true
+  relatedContentLimit = 3
+  showTaxonomies = true
+  showAuthorsBadges = true
+  showPagination = true
+
+[list]
+  showCards = true
+  showBreadcrumbs = true
+  showTableOfContents = false
+  cardView = true
+  groupByYear = true
+
+[sitemap]
+  excludedKinds = []
+
+[taxonomy]
+  showTermCount = true
+
+[term]
+  showTermCount = true

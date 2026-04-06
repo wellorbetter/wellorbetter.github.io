@@ -17,12 +17,31 @@ paginate = 10
   ShowCodeCopyButtons = true
   ShowToc = true
   ShowFullTextinRSS = true
-  profileMode.enabled = true
-  profileMode.title = "wellorbetter"
-  profileMode.subtitle = "随手记录"
-  profileMode.imageUrl = "/image/769455.jpg"
-  profileMode.imageWidth = 120
-  profileMode.imageHeight = 120
+
+  [params.profileMode]
+    enabled = true
+    title = "wellorbetter"
+    subtitle = "努力学习魔法，希望有一天会收到霍格沃兹的录取通知书 = ="
+    imageUrl = "/image/1061286.jpg"
+    imageWidth = 120
+    imageHeight = 120
+    imageTitle = "wellorbetter"
+
+    [[params.profileMode.buttons]]
+      name = "文章"
+      url = "/post/"
+
+    [[params.profileMode.buttons]]
+      name = "归档"
+      url = "/archives/"
+
+[[params.socialIcons]]
+  name = "github"
+  url = "https://github.com/wellorbetter"
+
+[[params.socialIcons]]
+  name = "email"
+  url = "mailto:1419919418@qq.com"
 
 [menu]
   [[menu.main]]

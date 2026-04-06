@@ -1,0 +1,236 @@
+/* ========================================
+   Butterfly 风格定制 for PaperMod
+   主色: #49b1f5 (蓝)  hover: #ff7242 (橙)
+   ======================================== */
+
+:root {
+  --primary: #49b1f5;
+  --primary-hover: #ff7242;
+  --card-shadow: 0 3px 8px 6px rgba(7,17,27,0.06);
+  --card-hover-shadow: 0 3px 8px 6px rgba(7,17,27,0.15);
+}
+
+/* ---- 全局字体 ---- */
+body {
+  font-size: 14px;
+  color: #4c4948;
+}
+
+/* ---- 顶部导航栏 ---- */
+.nav {
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 2px 8px rgba(7,17,27,0.08);
+}
+
+.nav a:hover,
+.logo a:hover {
+  color: var(--primary) !important;
+}
+
+/* ---- 主色链接 ---- */
+.post-content a,
+a:hover {
+  color: var(--primary);
+}
+
+/* ---- 按钮蓝色 ---- */
+.button,
+#theme-toggle,
+.paginav a {
+  transition: all 0.3s ease;
+}
+
+/* ---- 卡片样式（文章列表） ---- */
+.post-entry {
+  border-radius: 8px;
+  box-shadow: var(--card-shadow);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  border: none;
+  background: #fff;
+  padding: 20px 24px;
+  margin-bottom: 16px;
+}
+
+.post-entry:hover {
+  box-shadow: var(--card-hover-shadow);
+  transform: translateY(-3px);
+}
+
+.post-entry .entry-header h2 {
+  font-size: 1.2em;
+  color: #1f2d3d;
+  transition: color 0.2s;
+}
+
+.post-entry:hover .entry-header h2 {
+  color: var(--primary);
+}
+
+/* ---- 首页 Profile 卡片 ---- */
+.profile {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: var(--card-shadow);
+  padding: 32px 24px;
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.profile img {
+  border-radius: 50%;
+  border: 4px solid var(--primary);
+  width: 110px;
+  height: 110px;
+  object-fit: cover;
+}
+
+.profile h1 {
+  font-size: 1.4em;
+  margin: 12px 0 4px;
+  color: #1f2d3d;
+}
+
+.profile .profile-info p {
+  color: #666;
+  font-size: 0.9em;
+}
+
+/* ---- 文章页 ---- */
+.post-header {
+  margin-bottom: 24px;
+}
+
+.post-title {
+  color: #1f2d3d;
+  font-size: 1.8em;
+}
+
+.post-meta {
+  color: #888;
+  font-size: 0.85em;
+}
+
+/* ---- 标签 ---- */
+.post-tags a {
+  background: rgba(73,177,245,0.12);
+  color: var(--primary);
+  border-radius: 4px;
+  padding: 2px 10px;
+  font-size: 0.82em;
+  transition: background 0.2s, color 0.2s;
+}
+
+.post-tags a:hover {
+  background: var(--primary);
+  color: #fff;
+}
+
+/* ---- 目录 TOC ---- */
+.toc {
+  background: #f6f8fa;
+  border-radius: 8px;
+  border-left: 4px solid var(--primary);
+  padding: 16px 20px;
+}
+
+.toc details summary {
+  color: var(--primary);
+  font-weight: bold;
+}
+
+/* ---- 代码块 ---- */
+.post-content pre {
+  border-radius: 8px;
+  box-shadow: var(--card-shadow);
+}
+
+/* ---- 引用块 ---- */
+.post-content blockquote {
+  border-left: 4px solid var(--primary);
+  background: rgba(73,177,245,0.08);
+  color: #6a737d;
+  border-radius: 0 8px 8px 0;
+  padding: 12px 16px;
+}
+
+/* ---- 分割线 ---- */
+hr {
+  border-color: #a4d8fa;
+}
+
+/* ---- 分页 ---- */
+.paginav {
+  border-radius: 8px;
+  box-shadow: var(--card-shadow);
+}
+
+.paginav a:hover {
+  background: var(--primary);
+  color: #fff;
+}
+
+/* ---- 搜索框 ---- */
+#searchbox input {
+  background: #f6f8fa;
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+}
+
+/* ---- 暗色模式适配 ---- */
+.dark {
+  --card-shadow: 0 3px 8px 6px rgba(0,0,0,0.2);
+}
+
+.dark .post-entry {
+  background: #2d333b;
+}
+
+.dark .profile {
+  background: #2d333b;
+}
+
+.dark .toc {
+  background: #2d333b;
+}
+
+/* ---- 顶部进度条 ---- */
+#reading-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary), var(--primary-hover));
+  z-index: 9999;
+  transition: width 0.1s;
+}
+
+/* ---- 返回顶部按钮 ---- */
+#top-link {
+  background: var(--primary);
+  color: #fff;
+  border-radius: 50%;
+  box-shadow: 0 4px 12px rgba(73,177,245,0.4);
+  transition: background 0.2s;
+}
+
+#top-link:hover {
+  background: var(--primary-hover);
+}
+
+/* ---- 归档页时间线 ---- */
+.archive-entry:hover .archive-entry-title {
+  color: var(--primary);
+}
+
+.archive-year {
+  color: var(--primary);
+  font-weight: bold;
+}
+
+/* ---- 响应式微调 ---- */
+@media (max-width: 768px) {
+  .post-entry {
+    padding: 16px;
+  }
+}

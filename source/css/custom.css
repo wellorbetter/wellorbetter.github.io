@@ -1,0 +1,31 @@
+/* heading 彩色样式 */
+#post-body h1 { color: #ef50a8; }
+#post-body h2 { color: #fb7061; }
+#post-body h3 { color: #ffbf00; }
+#post-body h4 { color: #a9e000; }
+#post-body h5 { color: #57c850; }
+#post-body h6 { color: #5ec1e0; }
+
+/* heading 旋转齿轮图标 */
+#post-body h1::before,
+#post-body h2::before,
+#post-body h3::before,
+#post-body h4::before,
+#post-body h5::before,
+#post-body h6::before {
+  display: inline-block;
+  margin-right: 6px;
+  animation: headerIconRotate 4s linear infinite;
+}
+
+#post-body h1::before { content: "⚙"; color: #ef50a8; }
+#post-body h2::before { content: "⚙"; color: #fb7061; }
+#post-body h3::before { content: "⚙"; color: #ffbf00; }
+#post-body h4::before { content: "⚙"; color: #a9e000; }
+#post-body h5::before { content: "⚙"; color: #57c850; }
+#post-body h6::before { content: "⚙"; color: #5ec1e0; }
+
+@keyframes headerIconRotate {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}

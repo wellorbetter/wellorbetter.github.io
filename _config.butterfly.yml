@@ -219,32 +219,8 @@ noticeOutdate:
   message_prev: 本文已超过
   message_next: 天未更新，部分内容可能已过时。
 
-# 自定义CSS（heading彩色动画，还原旧博客风格）
+# 自定义注入
 inject:
   head:
-    - <style>
-      h1 { color:#ef50a8 }
-      h2 { color:#fb7061 }
-      h3 { color:#ffbf00 }
-      h4 { color:#a9e000 }
-      h5 { color:#57c850 }
-      h6 { color:#5ec1e0 }
-      #post-body h1::before,
-      #post-body h2::before,
-      #post-body h3::before,
-      #post-body h4::before,
-      #post-body h5::before,
-      #post-body h6::before {
-        display:inline-block;
-        margin-right:6px;
-        animation:headerIconRotate 4s linear infinite;
-      }
-      #post-body h1::before { content:"⚙"; color:#ef50a8 }
-      #post-body h2::before { content:"⚙"; color:#fb7061 }
-      #post-body h3::before { content:"⚙"; color:#ffbf00 }
-      #post-body h4::before { content:"⚙"; color:#a9e000 }
-      #post-body h5::before { content:"⚙"; color:#57c850 }
-      #post-body h6::before { content:"⚙"; color:#5ec1e0 }
-      @keyframes headerIconRotate { from{transform:rotate(0)} to{transform:rotate(360deg)} }
-      </style>
+    - <link rel="stylesheet" href="/css/custom.css">
   bottom:

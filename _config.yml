@@ -3,10 +3,10 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: 随手记录
-subtitle: ''
-description: '随手记录'
-keywords:
+title: wellorbetter's blog
+subtitle: '随手记录'
+description: '努力学习魔法，希望有一天会收到霍格沃兹的录取通知书'
+keywords: 肥宅
 author: wellorbetter
 language: zh-CN
 timezone: 'Asia/Shanghai'
@@ -96,7 +96,7 @@ ignore:
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: landscape
+theme: butterfly
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment

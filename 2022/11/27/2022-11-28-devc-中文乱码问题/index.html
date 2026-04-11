@@ -4,17 +4,29 @@
   <meta charset="utf-8">
   
   
-  <title>标签: numpy | 随手记录</title>
+  <title>devc++中文乱码问题 | 随手记录</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="随手记录">
-<meta property="og:type" content="website">
-<meta property="og:title" content="随手记录">
-<meta property="og:url" content="https://wellorbetter.github.io/tags/numpy/index.html">
+  <meta name="description" content="解决devc++中文乱码问题详细图解 也许你需要试一试ansi、gbk或者unicodetips:我后来又经历过主页面是乱码的情况，然后是通过取消勾选，重启一下就好了（就是进去dev的主页面，到处都是棍斤拷）点取消，然后重启 然后，就又乱码了然后我就把utf-8改成了gbk，然后现在又好了，只是字体没以前那么纤细了 也许会会弹出这个，但是无论你选哪个，最后输出仍然会是中文 over~">
+<meta property="og:type" content="article">
+<meta property="og:title" content="devc++中文乱码问题">
+<meta property="og:url" content="https://wellorbetter.github.io/2022/11/27/2022-11-28-devc-%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98/index.html">
 <meta property="og:site_name" content="随手记录">
-<meta property="og:description" content="随手记录">
+<meta property="og:description" content="解决devc++中文乱码问题详细图解 也许你需要试一试ansi、gbk或者unicodetips:我后来又经历过主页面是乱码的情况，然后是通过取消勾选，重启一下就好了（就是进去dev的主页面，到处都是棍斤拷）点取消，然后重启 然后，就又乱码了然后我就把utf-8改成了gbk，然后现在又好了，只是字体没以前那么纤细了 也许会会弹出这个，但是无论你选哪个，最后输出仍然会是中文 over~">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://wellorbetter.github.io/img/loading.gif">
+<meta property="og:image" content="https://wellorbetter.github.io/img/loading.gif">
+<meta property="og:image" content="https://wellorbetter.github.io/img/loading.gif">
+<meta property="og:image" content="https://wellorbetter.github.io/img/loading.gif">
+<meta property="og:image" content="https://wellorbetter.github.io/img/loading.gif">
+<meta property="og:image" content="https://wellorbetter.github.io/img/loading.gif">
+<meta property="og:image" content="https://wellorbetter.github.io/img/loading.gif">
+<meta property="og:image" content="https://wellorbetter.github.io/img/loading.gif">
+<meta property="article:published_time" content="2022-11-27T16:00:00.000Z">
+<meta property="article:modified_time" content="2026-04-11T09:25:41.656Z">
 <meta property="article:author" content="wellorbetter">
+<meta property="article:tag" content="“肥宅”">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://wellorbetter.github.io/img/loading.gif">
   
     <link rel="alternate" href="/atom.xml" title="随手记录" type="application/atom+xml">
   
@@ -71,58 +83,68 @@
 </header>
 
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2022" class="archive-year">2022</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2022/11/02/2022-11-03-numpy%E5%85%A5%E9%97%A8%E4%BA%8C/" class="archive-article-date">
-  <time class="dt-published" datetime="2022-11-02T16:00:00.000Z" itemprop="datePublished">11月 3</time>
+        <section id="main"><article id="post-2022-11-28-devc-中文乱码问题" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/11/27/2022-11-28-devc-%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98/" class="article-date">
+  <time class="dt-published" datetime="2022-11-27T16:00:00.000Z" itemprop="datePublished">2022-11-28</time>
 </a>
-      
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/11/02/2022-11-03-numpy%E5%85%A5%E9%97%A8%E4%BA%8C/">numpy入门&lt;二&gt;</a>
+    <h1 class="p-name article-title" itemprop="headline name">
+      devc++中文乱码问题
     </h1>
   
 
-    </header>
-  </div>
-</article>
-  
+      </header>
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2022/11/01/2022-11-02-numpy%E5%85%A5%E9%97%A8%E4%B8%80/" class="archive-article-date">
-  <time class="dt-published" datetime="2022-11-01T16:00:00.000Z" itemprop="datePublished">11月 2</time>
-</a>
+    <div class="e-content article-entry" itemprop="articleBody">
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/11/01/2022-11-02-numpy%E5%85%A5%E9%97%A8%E4%B8%80/">numpy入门&lt;一&gt;</a>
-    </h1>
-  
+        <h2 id="解决devc-中文乱码问题"><a href="#解决devc-中文乱码问题" class="headerlink" title="解决devc++中文乱码问题"></a>解决devc++中文乱码问题</h2><h4 id="详细图解"><a href="#详细图解" class="headerlink" title="详细图解"></a>详细图解</h4><p><img src="/img/loading.gif" alt="step1"><br><img src="/img/loading.gif" alt="step2"></p>
+<p>也许你需要试一试ansi、gbk或者unicode<br><code>tips:</code>我后来又经历过主页面是乱码的情况，然后是通过取消勾选，重启一下就好了（就是进去dev的主页面，到处都是棍斤拷）<br><img src="/img/loading.gif" alt="step3"><br><img src="/img/loading.gif" alt="step3"><br>点取消，然后重启<br><img src="/img/loading.gif" alt="step3"><br><img src="/img/loading.gif" alt="step3"></p>
+<p>然后，就又乱码了<br>然后我就把utf-8改成了gbk，然后现在又好了，只是字体没以前那么纤细了</p>
+<p><img src="/img/loading.gif" alt="step3"><br>也许会会弹出这个，但是无论你选哪个，最后输出仍然会是中文<br><img src="/img/loading.gif" alt="step4"></p>
+<p>over~</p>
 
-    </header>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://wellorbetter.github.io/2022/11/27/2022-11-28-devc-%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98/" data-id="cuidyumWwzENcV7_eJdbcfgF-" data-title="devc++中文乱码问题" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E2%80%9C%E8%82%A5%E5%AE%85%E2%80%9D/" rel="tag">“肥宅”</a></li></ul>
+
+    </footer>
   </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2026/04/11/hello-world/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前一篇</strong>
+      <div class="article-nav-title">
+        
+          Hello World
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/11/05/2022-11-06-20221162/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">后一篇</strong>
+      <div class="article-nav-title">20221162</div>
+    </a>
+  
+</nav>
+
+  
 </article>
-  
-  
-    </div></section>
-  
 
 
 </section>

@@ -4,16 +4,19 @@
   <meta charset="utf-8">
   
   
-  <title>标签: numpy | 随手记录</title>
+  <title>20221162 | 随手记录</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="随手记录">
-<meta property="og:type" content="website">
-<meta property="og:title" content="随手记录">
-<meta property="og:url" content="https://wellorbetter.github.io/tags/numpy/index.html">
+  <meta name="description" content="一些散的知识点但是比较容易忘的不同进制数之间的转化 涉及小数整数部分 除基取余，上右下左小数部分 乘基取整，上左下右$$(835.63)_{10} &#x3D; (1503.50243)_8$$简单来说，就是整数部分用短除号一直除到结果为0，所有的余数从下往上，拿到的就是对应的值，也就是下面的在右边，上边的在左边。而小数部分，每一次都需要取出小数部分，乘以基，得到的数列在右边，然后接着取小数乘，往">
+<meta property="og:type" content="article">
+<meta property="og:title" content="20221162">
+<meta property="og:url" content="https://wellorbetter.github.io/2022/11/05/2022-11-06-20221162/index.html">
 <meta property="og:site_name" content="随手记录">
-<meta property="og:description" content="随手记录">
+<meta property="og:description" content="一些散的知识点但是比较容易忘的不同进制数之间的转化 涉及小数整数部分 除基取余，上右下左小数部分 乘基取整，上左下右$$(835.63)_{10} &#x3D; (1503.50243)_8$$简单来说，就是整数部分用短除号一直除到结果为0，所有的余数从下往上，拿到的就是对应的值，也就是下面的在右边，上边的在左边。而小数部分，每一次都需要取出小数部分，乘以基，得到的数列在右边，然后接着取小数乘，往">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-11-05T16:00:00.000Z">
+<meta property="article:modified_time" content="2026-04-11T09:25:41.656Z">
 <meta property="article:author" content="wellorbetter">
+<meta property="article:tag" content="计算机系统基础">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternate" href="/atom.xml" title="随手记录" type="application/atom+xml">
@@ -71,58 +74,72 @@
 </header>
 
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2022" class="archive-year">2022</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2022/11/02/2022-11-03-numpy%E5%85%A5%E9%97%A8%E4%BA%8C/" class="archive-article-date">
-  <time class="dt-published" datetime="2022-11-02T16:00:00.000Z" itemprop="datePublished">11月 3</time>
+        <section id="main"><article id="post-2022-11-06-20221162" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/11/05/2022-11-06-20221162/" class="article-date">
+  <time class="dt-published" datetime="2022-11-05T16:00:00.000Z" itemprop="datePublished">2022-11-06</time>
 </a>
-      
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/11/02/2022-11-03-numpy%E5%85%A5%E9%97%A8%E4%BA%8C/">numpy入门&lt;二&gt;</a>
+    <h1 class="p-name article-title" itemprop="headline name">
+      20221162
     </h1>
   
 
-    </header>
-  </div>
-</article>
-  
+      </header>
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2022/11/01/2022-11-02-numpy%E5%85%A5%E9%97%A8%E4%B8%80/" class="archive-article-date">
-  <time class="dt-published" datetime="2022-11-01T16:00:00.000Z" itemprop="datePublished">11月 2</time>
-</a>
+    <div class="e-content article-entry" itemprop="articleBody">
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/11/01/2022-11-02-numpy%E5%85%A5%E9%97%A8%E4%B8%80/">numpy入门&lt;一&gt;</a>
-    </h1>
-  
+        <h1 id="一些散的知识点但是比较容易忘的"><a href="#一些散的知识点但是比较容易忘的" class="headerlink" title="一些散的知识点但是比较容易忘的"></a>一些散的知识点但是比较容易忘的</h1><h2 id="不同进制数之间的转化-涉及小数"><a href="#不同进制数之间的转化-涉及小数" class="headerlink" title="不同进制数之间的转化 涉及小数"></a>不同进制数之间的转化 涉及小数</h2><p>整数部分 除基取余，上右下左<br>小数部分 乘基取整，上左下右<br>$$<br>(835.63)_{10} &#x3D; (1503.50243)_8<br>$$<br>简单来说，就是整数部分用短除号一直除到结果为0，所有的余数从下往上，拿到的就是对应的值，也就是下面的在右边，上边的在左边。而小数部分，每一次都需要取出小数部分，乘以基，得到的数列在右边，然后接着取小数乘，往后循环，最后拿出列在右边的数的整数部分，使用与整数相反的排列顺序。</p>
+<h2 id="浮点数表示-IEEE753标准"><a href="#浮点数表示-IEEE753标准" class="headerlink" title="浮点数表示 IEEE753标准"></a>浮点数表示 IEEE753标准</h2><h3 id="小数点-尾数-基-阶码"><a href="#小数点-尾数-基-阶码" class="headerlink" title="小数点 尾数 基 阶码"></a>小数点 尾数 基 阶码</h3><p>1位符号位，8位阶码(移码表示：bias&#x3D;2的n次方-1)，23位尾数（前面有一个默认的1），意思是尾数算出的小数要加上1再进行运算</p>
+<h3 id="非规格化数"><a href="#非规格化数" class="headerlink" title="非规格化数"></a>非规格化数</h3><p>阶码全是0 尾数不为0</p>
+<h3 id="无穷"><a href="#无穷" class="headerlink" title="无穷"></a>无穷</h3><p>阶码全1 尾数全0</p>
+<h3 id="非数"><a href="#非数" class="headerlink" title="非数"></a>非数</h3><p>阶码全1 尾数不为0</p>
+<h3 id="一个数有多种表示形式"><a href="#一个数有多种表示形式" class="headerlink" title="一个数有多种表示形式"></a>一个数有多种表示形式</h3><p>$$<br>规格化形式：1.0 \times 10^{-9}（唯一）<br>$$<br>$$<br>非规格化形式：0.1 \times 10^{-8}, 10.0 \times 10^{-10}<br>$$</p>
+<h3 id="当计算机无法表示计算得到的数时，会转化成最近可表示数"><a href="#当计算机无法表示计算得到的数时，会转化成最近可表示数" class="headerlink" title="当计算机无法表示计算得到的数时，会转化成最近可表示数"></a>当计算机无法表示计算得到的数时，会转化成最近可表示数</h3><h2 id="数据宽度"><a href="#数据宽度" class="headerlink" title="数据宽度"></a>数据宽度</h2><h3 id="字长"><a href="#字长" class="headerlink" title="字长"></a>字长</h3><p>数据通路的宽度，等于CPU内部总线的宽度、运算器的位数、通用寄存器的宽度(这些部件宽度一样)</p>
+<h3 id="字"><a href="#字" class="headerlink" title="字"></a>字</h3><p>表示被处理信息的单位，用来度量数据类型的宽度。</p>
+<h2 id="大端-小端"><a href="#大端-小端" class="headerlink" title="大端 小端"></a>大端 小端</h2><p>大端：MSB(最高有效字节)所在的地址是数的地址<br>小端：LSB(最低有效字节)所在的地址是数的地址</p>
 
-    </header>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://wellorbetter.github.io/2022/11/05/2022-11-06-20221162/" data-id="cuidkeTRdFeQ-_B85Dw9YKwJF" data-title="20221162" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E5%9F%BA%E7%A1%80/" rel="tag">计算机系统基础</a></li></ul>
+
+    </footer>
   </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2022/11/27/2022-11-28-devc-%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前一篇</strong>
+      <div class="article-nav-title">
+        
+          devc++中文乱码问题
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/11/03/2022-11-04-matplotlib%E5%85%A5%E9%97%A8%E4%B8%80/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">后一篇</strong>
+      <div class="article-nav-title">matplotlib入门&lt;一&gt;</div>
+    </a>
+  
+</nav>
+
+  
 </article>
-  
-  
-    </div></section>
-  
 
 
 </section>

@@ -4,16 +4,20 @@
   <meta charset="utf-8">
   
   
-  <title>标签: numpy | 随手记录</title>
+  <title>2022_11_2_计算机系统基础散题 | 随手记录</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="随手记录">
-<meta property="og:type" content="website">
-<meta property="og:title" content="随手记录">
-<meta property="og:url" content="https://wellorbetter.github.io/tags/numpy/index.html">
+  <meta name="description" content="深入理解计算机系统题目：arc_t *sp; &#x2F;&#x2F; 使用typedef声明的数据类型   dest_t *dp;   我们想使用适当的数据传送指令来实现下面的操作   *dp &#x3D; (dest_t) *sp;    假设 sp 和 dp 的值分别存储在寄存器 %rdi 和 %rsi 中。对于表中的每个表项，给出实现指定数据传送的两条指令。其中第一条指令应该从内存中读数，做适当的转换，并设置寄存器 %">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2022_11_2_计算机系统基础散题">
+<meta property="og:url" content="https://wellorbetter.github.io/2022/11/01/2022-11-02-2022_11_2_%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E5%9F%BA%E7%A1%80%E6%95%A3%E9%A2%98/index.html">
 <meta property="og:site_name" content="随手记录">
-<meta property="og:description" content="随手记录">
+<meta property="og:description" content="深入理解计算机系统题目：arc_t *sp; &#x2F;&#x2F; 使用typedef声明的数据类型   dest_t *dp;   我们想使用适当的数据传送指令来实现下面的操作   *dp &#x3D; (dest_t) *sp;    假设 sp 和 dp 的值分别存储在寄存器 %rdi 和 %rsi 中。对于表中的每个表项，给出实现指定数据传送的两条指令。其中第一条指令应该从内存中读数，做适当的转换，并设置寄存器 %">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-11-01T16:00:00.000Z">
+<meta property="article:modified_time" content="2026-04-11T09:25:41.656Z">
 <meta property="article:author" content="wellorbetter">
+<meta property="article:tag" content="有符号数、无符号数的拓展与转化">
+<meta property="article:tag" content="汇编">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternate" href="/atom.xml" title="随手记录" type="application/atom+xml">
@@ -71,58 +75,162 @@
 </header>
 
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2022" class="archive-year">2022</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2022/11/02/2022-11-03-numpy%E5%85%A5%E9%97%A8%E4%BA%8C/" class="archive-article-date">
-  <time class="dt-published" datetime="2022-11-02T16:00:00.000Z" itemprop="datePublished">11月 3</time>
+        <section id="main"><article id="post-2022-11-02-2022_11_2_计算机系统基础散题" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/11/01/2022-11-02-2022_11_2_%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E5%9F%BA%E7%A1%80%E6%95%A3%E9%A2%98/" class="article-date">
+  <time class="dt-published" datetime="2022-11-01T16:00:00.000Z" itemprop="datePublished">2022-11-02</time>
 </a>
-      
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E5%9F%BA%E7%A1%80/">计算机系统基础</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/11/02/2022-11-03-numpy%E5%85%A5%E9%97%A8%E4%BA%8C/">numpy入门&lt;二&gt;</a>
+    <h1 class="p-name article-title" itemprop="headline name">
+      2022_11_2_计算机系统基础散题
     </h1>
   
 
-    </header>
-  </div>
-</article>
-  
+      </header>
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2022/11/01/2022-11-02-numpy%E5%85%A5%E9%97%A8%E4%B8%80/" class="archive-article-date">
-  <time class="dt-published" datetime="2022-11-01T16:00:00.000Z" itemprop="datePublished">11月 2</time>
-</a>
+    <div class="e-content article-entry" itemprop="articleBody">
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/11/01/2022-11-02-numpy%E5%85%A5%E9%97%A8%E4%B8%80/">numpy入门&lt;一&gt;</a>
-    </h1>
-  
+        <h4 id="深入理解计算机系统题目："><a href="#深入理解计算机系统题目：" class="headerlink" title="深入理解计算机系统题目："></a>深入理解计算机系统题目：</h4><pre><code>arc_t *sp; // 使用typedef声明的数据类型  
+dest_t *dp;  
+我们想使用适当的数据传送指令来实现下面的操作  
+*dp = (dest_t) *sp;  
+</code></pre>
+<p>假设 sp 和 dp 的值分别存储在寄存器 %rdi 和 %rsi 中。对于表中的每个表项，给出实现指定数据传送的两条指令。其中第一条指令应该从内存中读数，做适当的转换，并设置寄存器 %rax 的适当部分。然后，第二条指令要把 %rax 的适当部分写到内存。在这两种情况中，寄存器的部分可以是 %rax、%eax、%ax 或 %al，两者可以互不相同。</p>
+<p>记住，当执行强制类型转换既涉及大小变化又涉及 C 语言中符号变化时，操作应该先改变大小。</p>
+<table>
+<thead>
+<tr>
+<th><strong>src_t</strong></th>
+<th><strong>dest_t</strong></th>
+<th><strong>指令</strong></th>
+<th><strong>解释</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>long</td>
+<td>long</td>
+<td>movq (%rdi), %rax</td>
+<td></td>
+</tr>
+<tr>
+<td>movq %rax, (%rsi)</td>
+<td>long是八个字节，也就是四个双字，所以用q</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>char</td>
+<td>int</td>
+<td>movsbl (%rdi), %eax</td>
+<td></td>
+</tr>
+<tr>
+<td>movl %eax, (%rsi)</td>
+<td>char转化成int需要进行字节长度拓展，而且char是有符号的，有符号拓展成有符号类型时，需要进行符号拓展</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>char</td>
+<td>unsigned</td>
+<td>movsbl (%rdi), %eax</td>
+<td></td>
+</tr>
+<tr>
+<td>movl %eax, (%rsi)</td>
+<td>char有符号数拓展成无符号型类型的数据时，需要注意，先进行符号拓展，然后转化成无符号数时，只是解释发生改变，机器数并不变</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>unsigned char</td>
+<td>long</td>
+<td>movzbl (%rdi), %eax</td>
+<td></td>
+</tr>
+<tr>
+<td>movq %rax, (%rsi)</td>
+<td>无符号数进行零拓展</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>int</td>
+<td>char</td>
+<td>movl (%rdi), %edx</td>
+<td></td>
+</tr>
+<tr>
+<td>movb %al, (%rsi)</td>
+<td>有符号数截断</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>unsigned</td>
+<td>unsigned char</td>
+<td>movl (%rdi), %al</td>
+<td></td>
+</tr>
+<tr>
+<td>movb %al, (%rsi)</td>
+<td>截断是直接截断，机器数都是一样的，有无符号只是解释不同</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>char</td>
+<td>short</td>
+<td>movsbw (%rdi), %ax movw %ax, (%rsi)</td>
+<td>符号拓展</td>
+</tr>
+</tbody></table>
 
-    </header>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://wellorbetter.github.io/2022/11/01/2022-11-02-2022_11_2_%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E5%9F%BA%E7%A1%80%E6%95%A3%E9%A2%98/" data-id="cuidTdIDxdLQTjXP5MLlTf4K3" data-title="2022_11_2_计算机系统基础散题" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%9C%89%E7%AC%A6%E5%8F%B7%E6%95%B0%E3%80%81%E6%97%A0%E7%AC%A6%E5%8F%B7%E6%95%B0%E7%9A%84%E6%8B%93%E5%B1%95%E4%B8%8E%E8%BD%AC%E5%8C%96/" rel="tag">有符号数、无符号数的拓展与转化</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%B1%87%E7%BC%96/" rel="tag">汇编</a></li></ul>
+
+    </footer>
   </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2022/11/01/2022-11-02-numpy%E5%85%A5%E9%97%A8%E4%B8%80/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前一篇</strong>
+      <div class="article-nav-title">
+        
+          numpy入门&lt;一&gt;
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/10/29/2022-10-30-%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">后一篇</strong>
+      <div class="article-nav-title">第一篇博客</div>
+    </a>
+  
+</nav>
+
+  
 </article>
-  
-  
-    </div></section>
-  
 
 
 </section>

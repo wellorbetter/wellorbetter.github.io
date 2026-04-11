@@ -21,7 +21,7 @@ jobs:
           node-version: '20'
 
       - name: Install dependencies
-        run: npm install
+        run: npm install --legacy-peer-deps || (cat /home/runner/.npm/_logs/*.log && exit 1)
 
       - name: Build
         run: npm run build

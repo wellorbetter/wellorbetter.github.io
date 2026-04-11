@@ -27,7 +27,7 @@ jobs:
         run: ls node_modules | grep hexo-renderer && echo "=== posts ===" && ls source/_posts/
 
       - name: Build
-        run: npm run build 2>&1 && echo "=== public dir ===" && ls public/ || echo "public is empty"
+        run: ./node_modules/.bin/hexo generate --debug 2>&1 | tail -50 && echo "=== public dir ===" && ls public/
 
       - name: Deploy to main branch
         uses: peaceiris/actions-gh-pages@v4

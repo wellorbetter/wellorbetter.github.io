@@ -24,7 +24,11 @@ social:
 subtitle:
   enable: true
   effect: true
-  loop: true
+  typed_option:
+    loop: true
+    typeSpeed: 150
+    backSpeed: 50
+    startDelay: 300
   source: false
   sub:
     - 一定要好好学习魔法！

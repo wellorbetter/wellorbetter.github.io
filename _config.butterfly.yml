@@ -1,6 +1,8 @@
+# ========================
 # Butterfly 主题配置
+# ========================
 
-# 导航菜单
+# 导航栏
 nav:
   logo:
   display_title: true
@@ -11,20 +13,26 @@ menu:
   归档: /archives/ || fas fa-archive
   标签: /tags/ || fas fa-tags
   分类: /categories/ || fas fa-folder-open
+  关于: /about/ || fas fa-user
 
 # 社交链接
 social:
-  fab fa-github: https://github.com/wellorbetter || Github
+  fab fa-github: https://github.com/wellorbetter || GitHub
+  fas fa-envelope: mailto:1419919418@qq.com || Email
 
 # 头像
 avatar:
-  img: https://avatars.githubusercontent.com/u/wellorbetter
+  img: /image/1061286.jpg
   effect: false
 
-# 顶部图
-disable_top_img: false
-index_img: false
-default_top_img: false
+# 顶部图配置
+index_img: /image/752857.jpg
+default_top_img: /image/752857.jpg
+archive_img: /image/752857.jpg
+tag_img:
+tag_per_img:
+category_img:
+category_per_img:
 
 # 文章封面
 cover:
@@ -33,6 +41,17 @@ cover:
   archives_enable: true
   position: top
   default_cover:
+    - /image/599136.jpg
+    - /image/673345.jpg
+    - /image/677464.jpg
+    - /image/695560.jpg
+    - /image/746013.jpg
+    - /image/752791.jpg
+    - /image/875222.jpg
+    - /image/915332.jpg
+
+# favicon
+favicon: /img/favicon.png
 
 # 文章信息
 post_meta:
@@ -49,6 +68,10 @@ post_meta:
     tags: true
     label: true
 
+# 文章字数统计（需安装插件，先关闭）
+wordcount:
+  enable: false
+
 # 目录
 toc:
   post: true
@@ -59,19 +82,12 @@ toc:
   scroll_percent: true
 
 # 代码块
-highlight_theme: pale night
+highlight_theme: mac
 highlight_copy: true
 highlight_lang: true
 highlight_shrink: false
 highlight_height_limit: false
 code_word_wrap: false
-
-# 字体
-font:
-  global-font-size:
-  code-font-size:
-  font-family:
-  code-font-family:
 
 # 主题色
 theme_color:
@@ -99,7 +115,7 @@ darkmode:
   autoChangeMode: false
   default: light
 
-# footer
+# 底部
 footer:
   owner:
     enable: true
@@ -120,12 +136,14 @@ aside:
     category: true
   card_author:
     enable: true
-    description:
+    description: 努力学习魔法，希望有一天会收到霍格沃兹的录取通知书 = =
     button:
-      enable: false
+      enable: true
+      icon: fab fa-github
+      text: GitHub
+      link: https://github.com/wellorbetter
   card_announcement:
     enable: false
-    content:
   card_recent_post:
     enable: true
     limit: 5
@@ -139,7 +157,7 @@ aside:
   card_tags:
     enable: true
     limit: 40
-    color: false
+    color: true
     orderby: random
     order: 1
     sort_order:
@@ -156,20 +174,14 @@ aside:
     last_push_date: true
     sort_order:
 
-# 搜索
-local_search:
-  enable: false
-
-# 分页
-index_generator:
-  per_page: 10
-
 # 动画
 animation: true
 
 # 加载动画
 preloader:
-  enable: false
+  enable: true
+  source: 1
+  pace_css_url:
 
 # 返回顶部
 back2top:
@@ -177,7 +189,7 @@ back2top:
   item_show: false
   scroll_percent: true
 
-# 阅读进度
+# 阅读进度条
 reading_progress:
   enable: true
   start_at: left
@@ -186,13 +198,53 @@ reading_progress:
   color: "#37c6c0"
   height: 3px
 
-# 按钮
-rightside_scroll_percent: true
-
-# 版权
+# 版权声明
 post_copyright:
-  enable: false
+  enable: true
+  decode: false
+  author_href:
+  license: CC BY-NC-SA 4.0
+  license_url: https://creativecommons.org/licenses/by-nc-sa/4.0/
 
 # 打赏
 reward:
   enable: false
+
+# 文章过期提醒
+noticeOutdate:
+  enable: true
+  style: flat
+  limit_day: 365
+  position: top
+  message_prev: 本文已超过
+  message_next: 天未更新，部分内容可能已过时。
+
+# 自定义CSS（heading彩色动画，还原旧博客风格）
+inject:
+  head:
+    - <style>
+      h1 { color:#ef50a8 }
+      h2 { color:#fb7061 }
+      h3 { color:#ffbf00 }
+      h4 { color:#a9e000 }
+      h5 { color:#57c850 }
+      h6 { color:#5ec1e0 }
+      #post-body h1::before,
+      #post-body h2::before,
+      #post-body h3::before,
+      #post-body h4::before,
+      #post-body h5::before,
+      #post-body h6::before {
+        display:inline-block;
+        margin-right:6px;
+        animation:headerIconRotate 4s linear infinite;
+      }
+      #post-body h1::before { content:"⚙"; color:#ef50a8 }
+      #post-body h2::before { content:"⚙"; color:#fb7061 }
+      #post-body h3::before { content:"⚙"; color:#ffbf00 }
+      #post-body h4::before { content:"⚙"; color:#a9e000 }
+      #post-body h5::before { content:"⚙"; color:#57c850 }
+      #post-body h6::before { content:"⚙"; color:#5ec1e0 }
+      @keyframes headerIconRotate { from{transform:rotate(0)} to{transform:rotate(360deg)} }
+      </style>
+  bottom:

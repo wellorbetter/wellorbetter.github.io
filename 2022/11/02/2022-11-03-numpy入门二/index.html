@@ -1,0 +1,190 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>numpy入门&lt;二&gt; | wellorbetter's blog</title><meta name="author" content="wellorbetter"><meta name="copyright" content="wellorbetter"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="##链接数组###1、concatenate((arr1, arr2…), axis)前面跟数组组成的元组，后面跟想要链接的维度(即保持其他维度不变，在axis维度上进行合并),默认是0 12345678910111213141516171819arr1 &#x3D; np.array([1, 2, 3])  arr2 &#x3D; np.array([4, 5, 6])  arr &#x3D; np.concatenate(">
+<meta property="og:type" content="article">
+<meta property="og:title" content="numpy入门&lt;二&gt;">
+<meta property="og:url" content="https://wellorbetter.github.io/2022/11/02/2022-11-03-numpy%E5%85%A5%E9%97%A8%E4%BA%8C/index.html">
+<meta property="og:site_name" content="wellorbetter&#39;s blog">
+<meta property="og:description" content="##链接数组###1、concatenate((arr1, arr2…), axis)前面跟数组组成的元组，后面跟想要链接的维度(即保持其他维度不变，在axis维度上进行合并),默认是0 12345678910111213141516171819arr1 &#x3D; np.array([1, 2, 3])  arr2 &#x3D; np.array([4, 5, 6])  arr &#x3D; np.concatenate(">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/wellorbetter">
+<meta property="article:published_time" content="2022-11-02T16:00:00.000Z">
+<meta property="article:modified_time" content="2026-04-11T10:22:32.844Z">
+<meta property="article:author" content="wellorbetter">
+<meta property="article:tag" content="numpy">
+<meta property="article:tag" content="python">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://avatars.githubusercontent.com/u/wellorbetter"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "numpy入门<二>",
+  "url": "https://wellorbetter.github.io/2022/11/02/2022-11-03-numpy%E5%85%A5%E9%97%A8%E4%BA%8C/",
+  "image": "https://avatars.githubusercontent.com/u/wellorbetter",
+  "datePublished": "2022-11-02T16:00:00.000Z",
+  "dateModified": "2026-04-11T10:22:32.844Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "wellorbetter",
+      "url": "https://wellorbetter.github.io"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://wellorbetter.github.io/2022/11/02/2022-11-03-numpy%E5%85%A5%E9%97%A8%E4%BA%8C/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=5.5.4"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.1.0/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'undefined')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'undefined')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.13.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: true,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'numpy入门<二>',
+  isHighlightShrink: false,
+  isToc: false,
+  pageType: 'post'
+}</script><meta name="generator" content="Hexo 8.1.1"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="https://avatars.githubusercontent.com/u/wellorbetter" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">11</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">9</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">wellorbetter's blog</span></a><a class="nav-page-title" href="/"><span class="site-name">numpy入门&lt;二&gt;</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">numpy入门&lt;二&gt;</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="fa-fw post-meta-icon far fa-calendar-alt"></i><span class="post-meta-label">发表于</span><time datetime="2022-11-02T16:00:00.000Z" title="发表于 2022-11-03 00:00:00">2022-11-03</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="container post-content" id="article-container"><p>##链接数组<br>###1、concatenate((arr1, arr2…), axis)<br>前面跟数组组成的元组，后面跟想要链接的维度(即保持其他维度不变，在axis维度上进行合并),默认是0</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">arr1 = np.array([1, 2, 3])  </span><br><span class="line">arr2 = np.array([4, 5, 6])  </span><br><span class="line">arr = np.concatenate((arr1, arr2))  </span><br><span class="line">print(arr)  </span><br><span class="line">res:  </span><br><span class="line">[1 2 3 4 5 6]  </span><br><span class="line">arr1 = np.array([[1, 2], [3, 4]])  </span><br><span class="line">arr2 = np.array([[5, 6], [7, 8]])  </span><br><span class="line">arr = np.concatenate((arr1, arr2), axis=1)  </span><br><span class="line">print(arr)  </span><br><span class="line">res:  </span><br><span class="line">[[1 2 5 6]  </span><br><span class="line"> [3 4 7 8]]  </span><br><span class="line">```  </span><br><span class="line">  </span><br><span class="line">###2、stack((arr1, arr2…), axis)  </span><br><span class="line">前面也是跟链接的数组，后面链接的维度，在axis维度上进行链接，axis默认为0，stack堆叠，顾名思义是要在axis维度上进行堆叠，保持其他维度不变，`在axis维度上的元素`进行堆叠形成一个新的维度，这个堆叠是竖直上的堆叠，也就是待链接的数组竖直放在一起，将元素同一列的整合成一个数组，可能有点抽象，结合一个例子可能好理解一点</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>arr1 &#x3D; np.array([1, 2, 3])<br>arr2 &#x3D; np.array([4, 5, 6])<br>arr &#x3D; np.stack((arr1, arr2), axis&#x3D;1)<br>print(arr)<br>res:<br>[[1 4]<br> [2 5]<br> [3 6]]  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">  </span><br><span class="line">###3、hstack((arr1, arr2…), axis)  </span><br><span class="line">基本上和上面的一样，但是这个堆叠是`水平的`(即按照第二个维度进行堆叠，axis=1)，而且不会形成新的维度，即将axis=1上的数组求并得到一个新数组放到原来数组的位置上，维度不发生变化</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>arr1 &#x3D; np.array([[1, 2, 3], [1, 2, 3]])<br>arr2 &#x3D; np.array([[4, 5, 6], [4, 5, 6]])<br>arr &#x3D; np.hstack((arr1, arr2))<br>print(arr)<br>res:<br>[[1 2 3 4 5 6]<br> [1 2 3 4 5 6]]<br>arr1 &#x3D; np.array([[[1, 2, 3], [1, 2, 3]]])<br>arr2 &#x3D; np.array([[[4, 5, 6], [4, 5, 6]]])<br>arr &#x3D; np.hstack((arr1, arr2))<br>print(arr)<br>res:<br>[[[1 2 3]<br>  [1 2 3]<br>  [4 5 6]<br>  [4 5 6]]]  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">  </span><br><span class="line">###4、vstack()  </span><br><span class="line">也是类似的，在axis=0上进行堆叠，即在axis=0上取并，实际上这种可以通过np.concatenate来实现</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>arr1 &#x3D; np.array([[[1, 2, 3], [1, 2, 3]]])<br>arr2 &#x3D; np.array([[[4, 5, 6], [4, 5, 6]]])<br>arr &#x3D; np.vstack((arr1, arr2))<br>print(arr)<br>print(arr1.shape)<br>print(arr.shape)<br>res:<br>[[[1 2 3]<br>  [1 2 3]]<br> [[4 5 6]<br>  [4 5 6]]]<br>(1, 2, 3)<br>(2, 2, 3)  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">  </span><br><span class="line">###5、dstack()  </span><br><span class="line">也是类似，在第三维上进行堆叠，即在axis=2上取并，如果是一维，就相当于reshape成(1，n，1)再在axis=2上堆叠，如果是二维则是reshape成(n，m，1)再开始堆叠，通过reshape和np.concatenate也可以完成一样的工作，这几种特殊的stack只有dstack有可能会形成新的维度(即传入的数组都是一维或者二维)</span><br><span class="line"></span><br><span class="line">##数组拆分  </span><br><span class="line">###1、array_split(arr，num，axis)  </span><br><span class="line">将一个数组在axis维度上分成num份，默认axis=0(这个如果你在axis上的元素的数量不能平分成num份，会根据元素数量进行微调)</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>arr &#x3D; np.array([1, 2, 3, 4, 5, 6])<br>newarr &#x3D; np.array_split(arr, 4)<br>print(newarr)<br>res:<br>[array([1, 2]), array([3, 4]), array([5]), array([6])]  # 返回的是套数组的数组<br>arr &#x3D; np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9], [10, 11, 12], [13, 14, 15], [16, 17, 18]])<br>newarr &#x3D; np.array_split(arr, 3, axis&#x3D;1)<br>print(newarr)<br>res:<br>[array([[ 1],<br>       [ 4],<br>       [ 7],<br>       [10],<br>       [13],<br>       [16]]), array([[ 2],<br>       [ 5],<br>       [ 8],<br>       [11],<br>       [14],<br>       [17]]), array([[ 3],<br>       [ 6],<br>       [ 9],<br>       [12],<br>       [15],<br>       [18]])]  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">  </span><br><span class="line">###2、hsplit()、vsplit()、dsplit()  </span><br><span class="line">同样的，有hsplit()对应hstack()(axis=1),vsplit()对应vstack()(axis=0)，dsplit()对应dstack()(axis=2)  </span><br><span class="line">##搜索数组元素  </span><br><span class="line">###1、np.where(condition)  </span><br><span class="line">返回值是一个元组，里面只有一个元素，即满足条件的数组的下标所组成的数组，后面会跟它的类型</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>arr &#x3D; np.array([1, 2, 3, 4, 5, 4, 4])<br>x &#x3D; np.where(arr &#x3D;&#x3D; 4)<br>print(x)<br>res:<br>(array([3, 5, 6], dtype&#x3D;int64),)<br>arr &#x3D; np.array([1, 2, 3, 4, 5, 6, 7, 8])<br>x &#x3D; np.where(arr%2 &#x3D;&#x3D; 0)<br>print(x)<br>res:<br>(array([1, 3, 5, 7], dtype&#x3D;int64),)  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">  </span><br><span class="line">2、searchsorted()  </span><br><span class="line">它在数组中执行二分查找，并返回指定值插入位置的索引，以保持搜索顺序。似乎对排好序的数组用处比较大</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>arr &#x3D; np.array([6, 7, 8, 9])<br>x &#x3D; np.searchsorted(arr, 7)<br>print(x)<br>res: #应该将数字7插入索引1以保持排序顺序。该方法从左开始搜索，返回第一个索引，即数字7不再大于下一个值的位置。  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">  </span><br><span class="line">默认情况下返回最左边的索引，但我们可以指定side=’right’来返回最右边的索引。</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>arr &#x3D; np.array([6, 7, 8, 9])<br>x &#x3D; np.searchsorted(arr, 7, side&#x3D;’right’)<br>print(x)<br>res:<br>2  # 数字7应该插入索引2以保持排序顺序。该方法从右边开始搜索，返回第一个索引，即数字7不再小于下一个值。  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">  </span><br><span class="line">而且，这个方法还可以同时搜索多个值应当插入的位置</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>arr &#x3D; np.array([1, 3, 5, 7])<br>x &#x3D; np.searchsorted(arr, [2, 4, 6])<br>print(x)<br>res:  # 返回值是一个数组:[1 2 3]，包含3个索引，其中2、4、6将被插入到原始数组中以保持顺序。<br>[1 2 3]   </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">  </span><br><span class="line">##数组排序  </span><br><span class="line">###1、np.sort(arr)  </span><br><span class="line">这个方法返回的是数组的拷贝，改变不会影响原数组</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>arr &#x3D; np.array([3, 2, 0, 1])<br>print(np.sort(arr))<br>res:<br>[0 1 2 3]  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">  </span><br><span class="line">同样可以对字符串等其他数据类型排序</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>arr &#x3D; np.array([‘banana’, ‘cherry’, ‘apple’])<br>print(np.sort(arr))<br>res:<br>[‘apple’ ‘banana’ ‘cherry’]<br>arr &#x3D; np.array([True, False, True])<br>print(np.sort(arr))<br>res:<br>[False  True  True]  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">  </span><br><span class="line">如果是高维的数组，会将最里面的所有’一维数组‘进行排序</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>arr &#x3D; np.array([[3, 2, 4], [5, 0, 1]])<br>print(np.sort(arr))<br>res:<br>[[2 3 4]<br> [0 1 5]]  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">  </span><br><span class="line">##过滤数组  </span><br><span class="line">从现有数组中获取一些元素并从中创建一个新数组，这称为过滤。在NumPy中，使用布尔索引列表来过滤数组。  </span><br><span class="line">如果某个索引的值为True，则该元素包含在过滤后的数组中;如果该索引的值为False，则该元素不包含在过滤后的数组中。</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>arr &#x3D; np.array([41, 42, 43, 44])<br>x &#x3D; [True, False, True, False]<br>newarr &#x3D; arr[x]<br>print(newarr)<br>res:<br>[41 43]<br>arr &#x3D; np.array([41, 42, 43, 44])<br>filter_arr &#x3D; arr &gt; 42  # 直接创建过滤数组<br>newarr &#x3D; arr[filter_arr]<br>print(filter_arr)<br>print(newarr)<br>res:<br>[False False  True  True]<br>[43 44]  </p>
+<pre><code>
+</code></pre>
+</article><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/python/">python</a><a class="post-meta__tags" href="/tags/numpy/">numpy</a></div><div class="post-share"><div class="social-share" data-image="https://avatars.githubusercontent.com/u/wellorbetter" data-sites="facebook,x,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/2022/11/02/2022-11-03-%E5%B1%82%E6%AC%A1%E5%88%86%E6%9E%90%E6%B3%95/" title="层次分析法"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">层次分析法</div></div><div class="info-2"><div class="info-item-1">##评价类问题评价类问题可以用打分解决 </div></div></div></a><a class="pagination-related" href="/2022/11/01/2022-11-02-numpy%E5%85%A5%E9%97%A8%E4%B8%80/" title="numpy入门&lt;一&gt;"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">numpy入门<一></div></div><div class="info-2"><div class="info-item-1">numpy入门参考w3cschool numpy tutorial(基本上就是照着翻译，然后加入自己的理解，顺便把代码结果附上，over)数组可以将list tuple直接通过array()转化成ndarray 12345678910111213import numpy as np  arr = np.array([1, 2, 3, 4, 5])  // arr = np.array((1, 2, 3, 4, 5))  printf(arr)  printf(type(arr))  ```    numpy的数组存在维度，当然python可以通过list嵌套实现，但是并不是真正意义上的数组，肯定没有这个快，而且没有现成的方法可以通过x.ndim方法来检查数组的维度前面提到可以通过np.array()来转化一个数组，后面可以跟一个参数ndim来显示的指定维度(不显示地指定ndim的参数的话，会根据传入的list..的维度来决定数组的维度) arr &#x3D; np.array([1, 2, 3, 4], ndmin&#x3D;5)print(arr)res: [[[[[1 2 3...</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/2022/11/01/2022-11-02-numpy%E5%85%A5%E9%97%A8%E4%B8%80/" title="numpy入门&lt;一&gt;"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2022-11-02</div><div class="info-item-2">numpy入门&lt;一&gt;</div></div><div class="info-2"><div class="info-item-1">numpy入门参考w3cschool numpy tutorial(基本上就是照着翻译，然后加入自己的理解，顺便把代码结果附上，over)数组可以将list tuple直接通过array()转化成ndarray 12345678910111213import numpy as np  arr = np.array([1, 2, 3, 4, 5])  // arr = np.array((1, 2, 3, 4, 5))  printf(arr)  printf(type(arr))  ```    numpy的数组存在维度，当然python可以通过list嵌套实现，但是并不是真正意义上的数组，肯定没有这个快，而且没有现成的方法可以通过x.ndim方法来检查数组的维度前面提到可以通过np.array()来转化一个数组，后面可以跟一个参数ndim来显示的指定维度(不显示地指定ndim的参数的话，会根据传入的list..的维度来决定数组的维度) arr &#x3D; np.array([1, 2, 3, 4], ndmin&#x3D;5)print(arr)res: [[[[[1 2 3...</div></div></div></a><a class="pagination-related" href="/2022/11/03/2022-11-04-matplotlib%E5%85%A5%E9%97%A8%E4%B8%80/" title="matplotlib入门&lt;一&gt;"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2022-11-04</div><div class="info-item-2">matplotlib入门&lt;一&gt;</div></div><div class="info-2"><div class="info-item-1">#matplotlib入门 ##x轴和y轴 matplotlib比较难写，我们一般缩写成plt。用plot()方法进行绘制图像，第一个参数表示x轴，第二个参数表示y轴 1234567891011xpoints = np.array([1, 8])  ypoints = np.array([3, 10])  plt.plot(xpoints, ypoints)  plt.show()  ```    ![img](/img/loading.gif)画多个点(有连线) xpoints &#x3D; np.array([1, 2, 6, 8])ypoints &#x3D; np.array([3, 8, 1, 10])plt.plot(xpoints, ypoints)plt.show()   123456  ![img](/img/loading.gif)`tips:`这里的x轴是有默认值的，如果你没有传入x轴的参数，默认是从0开始增长，到传入y轴的参数个数-1 ypoints &#x3D; np.array([3, 8, 1, 10, 5, 7])plt.plot(ypoints)...</div></div></div></a></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="https://avatars.githubusercontent.com/u/wellorbetter" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">wellorbetter</div><div class="author-info-description">努力学习魔法，希望有一天会收到霍格沃兹的录取通知书</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">11</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">9</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/wellorbetter" target="_blank" title="Github"><i class="fab fa-github"></i></a></div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2022/11/27/2022-11-28-devc-%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98/" title="devc++中文乱码问题">devc++中文乱码问题</a><time datetime="2022-11-27T16:00:00.000Z" title="发表于 2022-11-28 00:00:00">2022-11-28</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2022/11/05/2022-11-06-20221162/" title="20221162">20221162</a><time datetime="2022-11-05T16:00:00.000Z" title="发表于 2022-11-06 00:00:00">2022-11-06</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2022/11/03/2022-11-04-%E6%B1%87%E7%BC%96%E5%85%A5%E9%97%A8%E4%B8%80/" title="汇编入门&lt;一&gt;">汇编入门&lt;一&gt;</a><time datetime="2022-11-03T16:00:00.000Z" title="发表于 2022-11-04 00:00:00">2022-11-04</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2022/11/03/2022-11-04-matplotlib%E5%85%A5%E9%97%A8%E4%B8%80/" title="matplotlib入门&lt;一&gt;">matplotlib入门&lt;一&gt;</a><time datetime="2022-11-03T16:00:00.000Z" title="发表于 2022-11-04 00:00:00">2022-11-04</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2022/11/02/2022-11-03-numpy%E5%85%A5%E9%97%A8%E4%BA%8C/" title="numpy入门&lt;二&gt;">numpy入门&lt;二&gt;</a><time datetime="2022-11-02T16:00:00.000Z" title="发表于 2022-11-03 00:00:00">2022-11-03</time></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2022 - 2026 By wellorbetter</span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.4"></script><script src="/js/main.js?v=5.5.4"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

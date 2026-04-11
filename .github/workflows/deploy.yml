@@ -24,7 +24,7 @@ jobs:
         run: npm install --legacy-peer-deps || (cat /home/runner/.npm/_logs/*.log && exit 1)
 
       - name: Check renderers
-        run: ls node_modules | grep hexo-renderer
+        run: ls node_modules | grep hexo-renderer && echo "=== posts ===" && ls source/_posts/
 
       - name: Build
         run: npm run build 2>&1 && echo "=== public dir ===" && ls public/ || echo "public is empty"

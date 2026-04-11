@@ -23,8 +23,11 @@ jobs:
       - name: Install dependencies
         run: npm install --legacy-peer-deps || (cat /home/runner/.npm/_logs/*.log && exit 1)
 
+      - name: Check renderers
+        run: ls node_modules | grep hexo-renderer
+
       - name: Build
-        run: npm run build && echo "=== public dir ===" && ls public/ || echo "public is empty"
+        run: npm run build 2>&1 && echo "=== public dir ===" && ls public/ || echo "public is empty"
 
       - name: Deploy to main branch
         uses: peaceiris/actions-gh-pages@v4

@@ -20,6 +20,18 @@ social:
   fab fa-github: https://github.com/wellorbetter || GitHub
   fas fa-envelope: mailto:1419919418@qq.com || Email
 
+# 首页打字机座右铭
+subtitle:
+  enable: true
+  effect: true
+  loop: true
+  source: false
+  sub:
+    - 一定要好好学习魔法！
+    - 今日份的魔法书看了吗？今天好好学习魔法了吗？
+    - 似乎有点困难，那就明天学习魔法吧！
+    - 明天的事情交给明天的我去烦恼吧！
+
 # 头像
 avatar:
   img: /image/1061286.jpg
@@ -218,6 +230,19 @@ noticeOutdate:
   position: top
   message_prev: 本文已超过
   message_next: 天未更新，部分内容可能已过时。
+
+# 数学公式 KaTeX
+math:
+  enable: true
+  per_page: true
+  method: katex
+  katex:
+    enable: true
+    cdn:
+      css: https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css
+      js: https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js
+      copy_tex_js: https://cdn.jsdelivr.net/npm/katex@latest/dist/contrib/copy-tex.min.js
+      copy_tex_css: https://cdn.jsdelivr.net/npm/katex@latest/dist/contrib/copy-tex.min.css
 
 # 自定义注入
 inject:

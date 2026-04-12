@@ -1,0 +1,204 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>flutter入门 (1) | wellorbetter's blog</title><meta name="author" content="wellorbetter"><meta name="copyright" content="wellorbetter"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="flutter，哎没办法，也是拉完了兄弟，学点跨端，指不准还能有一口饭吃。 statewidget树类似于这个dom树。所以的flutter画面都是由widget组成的。我是感觉flutter和compose react真的很像。与其说是节点，不如说我这个都是由组件组成，不同的组件拆成不同的颗粒度而已。 12345678910111213&#x2F;&#x2F; React 的 JSX&lt;div&gt; &lt;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="flutter入门 (1)">
+<meta property="og:url" content="https://wellorbetter.github.io/2026/04/11/2026-04-12-new-post/index.html">
+<meta property="og:site_name" content="wellorbetter&#39;s blog">
+<meta property="og:description" content="flutter，哎没办法，也是拉完了兄弟，学点跨端，指不准还能有一口饭吃。 statewidget树类似于这个dom树。所以的flutter画面都是由widget组成的。我是感觉flutter和compose react真的很像。与其说是节点，不如说我这个都是由组件组成，不同的组件拆成不同的颗粒度而已。 12345678910111213&#x2F;&#x2F; React 的 JSX&lt;div&gt; &lt;">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://wellorbetter.github.io/image/673345.jpg">
+<meta property="article:published_time" content="2026-04-11T16:00:00.000Z">
+<meta property="article:modified_time" content="2026-04-12T15:46:16.983Z">
+<meta property="article:author" content="wellorbetter">
+<meta property="article:tag" content="flutter">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://wellorbetter.github.io/image/673345.jpg"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "flutter入门 (1)",
+  "url": "https://wellorbetter.github.io/2026/04/11/2026-04-12-new-post/",
+  "image": "https://wellorbetter.github.io/image/673345.jpg",
+  "datePublished": "2026-04-11T16:00:00.000Z",
+  "dateModified": "2026-04-12T15:46:16.983Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "wellorbetter",
+      "url": "https://wellorbetter.github.io"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://wellorbetter.github.io/2026/04/11/2026-04-12-new-post/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=5.5.4"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.1.0/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'undefined')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'undefined')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.13.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'flutter入门 (1)',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><link rel="stylesheet" href="/css/custom.css"><meta name="generator" content="Hexo 8.1.1"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><script>(()=>{
+  const $loadingBox = document.getElementById('loading-box')
+  const $body = document.body
+  const preloader = {
+    endLoading: () => {
+      if ($loadingBox.classList.contains('loaded')) return
+      $body.style.overflow = ''
+      $loadingBox.classList.add('loaded')
+    },
+    initLoading: () => {
+      $body.style.overflow = 'hidden'
+      $loadingBox.classList.remove('loaded')
+    }
+  }
+
+  preloader.initLoading()
+
+  if (document.readyState === 'complete') {
+    preloader.endLoading()
+  } else {
+    window.addEventListener('load', preloader.endLoading)
+    document.addEventListener('DOMContentLoaded', preloader.endLoading)
+    // Add timeout protection: force end after 7 seconds
+    setTimeout(preloader.endLoading, 7000)
+  }
+
+  if (false) {
+    btf.addGlobalFn('pjaxSend', preloader.initLoading, 'preloader_init')
+    btf.addGlobalFn('pjaxComplete', preloader.endLoading, 'preloader_end')
+  }
+})()</script><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/image/1061286.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">12</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">10</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(/image/673345.jpg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">wellorbetter's blog</span></a><a class="nav-page-title" href="/"><span class="site-name">flutter入门 (1)</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">flutter入门 (1)</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="fa-fw post-meta-icon far fa-calendar-alt"></i><span class="post-meta-label">发表于</span><time datetime="2026-04-11T16:00:00.000Z" title="发表于 2026-04-12 00:00:00">2026-04-12</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><div id="post-outdate-notice" data="{&quot;limitDay&quot;:365,&quot;messagePrev&quot;:&quot;本文已超过&quot;,&quot;messageNext&quot;:&quot;天未更新，部分内容可能已过时。&quot;,&quot;postUpdate&quot;:&quot;2026-04-12 23:46:16&quot;}" hidden></div><p>flutter，哎没办法，也是拉完了兄弟，学点跨端，指不准还能有一口饭吃。</p>
+<h4 id="state"><a href="#state" class="headerlink" title="state"></a>state</h4><p>widget树类似于这个dom树。所以的flutter画面都是由widget组成的。我是感觉flutter和compose react真的很像。与其说是节点，不如说我这个都是由组件组成，不同的组件拆成不同的颗粒度而已。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">// React 的 JSX</span><br><span class="line">&lt;div&gt;</span><br><span class="line"> &lt;Text&gt;hello&lt;/Text&gt;</span><br><span class="line"> &lt;Button onClick=&#123;handleClick&#125;&gt;click&lt;/Button&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">// Flutter 的 Widget</span><br><span class="line">Column(</span><br><span class="line"> children: [</span><br><span class="line">   Text(&#x27;hello&#x27;),</span><br><span class="line">   ElevatedButton(onPressed: handleClick, child: Text(&#x27;click&#x27;)),</span><br><span class="line"> ],</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<p>然后这里也是类似于 React 的 <code>useState</code> &#x2F; Compose 的 <code>remember</code> + <code>mutableStateOf</code>，flutter有一个StatefulWidget，也是记录状态的，而StatelessWidget就是不适用state记录的静态网页。<br>具体而言，就是你写了这个StatefulWidget，它你这里用到这些值，它都会监听状态的，改变了就会重建。<br>然后这里一个细节，就是它这里很像这个mvvm，viewmodel的感觉，它这里有个state，用来让数据和UI解耦。你这个statefulwidget需要实现一个createState的接口，然后这个state就表示你用这些数据来做什么</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Widget 类：不可变的配置（类似 props）</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Counter</span> <span class="keyword">extends</span> <span class="title">StatefulWidget</span> </span>&#123;</span><br><span class="line"> <span class="keyword">final</span> <span class="built_in">String</span> title;  <span class="comment">// 外部传入的参数，不会变</span></span><br><span class="line"> <span class="keyword">const</span> Counter(&#123;<span class="keyword">super</span>.key, <span class="keyword">required</span> <span class="keyword">this</span>.title&#125;);</span><br><span class="line"></span><br><span class="line"> <span class="meta">@override</span></span><br><span class="line"> State&lt;Counter&gt; createState() =&gt; CounterState();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// State 类：可变的状态 + 构建 UI</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CounterState</span> <span class="keyword">extends</span> <span class="title">State</span>&lt;<span class="title">Counter</span>&gt; </span>&#123;</span><br><span class="line"> <span class="built_in">int</span> count = <span class="number">0</span>;  <span class="comment">// 可变状态</span></span><br><span class="line"></span><br><span class="line"> <span class="meta">@override</span></span><br><span class="line"> Widget build(BuildContext context) &#123;</span><br><span class="line">   <span class="keyword">return</span> Column(</span><br><span class="line">     children: [</span><br><span class="line">       Text(widget.title),           <span class="comment">// 通过 widget.xxx 访问 Widget 的参数</span></span><br><span class="line">       Text(<span class="string">&#x27;<span class="subst">$count</span>&#x27;</span>),</span><br><span class="line">       ElevatedButton(</span><br><span class="line">         onPressed: () &#123;</span><br><span class="line">           setState(() &#123;              <span class="comment">// 修改状态必须包在 setState 里</span></span><br><span class="line"> count++;</span><br><span class="line">           &#125;);</span><br><span class="line">         &#125;,</span><br><span class="line">         child: Text(<span class="string">&#x27;加一&#x27;</span>),</span><br><span class="line">       ),</span><br><span class="line">     ],</span><br><span class="line">   );</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>怎么说呢，就flutter 会频繁地销毁和重建 Widget 对象，但 State 对象会<strong>保留</strong>。这样状态不会丢失<br>然后这里的下划线，就是当前文件私有。</p>
+<h4 id="provider-reader"><a href="#provider-reader" class="headerlink" title="provider&#x2F;reader"></a>provider&#x2F;reader</h4><p>这个也是和react很像啊，你一直往下面传值的话，有些值就是要一直用到的，比如我这个可能有个点击是否展开一些设置，这个设置页面是否打开这个bool值，有可能会被它里面的child用到，比如漫画，可能会需要判断某些手势是否需要拦截。这个时候就需要用到这种不用一直传值的，就外面写一个provider，然后里面就能拿到。然后这里的应该是有好几个，reader&#x2F;select&#x2F;watch。我用到的就是reader，这里还有很多问题，这里的reader是写的一个拓展函数。拓展函数就很像是这个kotlin的那个了，不过它这个还能命名，能用来分组区分具体干嘛来的。</p>
+<h4 id="布局"><a href="#布局" class="headerlink" title="布局"></a>布局</h4><p>横向就是row，纵向column，然后好像还有stack，类似于帧布局framelayout，就一层层往上堆叠的这种吧。有一些自带的listview好像，记不太清了。点击是onTap，其他的也是类似，click改成tap。</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 按钮自带 onPressed</span></span><br><span class="line">ElevatedButton(onPressed: () &#123; <span class="built_in">print</span>(<span class="string">&#x27;clicked&#x27;</span>); &#125;, child: Text(<span class="string">&#x27;按钮&#x27;</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment">// 给任意 widget 加点击</span></span><br><span class="line">GestureDetector(</span><br><span class="line"> onTap: () &#123; <span class="built_in">print</span>(<span class="string">&#x27;tapped&#x27;</span>); &#125;,</span><br><span class="line"> onDoubleTap: () &#123; <span class="built_in">print</span>(<span class="string">&#x27;double tapped&#x27;</span>); &#125;,</span><br><span class="line"> onLongPress: () &#123; <span class="built_in">print</span>(<span class="string">&#x27;long pressed&#x27;</span>); &#125;,</span><br><span class="line"> child: Text(<span class="string">&#x27;点我&#x27;</span>),</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 更底层的触摸事件（不参与手势竞争）</span></span><br><span class="line">Listener(</span><br><span class="line"> onPointerDown: (event) &#123; <span class="built_in">print</span>(<span class="string">&#x27;finger down at <span class="subst">$&#123;event.position&#125;</span>&#x27;</span>); &#125;,</span><br><span class="line"> onPointerMove: (event) &#123; <span class="built_in">print</span>(<span class="string">&#x27;finger moved&#x27;</span>); &#125;,</span><br><span class="line"> onPointerUp: (event) &#123; <span class="built_in">print</span>(<span class="string">&#x27;finger up&#x27;</span>); &#125;,</span><br><span class="line"> child: Text(<span class="string">&#x27;摸我&#x27;</span>),</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<h5 id="MediaQuery"><a href="#MediaQuery" class="headerlink" title="MediaQuery"></a>MediaQuery</h5><p>这个东西，感觉是applywindowInsets里面的这个insets，用来专门做这个沉浸式的，能拿到导航栏边距这些。</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">dart</span><br><span class="line"><span class="comment">// 屏幕尺寸</span></span><br><span class="line"><span class="keyword">final</span> size = MediaQuery.sizeOf(context);</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;宽: <span class="subst">$&#123;size.width&#125;</span>, 高: <span class="subst">$&#123;size.height&#125;</span>&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 安全区域（刘海、状态栏、底部导航条）</span></span><br><span class="line"><span class="comment">// 类似 Android 的 WindowInsets.systemBars</span></span><br><span class="line"><span class="keyword">final</span> padding = MediaQuery.paddingOf(context);</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;状态栏高: <span class="subst">$&#123;padding.top&#125;</span>, 底部导航: <span class="subst">$&#123;padding.bottom&#125;</span>&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 系统手势区域（Android 全面屏返回手势占的区域）</span></span><br><span class="line"><span class="comment">// 类似 Android 的 WindowInsets.systemGestures</span></span><br><span class="line"><span class="keyword">final</span> gestures = MediaQuery.systemGestureInsetsOf(context);</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;左边缘手势区: <span class="subst">$&#123;gestures.left&#125;</span>&#x27;</span>);</span><br></pre></td></tr></table></figure>
+<h4 id="语法糖"><a href="#语法糖" class="headerlink" title="语法糖"></a>语法糖</h4><p>这个get啊，就函数前面加一个限定get，它这个东西就形式上，就能当这个属性来用，它不用写函数的括号。我看上去就有点像是这个kotlin的by委托来了。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://wellorbetter.github.io">wellorbetter</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://wellorbetter.github.io/2026/04/11/2026-04-12-new-post/">https://wellorbetter.github.io/2026/04/11/2026-04-12-new-post/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://wellorbetter.github.io" target="_blank">wellorbetter's blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/flutter/">flutter</a></div><div class="post-share"><div class="social-share" data-image="/image/673345.jpg" data-sites="facebook,x,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related full-width" href="/2022/11/27/2022-11-28-devc-%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98/" title="devc++中文乱码问题"><img class="cover" src="/image/677464.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">devc++中文乱码问题</div></div><div class="info-2"><div class="info-item-1">解决devc++中文乱码问题详细图解也许你需要试一试ansi、gbk或者unicodetips:我后来又经历过主页面是乱码的情况，然后是通过取消勾选，重启一下就好了（就是进去dev的主页面，到处都是棍斤拷）点取消，然后重启 然后，就又乱码了然后我就把utf-8改成了gbk，然后现在又好了，只是字体没以前那么纤细了 也许会会弹出这个，但是无论你选哪个，最后输出仍然会是中文   over~ </div></div></div></a></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/image/1061286.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">wellorbetter</div><div class="author-info-description">努力学习魔法，希望有一天会收到霍格沃兹的录取通知书 = =</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">12</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">10</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/wellorbetter"><i class="fab fa-github"></i><span>GitHub</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/wellorbetter" target="_blank" title="GitHub"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:1419919418@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#state"><span class="toc-text">state</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#provider-reader"><span class="toc-text">provider&#x2F;reader</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B8%83%E5%B1%80"><span class="toc-text">布局</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#MediaQuery"><span class="toc-text">MediaQuery</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AF%AD%E6%B3%95%E7%B3%96"><span class="toc-text">语法糖</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2026/04/11/2026-04-12-new-post/" title="flutter入门 (1)"><img src="/image/673345.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="flutter入门 (1)"/></a><div class="content"><a class="title" href="/2026/04/11/2026-04-12-new-post/" title="flutter入门 (1)">flutter入门 (1)</a><time datetime="2026-04-11T16:00:00.000Z" title="发表于 2026-04-12 00:00:00">2026-04-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/11/27/2022-11-28-devc-%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98/" title="devc++中文乱码问题"><img src="/image/677464.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="devc++中文乱码问题"/></a><div class="content"><a class="title" href="/2022/11/27/2022-11-28-devc-%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98/" title="devc++中文乱码问题">devc++中文乱码问题</a><time datetime="2022-11-27T16:00:00.000Z" title="发表于 2022-11-28 00:00:00">2022-11-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/11/05/2022-11-06-20221162/" title="20221162"><img src="/image/599136.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="20221162"/></a><div class="content"><a class="title" href="/2022/11/05/2022-11-06-20221162/" title="20221162">20221162</a><time datetime="2022-11-05T16:00:00.000Z" title="发表于 2022-11-06 00:00:00">2022-11-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/11/03/2022-11-04-matplotlib%E5%85%A5%E9%97%A8%E4%B8%80/" title="matplotlib入门&lt;一&gt;"><img src="/image/673345.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="matplotlib入门&lt;一&gt;"/></a><div class="content"><a class="title" href="/2022/11/03/2022-11-04-matplotlib%E5%85%A5%E9%97%A8%E4%B8%80/" title="matplotlib入门&lt;一&gt;">matplotlib入门&lt;一&gt;</a><time datetime="2022-11-03T16:00:00.000Z" title="发表于 2022-11-04 00:00:00">2022-11-04</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/11/03/2022-11-04-%E6%B1%87%E7%BC%96%E5%85%A5%E9%97%A8%E4%B8%80/" title="汇编入门&lt;一&gt;"><img src="/image/752791.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="汇编入门&lt;一&gt;"/></a><div class="content"><a class="title" href="/2022/11/03/2022-11-04-%E6%B1%87%E7%BC%96%E5%85%A5%E9%97%A8%E4%B8%80/" title="汇编入门&lt;一&gt;">汇编入门&lt;一&gt;</a><time datetime="2022-11-03T16:00:00.000Z" title="发表于 2022-11-04 00:00:00">2022-11-04</time></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2022 - 2026 By wellorbetter</span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.4"></script><script src="/js/main.js?v=5.5.4"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

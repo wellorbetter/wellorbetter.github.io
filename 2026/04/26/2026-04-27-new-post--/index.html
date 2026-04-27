@@ -1,0 +1,232 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>rv四级缓存学习 | wellorbetter's blog</title><meta name="author" content="wellorbetter"><meta name="copyright" content="wellorbetter"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="四级缓存就RV这个东西，它是需要缓存的，就你这个思路很简单，你页面上显示六个view，那我至少得有六个view的这个显示队列，还有随时能用的这个tmp viewScrapScrap 英文原意是「碎片、边角料、废纸」还在屏幕上，只是temp detach了只在一次 layout 的过程中存在。 layout 开始前是空的，layout 结束后也是空的，只在中间短暂存在会触发RV layout的情况">
+<meta property="og:type" content="article">
+<meta property="og:title" content="rv四级缓存学习">
+<meta property="og:url" content="https://wellorbetter.github.io/2026/04/26/2026-04-27-new-post--/index.html">
+<meta property="og:site_name" content="wellorbetter&#39;s blog">
+<meta property="og:description" content="四级缓存就RV这个东西，它是需要缓存的，就你这个思路很简单，你页面上显示六个view，那我至少得有六个view的这个显示队列，还有随时能用的这个tmp viewScrapScrap 英文原意是「碎片、边角料、废纸」还在屏幕上，只是temp detach了只在一次 layout 的过程中存在。 layout 开始前是空的，layout 结束后也是空的，只在中间短暂存在会触发RV layout的情况">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://wellorbetter.github.io/image/746013.jpg">
+<meta property="article:published_time" content="2026-04-26T16:00:00.000Z">
+<meta property="article:modified_time" content="2026-04-27T14:10:51.830Z">
+<meta property="article:author" content="wellorbetter">
+<meta property="article:tag" content="肥宅">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://wellorbetter.github.io/image/746013.jpg"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "rv四级缓存学习",
+  "url": "https://wellorbetter.github.io/2026/04/26/2026-04-27-new-post--/",
+  "image": "https://wellorbetter.github.io/image/746013.jpg",
+  "datePublished": "2026-04-26T16:00:00.000Z",
+  "dateModified": "2026-04-27T14:10:51.830Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "wellorbetter",
+      "url": "https://wellorbetter.github.io"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://wellorbetter.github.io/2026/04/26/2026-04-27-new-post--/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=5.5.4"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.1.0/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'undefined')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'undefined')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.13.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'rv四级缓存学习',
+  isHighlightShrink: false,
+  isToc: false,
+  pageType: 'post'
+}</script><link rel="stylesheet" href="/css/custom.css"><meta name="generator" content="Hexo 8.1.1"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><script>(()=>{
+  const $loadingBox = document.getElementById('loading-box')
+  const $body = document.body
+  const preloader = {
+    endLoading: () => {
+      if ($loadingBox.classList.contains('loaded')) return
+      $body.style.overflow = ''
+      $loadingBox.classList.add('loaded')
+    },
+    initLoading: () => {
+      $body.style.overflow = 'hidden'
+      $loadingBox.classList.remove('loaded')
+    }
+  }
+
+  preloader.initLoading()
+
+  if (document.readyState === 'complete') {
+    preloader.endLoading()
+  } else {
+    window.addEventListener('load', preloader.endLoading)
+    document.addEventListener('DOMContentLoaded', preloader.endLoading)
+    // Add timeout protection: force end after 7 seconds
+    setTimeout(preloader.endLoading, 7000)
+  }
+
+  if (false) {
+    btf.addGlobalFn('pjaxSend', preloader.initLoading, 'preloader_init')
+    btf.addGlobalFn('pjaxComplete', preloader.endLoading, 'preloader_end')
+  }
+})()</script><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/image/1061286.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">21</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">12</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(/image/746013.jpg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">wellorbetter's blog</span></a><a class="nav-page-title" href="/"><span class="site-name">rv四级缓存学习</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">rv四级缓存学习</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="fa-fw post-meta-icon far fa-calendar-alt"></i><span class="post-meta-label">发表于</span><time datetime="2026-04-26T16:00:00.000Z" title="发表于 2026-04-27 00:00:00">2026-04-27</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><div id="post-outdate-notice" data="{&quot;limitDay&quot;:365,&quot;messagePrev&quot;:&quot;本文已超过&quot;,&quot;messageNext&quot;:&quot;天未更新，部分内容可能已过时。&quot;,&quot;postUpdate&quot;:&quot;2026-04-27 22:10:51&quot;}" hidden></div><p>四级缓存<br>就RV这个东西，它是需要缓存的，就你这个思路很简单，你页面上显示六个view，那我至少得有六个view的这个显示队列，还有随时能用的这个tmp view<br>Scrap<br>Scrap 英文原意是「碎片、边角料、废纸」<br>还在屏幕上，只是temp detach了<br>只在一次 layout 的过程中存在。 layout 开始前是空的，layout 结束后也是空的，只在中间短暂存在<br>会触发RV layout的情况<br>    - 调用 notifyXXX（notifyDataSetChanged, notifyItemChanged, notifyItemInserted, …）<br>    - Adapter 换了（setAdapter）<br>    - LayoutManager 换了<br>    - RV 尺寸变了（屏幕旋转、折叠屏展开）<br>    - 主动调 requestLayout()<br>一次 layout 的完整过程<br>假设屏幕上现在有 6 个 VH：notifyItemChanged(3)</p>
+<ol>
+<li>layout 开始，把屏幕上所有 VH 「暂存」到 Scrap detachAndScrapAttachedViews </li>
+<li>把所有 VH 从屏幕 detach</li>
+<li>按状态分类放入两个 Scrap 容器<br>1. mAttachedScrap: 没被 notify 标记的<br>2. mChangedScrap: 被 notifyItemChanged(3) 标记了的</li>
+<li>重新 layout，从 Scrap 里拿 VH</li>
+<li>mAttachedScrap 里有 直接拿出来贴回屏幕</li>
+<li>mAttachedScrap没有，mChangedScrap 里有 ：onBindViewHolder  数据变了，要重新填</li>
+<li>layout 结束，Scrap 清空</li>
+<li>如果 Scrap 里还有剩余 VH 没被用到（比如数据变少了），它们会被扔进 Pool<br>为什么要分两个容器？<br>复用规则不一样<br>数据没变的 VH ： 什么都不用做，直接贴回屏幕<br>数据变了的 VH：  需要 onBindViewHolder 重新绑定<br>CachedViews<br>字面意思：「缓存的 Views]<br>滑动过程中，VH 滑出屏幕 → 进 CachedViews 默认容量只有 2<br>为什么这里是2？<br>CachedViews 的设计目标就是「应对小幅度来回滑动」</li>
+<li>往下滑一点 → 后悔了 → 往上滑回来 2 个够用</li>
+<li>往下滑了很远 → 不打算滑回来 Pool<br>如果容量太大，一堆 VH 都带着完整的 position+数据状态躺在内存里，浪费；容量太小，稍微晃一下就失效了。 Google 实测 2 是性价比最好的<br>场景：</li>
+<li>用户回滑</li>
+<li>CachedViews → 遍历查找 position</li>
+<li>找到 VH： 直接拿回来贴到屏幕 不调 onBindViewHolder onCreateViewHolder</li>
+<li>如果已经在Pool里了，onBindViewHolder<br>CachedViews 里面拿到的view 用户回滑时零延迟、零重绘，体验是无缝的<br>什么时候需要调？</li>
+<li>分页场景，用户很可能回滑： 比如阅读类 App（看文章、聊天），用户经常上下翻动。把 CachedViews 调大（比如 5-10）能显著提升体验<br>什么时候不要调？<br>那就那种很少往回滑的了<br>Extension<br>自定义<br>public abstract static class ViewCacheExtension {<br>   @Nullable<br>   public abstract View getViewForPositionAndType(<br>   @NonNull Recycler recycler, int position, int type);</li>
+</ol>
+<p>  }<br>他会在查找链路之后紧接<br>  ① Scrap          → 按 position 找<br>  ② CachedViews    → 按 position 找<br>  ③ Extension      → 你自己决定怎么找 ← 这里<br>  ④ Pool           → 按 viewType 找<br>  ⑤ onCreateViewHolder → inflate<br>但是注意，这里返回的参数值是View，而不是ViewHolder，所以你可以往这一层塞任意来源的 View，RV 会把它当成这一项的 itemView，然后反查这个 View 对应的 ViewHolder（通过getChildViewHolder(view)）<br>用起来长这样<br>class MyCacheExtension : RecyclerView.ViewCacheExtension() {</p>
+<pre><code>  // 你自己维护的 View 缓存
+  private val myCache = mutableMapOf&lt;Int, View&gt;()
+
+  override fun getViewForPositionAndType(
+      recycler: RecyclerView.Recycler,
+      position: Int,
+      type: Int
+  ): View? {
+      // 你自己决定怎么找、找不找得到
+      return myCache[position]
+  }
+</code></pre>
+<p>  }</p>
+<p>  recyclerView.setViewCacheExtension(MyCacheExtension())<br>RV 调你时传入 position 和 type，你返回一个 View，或者返回 null 让它继续往下查 Pool<br>使用限制</p>
+<ol>
+<li>返回的 View 必须已经关联了一个 ViewHolder<br>override fun getViewForPositionAndType(…): View? {<br>  val view &#x3D; myCache[position] ?: return null</li>
+</ol>
+<p>  &#x2F;&#x2F; RV 拿到 view 后会调 getChildViewHolder(view) 反查 VH<br>  &#x2F;&#x2F; 如果这个 view 没有关联 VH，会崩</p>
+<p>  return view<br>}<br>意味着你塞进缓存的 View 必须是之前通过 onCreateViewHolder 创建过的 itemView，不是随便 inflate 一个就能用<br>2. 你要自己管理缓存的生命周期<br>RV 不会帮你清理。Fragment 销毁时、数据变化时，你都要自己决定什么时候清空、挤出<br>3. 你要自己处理 position 映射<br>如果数据变了（插入、删除），position 会偏移。你的缓存里 key&#x3D;5 的 View 可能对应新数据集的 position&#x3D;6，不处理就用错<br>4. 你要自己处理 type 匹配<br>同一个 position 的 viewType 可能变。你缓存时存了 type，RV 查找时会传新 type，不匹配时你应该返回 null<br>感觉非常的坑啊，拉完了<br>感觉这个场景非常的有限，就大概是不变类型，不变位置，生命周期简单的这种情况：跨RV复用某一个View实例，固定不变的某个View，比如header之类的。这种主要不咋变，然后这个位置&#x2F;类型就好说了，然后因为不变，这个生命周期也相对来说好处理，好debug点<br>比如某些播放器场景，视频 SurfaceView 跟着滚动，不希望被回收重建。但这种一般用 setIsRecyclable(false)+特殊布局管理器处理，不用 Extension<br>Pool<br>只知道类型，不知道是第几项<br>源码简化版<br>public class RecycledViewPool {<br>  static class ScrapData {<br>      final ArrayList<ViewHolder> mScrapHeap &#x3D; new ArrayList&lt;&gt;();  &#x2F;&#x2F; VH 列表<br>      int mMaxScrap &#x3D; DEFAULT_MAX_SCRAP;                           &#x2F;&#x2F; 容量上限，默认 5<br>      long mCreateRunningAverageNs &#x3D; 0;                            &#x2F;&#x2F; inflate 平均耗时<br>      long mBindRunningAverageNs &#x3D; 0;                              &#x2F;&#x2F; bind 平均耗时<br>  }</p>
+<p>  SparseArray<ScrapData> mScrap &#x3D; new SparseArray&lt;&gt;();  &#x2F;&#x2F; key &#x3D; viewType<br>}<br>结构如下：按 viewType 分桶，每个桶有自己的列表和统计信息<br>RecycledViewPool<br>  ├── viewType 1 (APP_LIST_ITEM)<br>  │   └── ScrapData<br>  │       ├── mScrapHeap: [VH, VH, VH]  ← 最多 5 个<br>  │       ├── mMaxScrap: 5<br>  │       ├── mCreateRunningAverageNs: 2800000  ← 2.8ms 平均创建时间<br>  │       └── mBindRunningAverageNs: 400000     ← 0.4ms 平均 bind 时间<br>  │<br>  ├── viewType 2 (BIG_WIDGET)<br>  │   └── ScrapData<br>  │       ├── mScrapHeap: [VH, VH]<br>  │       └── …<br>  │<br>  └── viewType 3 (BANNER_GROUP_CARD)<br>      └── ScrapData<br>          └── …<br>SparseArray<ScrapData> 的 key 就是 viewType。Pool 的查找就是mScrap.get(viewType).mScrapHeap.removeLast()——按类型直接定位桶、弹出一个。这就是为什么 Pool 复用前提是「viewType必须相同」——底层数据结构就是这么分的<br>然后还有就是Pool 会统计每种 viewType 的创建和 bind 耗时，用于 GapWorker 做预取决策<br>&#x2F;&#x2F; RecyclerView 源码简化<br>void dispatchViewRecycled(ViewHolder holder) {<br>  ScrapData data &#x3D; getScrapDataForType(holder.mItemViewType);<br>  &#x2F;&#x2F; 更新移动平均值<br>  data.mCreateRunningAverageNs &#x3D; runningAverage(<br>      data.mCreateRunningAverageNs, nanosCreateTook);<br>}</p>
+<p>&#x2F;&#x2F; GapWorker 用这个决定「能不能在两帧之间完成预取」<br>boolean lastPrefetchFinished(…) {<br>  long avgCreateTime &#x3D; pool.getRunningAverageCreateTime(viewType);<br>  long timeLeft &#x3D; deadlineNs - System.nanoTime();<br>  return avgCreateTime &lt; timeLeft;  &#x2F;&#x2F; 时间够再做<br>}<br>VH 从 CachedViews 被挤出或滑动时被回收，都会走 putRecycledView。这里会做状态重置</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://wellorbetter.github.io">wellorbetter</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://wellorbetter.github.io/2026/04/26/2026-04-27-new-post--/">https://wellorbetter.github.io/2026/04/26/2026-04-27-new-post--/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://wellorbetter.github.io" target="_blank">wellorbetter's blog</a>！</span></div></div><div class="tag_share"><div class="post-share"><div class="social-share" data-image="/image/746013.jpg" data-sites="facebook,x,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related full-width" href="/2026/04/22/2026-04-23-new-post-1/" title="rv viewholder复用流畅度问题"><img class="cover" src="/image/695560.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">rv viewholder复用流畅度问题</div></div><div class="info-2"><div class="info-item-1">RV 基础理解viewholder，为什么需要viewholder非常显然一个rv，他滑动一定是需要限制展示的view和复用的比如一屏显示6个view，这个时候大概就需要维护一个7~8个显示的view的队列就好了非常直观，然后这个view，inflate的开销是很大的，要去找xml渲染，所以就直接这个存七八个view，就这个队列的view，然后挨个复用，就修改他的内容就行了。然后呢，这里view内部会有一堆东西，比如textview这种东西，你如果不持有这部分引用的话，你挨个bind的时候还得findviewbyId，这部分查找也很麻烦所以就有viewhoder这个概念，就持有view和他内部的资源的引用比如textview一大堆，然后还有一堆本身这块儿复用以及生命周期相关的一些值（比如fragment destroy了，这个viewholder就没有用了，这个就要销毁）场景问题1点击进入一个有rv的fragment，此时rv的pool是空的，因为都还没开始滑动（都没创建），这个时候需要从头创建viewholder，那如果这里view要是多了，这个要创建的viewholder就多...</div></div></div></a></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/image/1061286.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">wellorbetter</div><div class="author-info-description">努力学习魔法，希望有一天会收到霍格沃兹的录取通知书 = =</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">21</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">12</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/wellorbetter"><i class="fab fa-github"></i><span>GitHub</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/wellorbetter" target="_blank" title="GitHub"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:1419919418@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2026/04/26/2026-04-27-new-post--/" title="rv四级缓存学习"><img src="/image/746013.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="rv四级缓存学习"/></a><div class="content"><a class="title" href="/2026/04/26/2026-04-27-new-post--/" title="rv四级缓存学习">rv四级缓存学习</a><time datetime="2026-04-26T16:00:00.000Z" title="发表于 2026-04-27 00:00:00">2026-04-27</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/04/22/2026-04-23-new-post-1/" title="rv viewholder复用流畅度问题"><img src="/image/695560.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="rv viewholder复用流畅度问题"/></a><div class="content"><a class="title" href="/2026/04/22/2026-04-23-new-post-1/" title="rv viewholder复用流畅度问题">rv viewholder复用流畅度问题</a><time datetime="2026-04-22T16:00:00.000Z" title="发表于 2026-04-23 00:00:00">2026-04-23</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/04/21/2026-04-22-new-post-04/" title="刷题day3"><img src="/image/746013.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="刷题day3"/></a><div class="content"><a class="title" href="/2026/04/21/2026-04-22-new-post-04/" title="刷题day3">刷题day3</a><time datetime="2026-04-21T16:00:00.000Z" title="发表于 2026-04-22 00:00:00">2026-04-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/04/21/2026-04-22-new-post-2/" title="小部件加载"><img src="/image/673345.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="小部件加载"/></a><div class="content"><a class="title" href="/2026/04/21/2026-04-22-new-post-2/" title="小部件加载">小部件加载</a><time datetime="2026-04-21T16:00:00.000Z" title="发表于 2026-04-22 00:00:00">2026-04-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/04/21/2026-04-22-new-post3/" title="循环翻页"><img src="/image/752791.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="循环翻页"/></a><div class="content"><a class="title" href="/2026/04/21/2026-04-22-new-post3/" title="循环翻页">循环翻页</a><time datetime="2026-04-21T16:00:00.000Z" title="发表于 2026-04-22 00:00:00">2026-04-22</time></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2022 - 2026 By wellorbetter</span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.4"></script><script src="/js/main.js?v=5.5.4"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

@@ -1,0 +1,403 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>刷题 | wellorbetter's blog</title><meta name="author" content="wellorbetter"><meta name="copyright" content="wellorbetter"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="LRU大概思路就是unordered_map hash+双向链表head,tail拿的时候hahsmap key int value node我能直接get拿到这个node，然后把这个node 先remove，然后插到链表头部put的时候，也是，如果有，就修改这个value，然后remove，再insert如果没有，new一个node，然后再看size和cap的关系，如果大于等于，就要先remov">
+<meta property="og:type" content="article">
+<meta property="og:title" content="刷题">
+<meta property="og:url" content="https://wellorbetter.github.io/2026/06/06/2026-06-07-new-post/index.html">
+<meta property="og:site_name" content="wellorbetter&#39;s blog">
+<meta property="og:description" content="LRU大概思路就是unordered_map hash+双向链表head,tail拿的时候hahsmap key int value node我能直接get拿到这个node，然后把这个node 先remove，然后插到链表头部put的时候，也是，如果有，就修改这个value，然后remove，再insert如果没有，new一个node，然后再看size和cap的关系，如果大于等于，就要先remov">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://wellorbetter.github.io/image/875222.jpg">
+<meta property="article:published_time" content="2026-06-06T16:00:00.000Z">
+<meta property="article:modified_time" content="2026-06-07T16:57:53.171Z">
+<meta property="article:author" content="wellorbetter">
+<meta property="article:tag" content="leetcode">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://wellorbetter.github.io/image/875222.jpg"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "刷题",
+  "url": "https://wellorbetter.github.io/2026/06/06/2026-06-07-new-post/",
+  "image": "https://wellorbetter.github.io/image/875222.jpg",
+  "datePublished": "2026-06-06T16:00:00.000Z",
+  "dateModified": "2026-06-07T16:57:53.171Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "wellorbetter",
+      "url": "https://wellorbetter.github.io"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://wellorbetter.github.io/2026/06/06/2026-06-07-new-post/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=5.5.4"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.1.0/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'undefined')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'undefined')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.13.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '刷题',
+  isHighlightShrink: false,
+  isToc: false,
+  pageType: 'post'
+}</script><link rel="stylesheet" href="/css/custom.css"><meta name="generator" content="Hexo 8.1.2"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><script>(()=>{
+  const $loadingBox = document.getElementById('loading-box')
+  const $body = document.body
+  const preloader = {
+    endLoading: () => {
+      if ($loadingBox.classList.contains('loaded')) return
+      $body.style.overflow = ''
+      $loadingBox.classList.add('loaded')
+    },
+    initLoading: () => {
+      $body.style.overflow = 'hidden'
+      $loadingBox.classList.remove('loaded')
+    }
+  }
+
+  preloader.initLoading()
+
+  if (document.readyState === 'complete') {
+    preloader.endLoading()
+  } else {
+    window.addEventListener('load', preloader.endLoading)
+    document.addEventListener('DOMContentLoaded', preloader.endLoading)
+    // Add timeout protection: force end after 7 seconds
+    setTimeout(preloader.endLoading, 7000)
+  }
+
+  if (false) {
+    btf.addGlobalFn('pjaxSend', preloader.initLoading, 'preloader_init')
+    btf.addGlobalFn('pjaxComplete', preloader.endLoading, 'preloader_end')
+  }
+})()</script><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/image/1061286.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">29</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">12</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(/image/875222.jpg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">wellorbetter's blog</span></a><a class="nav-page-title" href="/"><span class="site-name">刷题</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">刷题</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="fa-fw post-meta-icon far fa-calendar-alt"></i><span class="post-meta-label">发表于</span><time datetime="2026-06-06T16:00:00.000Z" title="发表于 2026-06-07 00:00:00">2026-06-07</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><div id="post-outdate-notice" data="{&quot;limitDay&quot;:365,&quot;messagePrev&quot;:&quot;本文已超过&quot;,&quot;messageNext&quot;:&quot;天未更新，部分内容可能已过时。&quot;,&quot;postUpdate&quot;:&quot;2026-06-08 00:57:53&quot;}" hidden></div><p>LRU<br>大概思路就是unordered_map hash+双向链表head,tail<br>拿的时候hahsmap key int value node<br>我能直接get拿到这个node，然后把这个node 先remove，然后插到链表头部<br>put的时候，也是，如果有，就修改这个value，然后remove，再insert<br>如果没有，new一个node，然后再看size和cap的关系，如果大于等于，就要<br>先remove这个tail的一个，然后再insert头</p>
+<p>class LRUCache {<br>private:<br>    int cap;<br>    struct Node {<br>        int key, value;<br>        struct Node* prev;<br>        struct Node* next;<br>        Node(int key, int value): key(key), value(value) {<br>        }<br>    };</p>
+<pre><code>struct Node* head;
+struct Node* tail; 
+
+unordered_map&lt;int, Node*&gt; mp;
+
+Node* removeNode(int key) {
+    if (!mp.count(key)) return NULL;
+    Node* node = mp[key];
+    return removeNode(node);
+}
+
+Node* removeNode(Node* node) {
+    node-&gt;prev-&gt;next = node-&gt;next;
+    node-&gt;next-&gt;prev = node-&gt;prev; 
+    mp.erase(node-&gt;key);
+    return node;
+}
+
+int insertHead(int key, Node* node) {
+    if (node == NULL) return -1;
+    node-&gt;next = head-&gt;next;
+    node-&gt;prev = head;
+    head-&gt;next-&gt;prev = node;
+    head-&gt;next = node;
+    mp[key] = node;
+    return node-&gt;value;
+}
+</code></pre>
+<p>public:<br>    LRUCache(int capacity): cap(capacity) {<br>        head &#x3D; new Node(0, 0);<br>        tail &#x3D; new Node(0, 0);<br>        head-&gt;next &#x3D; tail;<br>        head-&gt;prev &#x3D; NULL;<br>        tail-&gt;next &#x3D; NULL;<br>        tail-&gt;prev &#x3D; head;<br>    }</p>
+<pre><code>int get(int key) {
+    return insertHead(key, removeNode(key));
+}
+
+void put(int key, int value) {
+    if (mp.count(key)) {
+        Node* node = mp[key];
+        node-&gt;value = value;
+        insertHead(key, removeNode(key));
+    } else {
+        Node* node = new Node(key, value);
+        if (mp.size() &gt;= cap) {
+            removeNode(tail-&gt;prev);
+        } 
+        insertHead(key, node);
+    } 
+}
+</code></pre>
+<p>}; </p>
+<p>有效的括号<br>这个是栈匹配这个这个，进来先看栈顶能不能匹配<br>匹配了直接弹，continue<br>不匹配入栈<br>class Solution {<br>public:<br>    stack<char> st;<br>    bool isValid(string s) {<br>        for (int i &#x3D; 0; i &lt; s.size(); i ++ ) {<br>            if (!st.empty() &amp;&amp; (<br>                s[i] &#x3D;&#x3D; ‘)’ &amp;&amp; st.top() &#x3D;&#x3D; ‘(‘ ||<br>                s[i] &#x3D;&#x3D; ‘]’ &amp;&amp; st.top() &#x3D;&#x3D; ‘[‘ ||<br>                s[i] &#x3D;&#x3D; ‘}’ &amp;&amp; st.top() &#x3D;&#x3D; ‘{‘<br>            )) {<br>                st.pop();<br>                cout &lt;&lt; i &lt;&lt; “pop” &lt;&lt; endl;<br>                continue;<br>            }<br>            cout &lt;&lt; i &lt;&lt; “push” &lt;&lt; endl;<br>            st.push(s[i]);<br>        }<br>        return st.size() &#x3D;&#x3D; 0;<br>    }<br>};</p>
+<p>数组中的第K个最大元素</p>
+<p>这个还有点复杂，我的思路就堆，但是建堆好像是nlogn，跟这个排序没啥区别<br>有个思路很厉害，就是第k个，那就是有序列表的下标n-k<br>这个可以用快排做，为什么，因为这有点像是一个二分找n-k下标<br>我每次快排就是分成两个部分+当前的pivot，pivot左边的是&lt;pivot的，右边是大于的，那这个位置<br>很显然就是pivot的排序之后的index<br>然后快排这个pivot需要在left，right之间取一个rand，不取也行，我一般用这个l+r+1&gt;&gt;1;<br>拿到pivot之后，就快排思路了<br>这俩部分是left到pivot i ，pivot到right j<br>就while(true)进来<br>左边找到第一个大于pivot的，右边找到第一个小于pivot的，&amp;&amp;i&lt;&#x3D;j, swap<br>i++，j–<br>然后i&gt;&#x3D;j break;<br>让我写的话，我这里应该是会写不出来。。。</p>
+<p> 买卖股票的最佳时机1 &amp; 2<br>1 这里就是只能买卖一次<br>2 这里可以多次买卖<br>这里1的话就是第i天，我最大利润就是第i天的price-前面最小值，然后这利润取最大遍历就行了<br>2这里可以多次买卖的话，就可以用dp<br>大致思路就是第i天如果持有了，那说明要么是之前就持有了，要么就前一天买了<br>第i天卖了，要么是之前就卖了，要么昨天卖了<br>然后就是这个可以最简单，贪心，第二天比第一天涨，我就吃，也就是说，所有的涨幅我都吃，是一个贪心思路<br>class Solution {<br>public:<br>    int dp[100010][2];<br>    int maxProfit(vector<int>&amp; prices) {<br>        &#x2F;&#x2F; dp[i][j] 表示第i天持有&#x2F;卖出这只股票的最大利润<br>        &#x2F;&#x2F; dp[i][0] &#x3D; dp[0…i - 1][1] max dp[i-1][ 1] + prices[i]<br>        &#x2F;&#x2F; dp[i][1] &#x3D; dp[i-1][0] - prices[i]<br>        dp[0][1] &#x3D; -prices[0];<br>        dp[0][0] &#x3D; 0;<br>        for (int i &#x3D; 1; i &lt; prices.size(); i ++ ) {<br>            dp[i][0] &#x3D; max(dp[i - 1][1] + prices[i], dp[i - 1][0]);<br>            dp[i][1] &#x3D; max(dp[i - 1][0] - prices[i], dp[i - 1][1]);<br>        }<br>        return dp[prices.size() - 1][0];<br>    }<br>};</p>
+<p>最长回文子串<br>区间dp<br>外层length<br>枚举左边界，定位右边界<br>如果ij不相等不是回文，是的话，看size是不是2，是直接赋值<br>不是看里面是不是回文，是的话赋值<br>记录index，返回substr<br>class Solution {<br>  public:<br>      int dp[1010][1010];</p>
+<pre><code>  string longestPalindrome(string s) {
+      int n = s.size();
+      int res = 1;
+      pair&lt;int, int&gt; idx = {0, 0};
+
+      for (int i = 0; i &lt; n; i++) dp[i][i] = 1;
+
+      for (int length = 2; length &lt;= n; length++) {//&lt;=
+          for (int i = 0; i + length - 1 &lt; n; i++) {// 直接限制 j 范围,不用 continue
+              int j = i + length - 1;
+              if (s[i] != s[j]) {
+                  dp[i][j] = 0;
+              } else if (length == 2) {
+                  dp[i][j] = 2;
+              } else if (dp[i + 1][j - 1] &gt; 0) {//里层是回文
+                  dp[i][j] = dp[i + 1][j - 1] + 2;
+              } else {
+                  dp[i][j] = 0;// 里层不是,整个不是
+              }
+
+              if (dp[i][j] &gt; res) {
+                  res = dp[i][j];
+                  idx = {i, j};
+              }
+          }
+      }
+      return s.substr(idx.first, idx.second - idx.first + 1);
+  }
+</code></pre>
+<p>  };</p>
+<p>反转链表<br>三指针，直接反转，记录一下next，while cur就行了<br>&#x2F;**</p>
+<ul>
+<li>Definition for singly-linked list.</li>
+<li>struct ListNode {</li>
+<li><pre><code>int val;
+</code></pre>
+</li>
+<li><pre><code>ListNode *next;
+</code></pre>
+</li>
+<li><pre><code>ListNode() : val(0), next(nullptr) {}
+</code></pre>
+</li>
+<li><pre><code>ListNode(int x) : val(x), next(nullptr) {}
+</code></pre>
+</li>
+<li><pre><code>ListNode(int x, ListNode *next) : val(x), next(next) {}
+</code></pre>
+</li>
+<li>};<br> <em>&#x2F;<br>class Solution {<br>public:<br> ListNode</em> reverseList(ListNode* head) {<br> if (!head) return head;<br> ListNode* prev &#x3D; NULL;<br> ListNode* cur &#x3D; head;<br> ListNode* next &#x3D; cur-&gt;next;<br> while (cur) {<br>     next &#x3D; cur-&gt;next;<br>     cur-&gt;next &#x3D; prev;<br>     prev &#x3D; cur;<br>     cur &#x3D; next;<br> }<br> return prev;<br> }<br>};</li>
+</ul>
+<p>环形链表2<br>这个是结论快慢指针交点得出环<br>然后这个位置和head同速相交会走到交点<br>&#x2F;**</p>
+<ul>
+<li>Definition for singly-linked list.</li>
+<li>struct ListNode {</li>
+<li><pre><code>int val;
+</code></pre>
+</li>
+<li><pre><code>ListNode *next;
+</code></pre>
+</li>
+<li><pre><code>ListNode(int x) : val(x), next(NULL) {}
+</code></pre>
+</li>
+<li>};<br> <em>&#x2F;<br>class Solution {<br>public:<br> ListNode <em>detectCycle(ListNode <em>head) {<br> ListNode</em> p &#x3D; find(head);<br> if (!p) return NULL;<br> while (head) {<br>     if (head &#x3D;&#x3D; p) return head;<br>     head &#x3D; head-&gt;next;<br>     p &#x3D; p-&gt;next;<br> }<br> return NULL;<br> }<br> ListNode</em> find(ListNode <em>head) {<br> ListNode</em> q, * s;<br> q &#x3D; head; s &#x3D; head;<br> while (q) {<br>     s &#x3D; s-&gt;next;<br>     q &#x3D; q-&gt;next;<br>     if (q) q &#x3D; q-&gt;next;<br>     if (q &amp;&amp; s &amp;&amp; q &#x3D;&#x3D; s) return q;<br> }<br> return NULL;<br> }<br>};<br>K 个一组翻转链表<br>这个有点难，模拟可以做，但是太复杂了。这里用递归<br>大概思路就是，先看能不能取k个一组，不能直接返回<br>可以的话，可以reverse当前的k，然后这个链表的tail和head需要拿到<br>因为tail到结束的这部分，可以递归处理<br>我当前这个函数表述的是，给一个头+k，我返回处理结束后的新链表的头<br>那这里我不就可以递归了吗？然后原来的head变成了尾，head-&gt;next链接上新链表的头节点over<br>&#x2F;</em>*</li>
+<li>Definition for singly-linked list.</li>
+<li>struct ListNode {</li>
+<li><pre><code>int val;
+</code></pre>
+</li>
+<li><pre><code>ListNode *next;
+</code></pre>
+</li>
+<li><pre><code>ListNode() : val(0), next(nullptr) {}
+</code></pre>
+</li>
+<li><pre><code>ListNode(int x) : val(x), next(nullptr) {}
+</code></pre>
+</li>
+<li><pre><code>ListNode(int x, ListNode *next) : val(x), next(next) {}
+</code></pre>
+</li>
+<li>};<br> <em>&#x2F;<br>class Solution {<br>public:<br> ListNode</em> reverseKGroup(ListNode* head, int k) {<br> &#x2F;&#x2F; 先看看前面k个能不能搞出来，不能搞出来就return<br> &#x2F;&#x2F; 能搞出来，你这里直接返回reverse之后的头节点对吧<br> &#x2F;&#x2F; 那我先拿到后面的n-k链表的头，然后我再reverse当前k的<br> &#x2F;&#x2F; 然后我再链接上<br> ListNode* tail &#x3D; head;<br> for (int i &#x3D; 0; i &lt; k; i ++ ) {<br>     if (tail) {<br>         tail &#x3D; tail-&gt;next;<br>     } else {<br>         return head;<br>     }<br> }<br> ListNode* res &#x3D; reverse(head, k);<br> head-&gt;next &#x3D; reverseKGroup(tail, k);<br> return res;<br> }<br> ListNode* reverse(ListNode* head, int k) {<br> ListNode* cur, * next, * prev;<br> prev &#x3D; NULL; cur &#x3D; head;<br> while (cur &amp;&amp; k – ) {<br>     next &#x3D; cur-&gt;next;<br>     cur-&gt;next &#x3D; prev;<br>     prev &#x3D; cur;<br>     cur &#x3D; next;<br> }<br> return prev;<br> }<br>};</li>
+</ul>
+<ol start="24">
+<li>两两交换链表中的节点<br>这个是这个东西的简化版，k&#x3D;2</li>
+</ol>
+<p>然后还有个<br>416. 分割等和子集<br>给你一个 只包含正整数 的 非空 数组 nums 。请你判断是否可以将这个数组分割成两个子集，使得两个子集的元素和相等。</p>
+<p>这个东西，思路是俩子集相等，那也就是一个凑出total&#x2F;2就行了，奇数直接false<br>然后这个就是01dp dp[i][j]表示前i个能不能凑出j，不选直接&#x3D;i-1<br>选了的话，|| dp[i-1][j-nums[i]] 这里一般dp会从1开始，这里凑0显然都是true<br>然后这个nums数组从0开始，这里得-1</p>
+<p>class Solution {<br>public:<br>    int dp[300][10010];<br>    bool canPartition(vector<int>&amp; nums) {<br>        int total &#x3D; 0;<br>        for (auto val: nums) total +&#x3D; val;<br>        if (total % 2) return false;<br>        int target &#x3D; total &#x2F; 2;<br>        int n &#x3D; nums.size();</p>
+<pre><code>    // 前i个数，可以凑出j
+    for (int i = 0; i &lt;= n; i ++ ) dp[i][0] = true;
+    for (int i = 1; i &lt;= n; i ++ ) {
+        for (int j = 1; j &lt;= target; j ++ ) {
+            dp[i][j] = dp[i - 1][j];
+            if (j &gt;= nums[i - 1]) {
+                dp[i][j] = dp[i][j] || dp[i - 1][j - nums[i - 1]];
+            }
+        }
+    }
+    return dp[n][target];
+}
+</code></pre>
+<p>};<br>2. 两数相加<br>模拟，记住有个mod就行了，然后有几个边界条件<br>就长度不一致，然后最后如果md还有值，这俩<br>class Solution {<br>public:<br>    ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {<br>        int md &#x3D; 0;<br>        ListNode* head &#x3D; new ListNode();<br>        ListNode* tmp &#x3D; head;<br>        while (l1 &amp;&amp; l2) {<br>            int val &#x3D; l1-&gt;val + l2-&gt;val + md;<br>            md &#x3D; val &#x2F; 10;<br>            val %&#x3D; 10;<br>            ListNode* node &#x3D; new ListNode(val);<br>            tmp-&gt;next &#x3D; node;<br>            tmp &#x3D; node;<br>            l1 &#x3D; l1-&gt;next;<br>            l2 &#x3D; l2-&gt;next;<br>        }<br>        while (l1) {<br>            int val &#x3D; l1-&gt;val + md;<br>            md &#x3D; val &#x2F; 10;<br>            val %&#x3D; 10;<br>            ListNode* node &#x3D; new ListNode(val);<br>            tmp-&gt;next &#x3D; node;<br>            tmp &#x3D; node;<br>            l1 &#x3D; l1-&gt;next;<br>        }<br>        while (l2) {<br>            int val &#x3D; l2-&gt;val + md;<br>            md &#x3D; val &#x2F; 10;<br>            val %&#x3D; 10;<br>            ListNode* node &#x3D; new ListNode(val);<br>            tmp-&gt;next &#x3D; node;<br>            tmp &#x3D; node;<br>            l2 &#x3D; l2-&gt;next;<br>        }<br>        if (md) {<br>            ListNode* node &#x3D; new ListNode(md);<br>            tmp-&gt;next &#x3D; node;<br>        }<br>        return head-&gt;next;<br>    }<br>};<br>238. 除了自身以外数组的乘积</p>
+<p>给你一个整数数组 nums，返回 数组 answer ，其中 answer[i] 等于 nums 中除了 nums[i] 之外其余各元素的乘积 。</p>
+<p>题目数据 保证 数组 nums之中任意元素的全部前缀元素和后缀的乘积都在  32 位 整数范围内。</p>
+<p>请 不要使用除法，且在 O(n) 时间复杂度内完成此题。</p>
+<p>不用除法就俩前缀和解决了，这个进阶：<br>进阶：你可以在 O(1) 的额外空间复杂度内完成这个题目吗？（ 出于对空间复杂度分析的目的，输出数组 不被视为 额外空间。）<br>这个要优化的话，那可能就是我在算这个前缀和的时候，就直接把结果都存进去了。<br>class Solution {<br>public:<br>    int s[100010], a[100010];<br>    vector<int> productExceptSelf(vector<int>&amp; nums) {<br>        &#x2F;&#x2F; 前缀和，当前这个i，实际上&#x3D;i-1 * n-i+1<br>        &#x2F;&#x2F; 哦，不能÷的话，搞俩前缀和不就行了吗<br>        int n &#x3D; nums.size(); s[0] &#x3D; 1;<br>        for (int i &#x3D; 1; i &lt;&#x3D; n; i ++ ) {<br>            s[i] &#x3D; s[i - 1] * nums[i - 1];<br>        }<br>        a[n + 1] &#x3D; 1;<br>        for (int i &#x3D; n; i &gt;&#x3D; 1; i – ) {<br>            a[i] &#x3D; a[i + 1] * nums[i - 1];<br>        }<br>        vector<int> res;<br>        for (int i &#x3D; 1; i &lt;&#x3D; n; i ++ ) {<br>            res.push_back(s[i - 1] * a[i + 1]);<br>        }<br>        return res;<br>    }<br>};<br>分割回文串<br>给你一个字符串 s，请你将 s 分割成一些 子串，使每个子串都是 回文串 。返回 s 所有可能的分割方案。</p>
+<p> 这个我的思路1是枚举分割点2^16<br>然后2就是dfs，从dfs(s, start)表示从s字符串的start开始切割回文串<br>那我进入肯定就看你这个是不是结束了，start&#x3D;&#x3D;size，那就是整体都切完了push一个<br>然后这里记录path的话，就从start开始吧，这里先看看是不是回文，然后push，然后dfs继续后面部分的<br>然后记得回溯现场。<br>class Solution {<br>      vector&lt;vector<string>&gt; ans;<br>      vector<string> path;</p>
+<pre><code>  bool isPalin(const string&amp; s, int l, int r) {
+      while (l &lt; r) {
+          if (s[l] != s[r]) return false;
+          l++; r--;
+      }
+      return true;
+  }
+
+  void dfs(string&amp; s, int start) {
+      if (start == s.size()) {              // 切到末尾,收答案
+          ans.push_back(path);
+          return;
+      }
+      for (int end = start; end &lt; s.size(); end++) {     // 枚举本段终点
+          if (isPalin(s, start, end)) {                   // 是回文才往下切
+              path.push_back(s.substr(start, end - start + 1));
+              dfs(s, end + 1);                            // 递归切剩下的
+              path.pop_back();
+          }
+      }
+  }
+</code></pre>
+<p>  public:<br>      vector&lt;vector<string>&gt; partition(string s) {<br>          dfs(s, 0);<br>          return ans;<br>      }<br>  };</p>
+<ol start="160">
+<li>相交链表<br>给你两个单链表的头节点 headA 和 headB ，请你找出并返回两个单链表相交的起始节点。如果两个链表不存在相交节点，返回 null 。<br>这个就比较简单，就找相交的就行了<br>class Solution {<br>public:<br>ListNode <em>getIntersectionNode(ListNode <em>headA, ListNode <em>headB) {<br>   ListNode</em> a &#x3D; headA, <em>b &#x3D; headB;<br>   while (a) {<br>   ListNode</em> node &#x3D; find(a, b);<br>   if (node) return node;<br>   a &#x3D; a-&gt;next;<br>   }<br>   return NULL;<br>}<br>ListNode</em> find(ListNode</em> a, ListNode* b) {<br>   while (b) {<br>   if (a &#x3D;&#x3D; b) return a;<br>   b &#x3D; b-&gt;next;<br>   }<br>   return NULL;<br>}<br>};</li>
+</ol>
+<p>两数之和<br>给定一个整数数组 nums 和一个整数目标值 target，请你在该数组中找出 和为目标值 target  的那 两个 整数，并返回它们的数组下标。</p>
+<p>你可以假设每种输入只会对应一个答案，并且你不能使用两次相同的元素。</p>
+<p>你可以按任意顺序返回答案。<br>嗯，大概就注释里面写的这样，总之记住先查后塞</p>
+<p>class Solution {<br>public:<br>    vector<int> twoSum(vector<int>&amp; nums, int target) {<br>        &#x2F;&#x2F; 对于固定右边j，实际上我只需要看j左边有没有target-Numj就行了<br>        &#x2F;&#x2F; 然后我j从0到n，先查后加<br>        unordered_map&lt;int, int&gt; mp;<br>        for (int i &#x3D; 0; i &lt; nums.size(); i ++ ) {<br>            if (mp.count(target - nums[i])) {<br>                return {i, mp[target - nums[i]]};<br>            }<br>            mp[nums[i]] &#x3D; i;<br>        }<br>        return {};<br>    }<br>};</p>
+<ol start="236">
+<li><p>二叉树的最近公共祖先<br>这个就记住一个东西，公共祖先root，这个pq，他得分别在左子树和右子树<br>不然的话，就得return left递归找左子树&#x2F;右子树<br>大概思路就是，先找左子树有没有pq，再找右子树有没有pq，都有才返回root<br>class Solution {<br>public:<br>TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {<br>  &#x2F;&#x2F; 这个公共祖先，必须是p&amp;q的祖先，也就是说从祖先能遍历到pq<br>  &#x2F;&#x2F; 哦，我想起来了，就是这俩得分别在左右子树里面pq<br>  &#x2F;&#x2F; 如果pq都在同一个子树里面，那说明这个祖先也在这里面<br>  if (root &#x3D;&#x3D; NULL) return NULL;<br>  if (root &#x3D;&#x3D; p || root &#x3D;&#x3D; q) return root;<br>  TreeNode* left &#x3D; lowestCommonAncestor(root-&gt;left, p, q);<br>  TreeNode* right &#x3D; lowestCommonAncestor(root-&gt;right, p, q);<br>  if (left &amp;&amp; right) return root;<br>  return left ? left : right;<br>}<br>};</p>
+</li>
+<li><p>最大子数组和<br>给你一个整数数组 nums ，请你找出一个具有最大和的连续子数组（子数组最少包含一个元素），返回其最大和。</p>
+</li>
+</ol>
+<p>子数组是数组中的一个连续部分。</p>
+<p>这里的思路是dpi表示以i结尾的连续子数组的最大值<br>你这里前面，i-1这块，要么能接上，要么接不上<br>能接上，那就是dp-1+numsi，不能那就当前这一个，最大值取max</p>
+<p>class Solution {<br>public:<br>    int dp[100100];<br>    int maxSubArray(vector<int>&amp; nums) {<br>        int res &#x3D; -1000000;<br>        for (int i &#x3D; 1; i &lt;&#x3D; nums.size(); i ++ ) {<br>            dp[i] &#x3D; max(dp[i - 1] + nums[i - 1], nums[i - 1]);<br>            res &#x3D; max(res, dp[i]);<br>        }<br>        return res;<br>    }<br>};<br>反转二叉树</p>
+<p>class Solution {<br>public:<br>    TreeNode* invertTree(TreeNode* root) {<br>        &#x2F;&#x2F; 左右子树都反转之后，切换root的左右子树<br>        if (root &#x3D;&#x3D; NULL) return NULL;<br>        if (root-&gt;left &#x3D;&#x3D; NULL &amp;&amp; root-&gt;right &#x3D;&#x3D; NULL) return root;<br>        TreeNode* left &#x3D; invertTree(root-&gt;left);<br>        TreeNode* right &#x3D; invertTree(root-&gt;right);<br>        root-&gt;right &#x3D; left;<br>        root-&gt;left &#x3D; right;<br>        return root;<br>    }<br>};<br>101. 对称二叉树<br>class Solution {<br>public:<br>    bool isSymmetric(TreeNode* root) {<br>        &#x2F;&#x2F; 这里左右俩指针相反移动<br>        &#x2F;&#x2F; pq, p往左，q往右，p往右，q往左<br>        return check(root-&gt;left, root-&gt;right);<br>    }</p>
+<pre><code>bool check(TreeNode* q, TreeNode* p) {
+    if (!p &amp;&amp; !q) return true;
+    if (!p || !q) return false;
+    return p-&gt;val == q-&gt;val &amp;&amp; check(p-&gt;left, q-&gt;right) &amp;&amp; check(p-&gt;right, q-&gt;left);
+}
+</code></pre>
+<p>};</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://wellorbetter.github.io">wellorbetter</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://wellorbetter.github.io/2026/06/06/2026-06-07-new-post/">https://wellorbetter.github.io/2026/06/06/2026-06-07-new-post/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://wellorbetter.github.io" target="_blank">wellorbetter's blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/leetcode/">leetcode</a></div><div class="post-share"><div class="social-share" data-image="/image/875222.jpg" data-sites="facebook,x,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related full-width" href="/2026/06/02/2026-06-03-new-post/" title="刷题day9"><img class="cover" src="/image/695560.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">刷题day9</div></div><div class="info-2"><div class="info-item-1"> 无重复字符的最长子串给定一个字符串 s ，请你找出其中不含有重复字符的 最长 子串 的长度。  最开始写成模拟了，后来想了一下，这个是滑动队列，很久之前写过，写不太懂了大概就记得维护一个l到r的一个队列，大概就是进来先放当前的这个i这个值如果重复了，那就弹队头，l++然后每次进来先放，然后r++没啥问题 class Solution {public:    map&lt;char, int&gt; mp;    int lengthOfLongestSubstring(string s) {        if (s.size() &#x3D;&#x3D; 0) return 0;        int l &#x3D; 0, r &#x3D; 0, res &#x3D; 1;        mp[s[l]] ++;        for (int i &#x3D; 1; i &lt; s.size(); i ++ ) {            mp[s[i]] ++ ; r ++ ;            &#x2F;&#x2F; cout &lt;&lt; i &lt;&l...</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/2026/05/16/2026-05-17-new-post/" title="刷题day7"><img class="cover" src="/image/599136.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2026-05-17</div><div class="info-item-2">刷题day7</div></div><div class="info-2"><div class="info-item-1"> 验证二叉搜索树  给你一个二叉树的根节点 root ，判断其是否是一个有效的二叉搜索树。 有效 二叉搜索树定义如下： 节点的左子树只包含 严格小于 当前节点的数。节点的右子树只包含 严格大于 当前节点的数。所有左子树和右子树自身必须也是二叉搜索树。 思路很简单，就他这个，左子树这个大小能递归拿到，右子树大小也能递归拿到然后左子树小于当前的值大于右子树的值然后递归左子树，递归右子树，取并就行了 单纯数据结构，感觉都不用刷了大一基础还是不赖的 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566/** * Definition for a binary tree node. * struct TreeNode &#123; *     int val; *     TreeNode *left; *     TreeNode *right; *     TreeNode() : val(0)...</div></div></div></a><a class="pagination-related" href="/2026/05/05/2026-05-06-new-post/" title="刷题day4"><img class="cover" src="/image/695560.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2026-05-06</div><div class="info-item-2">刷题day4</div></div><div class="info-2"><div class="info-item-1">插入区间 一眼left right二分+合并区间。然后这个合并区间是只有三个区间。然后我就懒得写区间合并，然后就悲剧了 真神了，为什么要模拟，真的是神了，思路出来0s，模拟1h还不对。真不如区间合并板子用一下。就算我过了，不想改了 </div></div></div></a><a class="pagination-related" href="/2026/05/06/2026-05-07-new-post/" title="刷题day5"><img class="cover" src="/image/875222.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2026-05-07</div><div class="info-item-2">刷题day5</div></div><div class="info-2"><div class="info-item-1"> 最大正方形  个人思路，0s想出思路，二维前缀和+for nm len 遍历 n^3也能过 这里正解是dp，但是我是感觉这个dp理解起来很费解，感觉很难了。他这个dp ij表示的是边长，因为正方形面积实际上是和边长挂边的，但是边长更简单不用开根号。然后这里你表达的是最大的边长，这里来看的话，我理解你可能会由i-1 j-1 i-j&amp;j-1这三个正方形转化而来110110001比如这个，那就是i-1&amp;j-1011011001 这里就是i-1110110001 这里就是j-1但是实际上能走到扩大的只有111111111因为这三实际上是相互影响的。你如果i-1能扩展到i，那意味着，你这个i-1上面必须至少全部都是1，同理j-1,i-1&amp;j-1要拓展过来，你这部分都得是1那很明显，那就是这三的最小值都得满足满1，然后才能+1那这里dpij &gt;&#x3D; min(这三个)+1那这里dp ij 能不能不止+1 能+2呢？假设这个最小值是m，然后这个如果dpij &gt;&#x3D; m+2，那这里就会存在m+2，m+2，这个正方形，它这里面能拆出三个m+1那这...</div></div></div></a><a class="pagination-related" href="/2026/04/19/2026-04-20-new-post/" title="刷题day1"><img class="cover" src="/image/677464.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2026-04-20</div><div class="info-item-2">刷题day1</div></div><div class="info-2"><div class="info-item-1">题目给你一个数组 nums 和一个值 val，你需要 原地 移除所有数值等于 val 的元素。元素的顺序可能发生改变。然后返回 nums 中与 val 不同的元素的数量。 假设 nums 中不等于 val 的元素数量为 k，要通过此题，您需要执行以下操作： 更改 nums 数组，使 nums 的前 k 个元素包含不等于 val 的元素。nums 的其余元素和 nums 的大小并不重要。返回 k。 思路这里要我返回这个顺序递增的这个数组，最暴力就是平移+排序然后我的思路是，你后面这个nums2, 他可以二分找到这个要插入的位置，然后这插入的这个位置是一个顺序set对应每个nums2的元素都需要对nums1来进行二分，如果num1 n, nums2 m,那这里复杂度就是mlogn，然后这里我需要对每个插入的这些nums2的这些元素分别来做排序也就是milogmi, sum mi &#x3D; m; 每个桶大小 mi，排序 O(mi log mi)，总和 O(Σ mi log mi)，其中 Σmi &#x3D; m由于 Σ mi log mi ≤ m log m（当所有元素集中在一个桶...</div></div></div></a><a class="pagination-related" href="/2026/04/20/2026-04-21-new-post/" title="刷题day2"><img class="cover" src="/image/695560.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2026-04-21</div><div class="info-item-2">刷题day2</div></div><div class="info-2"><div class="info-item-1"> 移除元素给你一个数组 nums 和一个值 val，你需要 原地 移除所有数值等于 val 的元素。元素的顺序可能发生改变。然后返回 nums 中与 val 不同的元素的数量。  假设 nums 中不等于 val 的元素数量为 k，要通过此题，您需要执行以下操作： 更改 nums 数组，使 nums 的前 k 个元素包含不等于 val 的元素。nums 的其余元素和 nums 的大小并不重要。返回 k。 题意大概意思就是给你一个数组，一个值，返回这个数组去除这个值的顺序数组 解法暴力遍历最简单 然后优化应该就是双指针了。就这样吧，你可以新开一个数组，然后顺序走++，因为你每次++都一定会填入一个你需要的数值然后这个数值的得到是通过原始num数组和val是否相等来的，这个也是顺序++判断的 题解还有个解法没仔细看，叫对撞指针？看不明白就这样吧 </div></div></div></a><a class="pagination-related" href="/2026/04/21/2026-04-22-new-post-04/" title="刷题day3"><img class="cover" src="/image/599136.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2026-04-22</div><div class="info-item-2">刷题day3</div></div><div class="info-2"><div class="info-item-1">哎，这个合并区间就是咋说呢，左+右对吧？就反正一个左一定要和一个右配对，那就简单了。反正pair排序，按照first排序之后，这个second来看，如果你这个second能比下一个first大，那就能合并，不然就push非常简单的模拟的思路，nlogn 具体写就sort一下begin end，加一个lambda [](&amp;a, &amp;b)然后就开始写区间，这个区间开头是l，r就0那个左右然后就开始更新，如果在区间内，就更新r，这个r就是当前这个两个r的max也就是当前r和这个r的最大值如果不是合并的，那就更新了，同时push一下然后最后剩下一组，就是更新了的最后一组&#x2F;没更新的合并的，push没问题。 12345678910111213141516171819202122232425262728class Solution &#123;public:    vector&lt;vector&lt;int&gt;&gt; merge(vector&lt;vector&lt;int&gt;&gt;&amp; intervals) &#123;        sort...</div></div></div></a></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/image/1061286.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">wellorbetter</div><div class="author-info-description">努力学习魔法，希望有一天会收到霍格沃兹的录取通知书 = =</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">29</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">12</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/wellorbetter"><i class="fab fa-github"></i><span>GitHub</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/wellorbetter" target="_blank" title="GitHub"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:1419919418@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2026/06/06/2026-06-07-new-post/" title="刷题"><img src="/image/875222.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="刷题"/></a><div class="content"><a class="title" href="/2026/06/06/2026-06-07-new-post/" title="刷题">刷题</a><time datetime="2026-06-06T16:00:00.000Z" title="发表于 2026-06-07 00:00:00">2026-06-07</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/06/02/2026-06-03-2/" title="刷题day9 补充"><img src="/image/673345.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="刷题day9 补充"/></a><div class="content"><a class="title" href="/2026/06/02/2026-06-03-2/" title="刷题day9 补充">刷题day9 补充</a><time datetime="2026-06-02T16:00:00.000Z" title="发表于 2026-06-03 00:00:00">2026-06-03</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/06/02/2026-06-03-new-post/" title="刷题day9"><img src="/image/695560.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="刷题day9"/></a><div class="content"><a class="title" href="/2026/06/02/2026-06-03-new-post/" title="刷题day9">刷题day9</a><time datetime="2026-06-02T16:00:00.000Z" title="发表于 2026-06-03 00:00:00">2026-06-03</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/05/23/2026-05-24-1-post/" title="刷题day8"><img src="/image/677464.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="刷题day8"/></a><div class="content"><a class="title" href="/2026/05/23/2026-05-24-1-post/" title="刷题day8">刷题day8</a><time datetime="2026-05-23T16:00:00.000Z" title="发表于 2026-05-24 00:00:00">2026-05-24</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/05/16/2026-05-17-new-post/" title="刷题day7"><img src="/image/599136.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="刷题day7"/></a><div class="content"><a class="title" href="/2026/05/16/2026-05-17-new-post/" title="刷题day7">刷题day7</a><time datetime="2026-05-16T16:00:00.000Z" title="发表于 2026-05-17 00:00:00">2026-05-17</time></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2022 - 2026 By wellorbetter</span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.4"></script><script src="/js/main.js?v=5.5.4"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

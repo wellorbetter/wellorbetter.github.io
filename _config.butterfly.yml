@@ -6,7 +6,7 @@
 nav:
   logo:
   display_title: true
-  fixed: false
+  fixed: true
 
 menu:
   首页: / || fas fa-home
@@ -31,10 +31,8 @@ subtitle:
     startDelay: 300
   source: false
   sub:
-    - 一定要好好学习魔法！
-    - 今日份的魔法书看了吗？今天好好学习魔法了吗？
-    - 似乎有点困难，那就明天学习魔法吧！
-    - 明天的事情交给明天的我去烦恼吧！
+    - 项目、AI Agent、移动端与工程实践
+    - 记录做成一个工具之前，那些真正有用的判断
 
 # 头像
 avatar:
@@ -42,9 +40,9 @@ avatar:
   effect: false
 
 # 顶部图配置
-index_img: /image/752857.jpg
-default_top_img: /image/752857.jpg
-archive_img: /image/752857.jpg
+index_img: /image/notes-hero.svg
+default_top_img: /image/notes-hero.svg
+archive_img: /image/notes-hero.svg
 tag_img:
 tag_per_img:
 category_img:
@@ -108,21 +106,21 @@ code_word_wrap: false
 # 主题色
 theme_color:
   enable: true
-  main: "#49B1F5"
-  paginator: "#00c4b6"
-  button_hover: "#FF7242"
-  text_selection: "#00c4b6"
-  link_color: "#99a9bf"
-  meta_color: "#858585"
-  hr_color: "#A4D8FA"
+  main: "#bd4b26"
+  paginator: "#bd4b26"
+  button_hover: "#92391d"
+  text_selection: "#e8b39f"
+  link_color: "#9b3f21"
+  meta_color: "#7b746c"
+  hr_color: "#ded6cd"
   code-foreground: "#F8F8F2"
   code-background: "rgba(0,0,0,0.67)"
-  toc-highlight: "#0099FF"
-  blockquote-padding-color: "#49b1f5"
-  blockquote-background-color: "#49b1f5"
-  scrollbar-color: "#49b1f5"
-  meta-theme-color-light: "#ffffff"
-  meta-theme-color-dark: "#0d0d0d"
+  toc-highlight: "#bd4b26"
+  blockquote-padding-color: "#bd4b26"
+  blockquote-background-color: "#f4e7df"
+  scrollbar-color: "#bd4b26"
+  meta-theme-color-light: "#f7f3ed"
+  meta-theme-color-dark: "#171512"
 
 # 暗色模式
 darkmode:
@@ -152,7 +150,7 @@ aside:
     category: true
   card_author:
     enable: true
-    description: 努力学习魔法，希望有一天会收到霍格沃兹的录取通知书 = =
+    description: 做工具，也记录过程。这里放项目复盘、移动端与 AI Agent 的工程笔记。
     button:
       enable: true
       icon: fab fa-github

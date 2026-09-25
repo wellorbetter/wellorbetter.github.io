@@ -3,10 +3,10 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: wellorbetter's blog
-subtitle: '随手记录'
-description: '努力学习魔法，希望有一天会收到霍格沃兹的录取通知书'
-keywords: 肥宅
+title: wellorbetter notes
+subtitle: '把做东西的过程写下来'
+description: '项目、AI Agent、移动端与工程实践笔记'
+keywords: AI Agent, Android, 工程实践, 开源, 编程
 author: wellorbetter
 language: zh-CN
 timezone: 'Asia/Shanghai'

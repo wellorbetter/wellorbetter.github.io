@@ -106,7 +106,7 @@ code_word_wrap: false
 # 主题色
 theme_color:
   enable: true
-  main: "#bd4b26"
+  main: "#ff6a00"
   paginator: "#bd4b26"
   button_hover: "#92391d"
   text_selection: "#e8b39f"

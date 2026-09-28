@@ -50,6 +50,9 @@ tag_per_img:
 category_img:
 category_per_img:
 
+# 页脚沿用当前页面的动漫顶部图
+footer_img: true
+
 # 文章封面
 cover:
   index_enable: true

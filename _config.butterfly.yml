@@ -124,8 +124,8 @@ theme_color:
 
 # 暗色模式
 darkmode:
-  enable: true
-  button: true
+  enable: false
+  button: false
   autoChangeMode: false
   default: light
 

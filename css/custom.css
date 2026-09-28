@@ -1,42 +1,31 @@
-@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700&display=swap");
+/* heading 彩色样式 */
+#post-body h1 { color: #ef50a8; }
+#post-body h2 { color: #fb7061; }
+#post-body h3 { color: #ffbf00; }
+#post-body h4 { color: #a9e000; }
+#post-body h5 { color: #57c850; }
+#post-body h6 { color: #5ec1e0; }
 
-:root{--wb-bg:#fffaf4;--wb-panel:#fff;--wb-ink:#1f1915;--wb-muted:#756a61;--wb-line:#eadfd5;--wb-accent:#e85d1f;--card-bg:var(--wb-panel);--font-family:"Noto Sans SC",sans-serif;--global-bg:var(--wb-bg);--font-color:var(--wb-ink)}
-[data-theme="dark"]{--wb-bg:#0d0d0d;--wb-panel:#141414;--wb-ink:#f4f4f4;--wb-muted:#a8a8a8;--wb-line:#333;--wb-accent:#ff7a1a;--card-bg:var(--wb-panel);--global-bg:var(--wb-bg);--font-color:var(--wb-ink)}
-body{background:var(--wb-bg);color:var(--wb-ink);font-family:"Noto Sans SC",sans-serif}
-#page-header.full_page{height:430px;border-bottom:1px solid var(--wb-line);background:#fff5e9!important}
-#page-header::before{background:transparent!important}
-#nav{padding:0 5vw;color:var(--wb-ink)!important;border-bottom:1px solid var(--wb-line);background:color-mix(in srgb,var(--wb-bg) 94%,transparent);box-shadow:none;backdrop-filter:blur(16px)}
-#nav a,#nav .site-page,#nav #toggle-menu{color:var(--wb-ink)!important;text-shadow:none}
-#nav .site-name{font-weight:700;letter-spacing:-.03em}
-#site-info{top:54%;width:min(1180px,calc(100% - 48px));text-align:left}
-#site-title{max-width:900px;color:var(--wb-ink)!important;font-size:clamp(54px,8vw,108px)!important;font-weight:650;line-height:.98;letter-spacing:-.065em;text-shadow:none!important}
-#site-title::before{content:"NOTES";display:block;margin-bottom:20px;color:var(--wb-accent);font:700 11px/1 "Noto Sans SC",sans-serif;letter-spacing:.2em}
-#site-subtitle,#site_social_icons,#scroll-down{display:none}
-#content-inner.layout{max-width:1180px;gap:32px;padding-top:72px}
-.recent-post-item{min-height:230px;overflow:hidden;border:0;border-bottom:1px solid var(--wb-line);border-radius:0!important;background:transparent!important;box-shadow:none!important}
-.recent-post-item:hover{transform:none;box-shadow:none!important}
-.recent-post-item .post_cover{width:36%!important;border-right:1px solid var(--wb-line);background:#f8eee5}
-.recent-post-item .post-bg{filter:none;transform:scale(1);transition:transform .45s cubic-bezier(.22,1,.36,1)}
-.recent-post-item:hover .post-bg{filter:none;transform:scale(1.025)}
-.recent-post-item .recent-post-info{padding:34px 40px!important}
-.recent-post-item .article-title{color:var(--wb-ink)!important;font-size:25px!important;font-weight:650;letter-spacing:-.025em}
-.recent-post-item .article-meta-wrap{color:var(--wb-muted)!important}
-.recent-post-item .content{display:none!important}
-#recent-posts + #aside-content{display:none}
-#content-inner.layout:has(#recent-posts){display:block;max-width:1040px}
-#recent-posts{width:100%!important}
-.card-widget,#post,#page{border:1px solid var(--wb-line);border-radius:6px!important;background:var(--wb-panel)!important;box-shadow:none!important}
-.card-widget{padding:22px!important}
-.card-info .avatar-img{width:72px!important;height:72px!important;filter:none}
-.author-info-name{font-size:18px!important;font-weight:650}
-.author-info-description{display:none}
-#card-info-btn{border-radius:5px!important;background:var(--wb-ink)!important;color:var(--wb-bg)!important}
-#post-body{color:var(--wb-ink);font-size:16px;line-height:1.9}
-#post-body h1,#post-body h2,#post-body h3,#post-body h4,#post-body h5,#post-body h6{color:var(--wb-ink);letter-spacing:-.02em}
-#post-body h2{margin-top:2.4em;padding-bottom:.45em;border-bottom:1px solid var(--wb-line)}
-#post-body h1::before,#post-body h2::before,#post-body h3::before,#post-body h4::before,#post-body h5::before,#post-body h6::before{content:none}
-#post-body a{color:var(--wb-accent);text-underline-offset:4px}
-#footer{color:var(--wb-muted);background:transparent}
-#footer::before{background:transparent}
-@media(max-width:768px){#page-header.full_page{height:330px}#site-info{width:calc(100% - 36px)}#site-title{font-size:46px!important}#content-inner.layout{padding:36px 14px}.recent-post-item{flex-direction:column!important}.recent-post-item .post_cover{width:100%!important;height:180px!important;order:0!important;border-right:0;border-bottom:1px solid var(--wb-line)}.recent-post-item .recent-post-info{width:100%!important;padding:22px 4px 30px!important;order:1!important}}
-@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important}}
+/* heading 旋转齿轮图标 */
+#post-body h1::before,
+#post-body h2::before,
+#post-body h3::before,
+#post-body h4::before,
+#post-body h5::before,
+#post-body h6::before {
+  display: inline-block;
+  margin-right: 6px;
+  animation: headerIconRotate 4s linear infinite;
+}
+
+#post-body h1::before { content: "⚙"; color: #ef50a8; }
+#post-body h2::before { content: "⚙"; color: #fb7061; }
+#post-body h3::before { content: "⚙"; color: #ffbf00; }
+#post-body h4::before { content: "⚙"; color: #a9e000; }
+#post-body h5::before { content: "⚙"; color: #57c850; }
+#post-body h6::before { content: "⚙"; color: #5ec1e0; }
+
+@keyframes headerIconRotate {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
